@@ -54,12 +54,11 @@
         </div>
 
         <script type="text/javascript" src="../../../vendor/jquery/jquery-2.1.0.min.js"></script>
-        <script type="text/javascript" src="../../../vendor/jquery/plugin/jQuery-hashChange/js/hashChange.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="../../../vendor/bootstrap/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
 
         <script type="text/javascript">
-            function Hash ()
+            function UrlHashHandler ()
             {
                 var elements = {};
 
@@ -76,7 +75,7 @@
 
                 function resetHash ()
                 {
-                    jQuery(location).attr('hash', '');
+                    jQuery(location).attr('hash', 'home');
                 }
 
                 function resetLog()
@@ -95,12 +94,15 @@
 
                     elements.resetHash.on('click', function(event, data) {
                         resetHash();
+                        event.preventDefault();
                     });
                     elements.resetLog.on('click', function(event, data) {
                         resetLog();
                     });
 
-                    jQuery.hashChange(function(hash) {
+                    jQuery(window).on('hashchange',function(){
+                        var hash = jQuery(location).attr('hash').slice(1);
+
                         log();
                         switch (hash) {
                             case 'others':
@@ -125,7 +127,7 @@
             }
 
             jQuery(document).ready(function() {
-                var hash = new Hash();
+                var hash = new UrlHashHandler();
 
                 hash.setup();
             });

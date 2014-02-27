@@ -1,6 +1,3 @@
-[submodule "vendor/jquery/plugin/jQuery-hashChange"]
-	path = vendor/jquery/plugin/jQuery-hashChange
-	url = git://github.com/danielhusar/jQuery-hashChange.git
 [submodule "vendor/jquery/plugin/jquery-hurl"]
 	path = vendor/jquery/plugin/jquery-hurl
 	url = git://github.com/makesites/jquery-hurl.git
