@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap 101 Template</title>
+
+        <!-- Bootstrap -->
+        <link href="../../../vendor/bootstrap/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="container">
+            <!-- navbar -->
+            <div class="masthead">
+                <h3 class="text-muted">Manipulate Hashbang with JavaScript</h3>
+                <ul class="nav nav-justified">
+                    <li class="active"><a href="#home">Home</a></li>
+                    <li><a href="#others">Others</a></li>
+                    <li><a href="#imprint">Imprint</a></li>
+                </ul>
+            </div>
+
+            <!-- content -->
+            <div class="jumbotron">
+                <div id="home">
+                    <h1>Home page</h1>
+                    <p><a class="btn btn-lg btn-success" href="#others" role="button">Go to Others</a></p>
+                </div>
+
+                <div id="others" style="display: none;">
+                    <h1>Others page</h1>
+                    <p><a class="btn btn-lg btn-success" href="#imprint" role="button">Go to imprint</a></p>
+                </div>
+
+                <div id="imprint" style="display: none;">
+                    <h1>Imprint page</h1>
+                    <p><a class="btn btn-lg btn-success" href="#home" role="button">Go to home</a></p>
+                </div>
+
+                <div id="reset">
+                    <a id="resetHash" class="btn btn-info" href="#" role="button">Reset Hash</a>&nbsp;<a id="resetLog" class="btn btn-info" href="#" role="button">Reset Log</a>
+                </div>
+
+                <div id="log"></div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../../../vendor/jquery/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="../../../vendor/jquery/plugin/jQuery-hashChange/js/hashChange.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../../../vendor/bootstrap/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript">
+            function Hash ()
+            {
+                var elements = {};
+
+                function log ()
+                {
+                    var hash = jQuery(location).attr('hash');
+                    var href = jQuery(location).attr('href');
+                    var path = jQuery(location).attr('pathname');
+
+                    elements.log.append('href: ' + href + '<br />');
+                    elements.log.append('path: ' + path + '<br />');
+                    elements.log.append('hash: ' + hash + '<br />');
+                }
+
+                function resetHash ()
+                {
+                    jQuery(location).attr('hash', '');
+                }
+
+                function resetLog()
+                {
+                    elements.log.text('');
+                }
+
+                this.setup = function ()
+                {
+                    elements.home = jQuery('#home');
+                    elements.imprint = jQuery('#imprint');
+                    elements.log = jQuery('#log');
+                    elements.others = jQuery('#others');
+                    elements.resetHash = jQuery('#resetHash');
+                    elements.resetLog = jQuery('#resetLog');
+
+                    elements.resetHash.on('click', function(event, data) {
+                        resetHash();
+                    });
+                    elements.resetLog.on('click', function(event, data) {
+                        resetLog();
+                    });
+
+                    jQuery.hashChange(function(hash) {
+                        log();
+                        switch (hash) {
+                            case 'others':
+                                elements.home.hide();
+                                elements.imprint.hide();
+                                elements.others.show();
+                                break;
+                            case 'imprint':
+                                elements.home.hide();
+                                elements.others.hide();
+                                elements.imprint.show();
+                                break;
+                            case 'home':
+                            case '':
+                                elements.imprint.hide();
+                                elements.others.hide();
+                                elements.home.show();
+                                break;
+                        }
+                    });
+                };
+            }
+
+            jQuery(document).ready(function() {
+                var hash = new Hash();
+
+                hash.setup();
+            });
+        </script>
+    </body>
+</html>
