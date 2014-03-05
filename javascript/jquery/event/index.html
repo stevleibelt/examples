@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jquery event example</title>
+</head>
+    <body>
+    <div id="main">
+        <button id="triggerOne">Trigger Event One</button> | <button id="triggerTwo">Trigger Event Two</button> | <button id="triggerThree">Trigger Event Three</button> |
+    </div>
+    <div id="log">
+    </div>
+    <input type="hidden" id="triggerEventTarget" />
+
+    <script type="text/javascript" src="../../../vendor/jquery/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var log = jQuery('#log');
+
+            function triggerOne() {
+                console.log('trigger updateLog with triggerOne');
+                jQuery('#triggerEventTarget').trigger("updateLog", 'triggerOne');
+            }
+            function triggerTwo() {
+                console.log('trigger updateLog with triggerTwo');
+                jQuery('#triggerEventTarget').trigger('updateLog', 'triggerTwo');
+            }
+            function triggerThree() {
+                console.log('trigger updateLog with triggerThree');
+                jQuery('#triggerEventTarget').trigger('updateLog', 'triggerThree');
+            }
+            function updateLog(event, data) {
+                var log = jQuery('#log');
+
+                console.log('updateLog triggered');
+                log.append('--------<br />');
+                log.append('arguments: ').append(JSON.stringify(arguments)).append('<br />');
+                log.append('data: ').append(data).append('<br />');
+                log.append('event: ').append(JSON.stringify(event)).append('<br />');
+            }
+
+            jQuery('#triggerEventTarget').on('updateLog', updateLog);
+            jQuery('#triggerOne').on('click', triggerOne);
+            jQuery('#triggerTwo').on('click', triggerTwo);
+            jQuery('#triggerThree').on('click', triggerThree);
+        });
+    </script>
+    </body>
+</html>
