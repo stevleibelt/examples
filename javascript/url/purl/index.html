@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jquery event example</title>
+</head>
+    <body>
+    <div id="links">
+        <a href="#foo=bar">foo=bar</a> | <a href="#foo&bar=foo">foo&bar=foo</a> | <a href="#foo=&bar=foo">foo=&bar=foo</a> | <a href="#=bar&bar=foo">=bar&bar=foo</a> | <a href="#bar&bar=foo">bar&bar=foo</a> | <a href="#foo=bar&bar=foo">foo=bar&bar=foo</a>
+    </div>
+    <div id="buttons">
+        <button id="add">add</button>
+    </div>
+    <div id="log">
+    </div>
+
+    <script type="text/javascript" src="../../../vendor/javascript/jquery/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="../../../vendor/javascript/purl/purl-2.3.1.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var log = jQuery('#log');
+
+            function logCurrentUrl() {
+                var url = jQuery.url();
+
+                log.append('source: ').append(JSON.stringify(url.attr('source'))).append('<br />');
+                log.append('protocol: ').append(JSON.stringify(url.attr('protocol'))).append('<br />');
+                log.append('host: ').append(JSON.stringify(url.attr('host'))).append('<br />');
+                log.append('port: ').append(JSON.stringify(url.attr('port'))).append('<br />');
+                log.append('relative: ').append(JSON.stringify(url.attr('relative'))).append('<br />');
+                log.append('path: ').append(JSON.stringify(url.attr('path'))).append('<br />');
+                log.append('directory: ').append(JSON.stringify(url.attr('directory'))).append('<br />');
+                log.append('file: ').append(JSON.stringify(url.attr('file'))).append('<br />');
+                log.append('query: ').append(JSON.stringify(url.attr('query'))).append('<br />');
+                log.append('fragment: ').append(JSON.stringify(url.attr('fragment'))).append('<br />');
+            }
+
+            jQuery('a').on('click', function(event, data) {
+                logCurrentUrl();
+            });
+
+            jQuery('#add').on('click', function(event, data) {
+                var url = jQuery.url();
+                url.attr('fragment', '#blabla=blublu');
+
+                logCurrentUrl();
+            });
+        });
+    </script>
+    </body>
+</html>
