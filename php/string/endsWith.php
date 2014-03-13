@@ -1,8 +1,7 @@
 #!/usr/bin/php
 <?php
 /**
- * link:    http://stackoverflow.com/questions/834303/php-startswith-and-endswith-functions
- *          http://stackoverflow.com/questions/834303/php-startswith-and-endswith-functions
+ * link: http://stackoverflow.com/questions/834303/php-startswith-and-endswith-functions
  *
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-03-13

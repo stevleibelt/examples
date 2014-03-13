@@ -1,8 +1,7 @@
 #!/usr/bin/php
 <?php
 /**
- * link:    http://stackoverflow.com/questions/834303/php-startswith-and-endswith-functions
- *          http://stackoverflow.com/questions/834303/php-startswith-and-endswith-functions
+ * link: http://stackoverflow.com/questions/834303/php-startswith-and-endswith-functions
  *
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-03-13
@@ -23,6 +22,7 @@ for ($i=0; $i<10000; ++$i) {
 }
 echo PHP_EOL;
 echo 'done';
+echo PHP_EOL;
 
 $start = microtime(true);
 foreach($testCases as $testCase) {
@@ -77,16 +77,6 @@ function getRandomString($length = 8, $charString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZa
 
     return $string;
  }
-
-function endsWithOne($haystack, $needle)
-{
-    return (substr($heystack, -(strlen($needle))) === $needle);
-}
-
-function endsWithTwo($haystack, $needle)
-{
-    return (strrpos($haystack, $needle, 0) === (strlen($haystack) - strlen($needle)));
-}
 
 function startsWithOne($haystack, $needle)
 {
