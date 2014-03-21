@@ -10,3 +10,5 @@ if [ $# -ne 2 ]; then
 fi
 
 head -$2 $1 | tail -1   # seek to line $2 in file $1 (with head) and output this one column (with tial)
+
+exit 0
