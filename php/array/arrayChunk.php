@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author stev leibelt <artodeto@bazzline.net>
+ * @since 2014-03-11
+ */
 
 $array = array();
 for ($i=0;$i<=100;$i++) {

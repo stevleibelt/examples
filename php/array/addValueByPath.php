@@ -1,6 +1,6 @@
 <?php
 /**
-* @author artodeto
+* @author stev leibelt <artodeto@bazzline.net>
 * @since 2013-02-22
 */
 
