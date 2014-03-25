@@ -4,3 +4,6 @@
 [submodule "vendor/jquery/plugin/jquery-easy-ticker"]
 	path = vendor/jquery/plugin/jquery-easy-ticker
 	url = git://github.com/vaakash/jquery-easy-ticker.git
+[submodule "vendor/javascript/jquery/plugin/dotdotdot"]
+	path = vendor/javascript/jquery/plugin/dotdotdot
+	url = git://github.com/BeSite/jQuery.dotdotdot.git
