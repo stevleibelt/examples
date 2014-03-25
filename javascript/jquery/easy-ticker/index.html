@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jquery vertical ticker example</title>
+</head>
+    <body>
+    <div id="ticker">
+        <ul>
+            <li>entry one</li>
+            <li>entry two</li>
+            <li>entry three</li>
+            <li>entry four</li>
+            <li>entry five</li>
+            <li>entry six</li>
+            <li>entry seven</li>
+            <li>entry eight</li>
+            <li>entry nine</li>
+            <li>entry ten</li>
+        </ul>
+    </div>
+
+    <script type="text/javascript" src="../../../vendor/javascript/jquery/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="../../../vendor/jquery/plugin/jquery-easy-ticker/jquery.easy-ticker.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var ticker = jQuery('#ticker');
+
+            jQuery('#ticker').easyTicker({
+                direction:  'up',
+                easing:     'swing',
+                speed:      'slow',
+                interval:   2000,
+                height:     'auto',
+                visible:    3,
+                mousePause: 0
+            });
+        });
+    </script>
+    </body>
+</html>
