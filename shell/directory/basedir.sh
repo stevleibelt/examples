@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 ########
 # base directory of script
 #
@@ -6,6 +6,7 @@
 # @since 2012-11-26
 ########
 
-DIR_SELF=$(cd $(dirname "$0"); pwd)
+SCRIPT_PATH=$(cd $(dirname "$0"); pwd)
 
-echo "Current working directory: $DIR_SELF"
+echo "$0 is located in path $SCRIPT_PATH"
+exit 0
