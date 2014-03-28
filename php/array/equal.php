@@ -7,24 +7,30 @@
  * @todo get it done - yoda says "research some has to be done"
  */
 
+$objectOne = new stdClass();
+$objectTwo = new stdClass();
+
 $array = array(
     array(
         'foo' => 'bar',
-        'bar' => 'foo'
+        'bar' => 'foo',
+        'object' => $objectOne
     )
 );
 
 $equalArray = array(
     array(
         'foo' => 'bar',
-        'bar' => 'foo'
+        'bar' => 'foo',
+        'object' => $objectOne
     )
 );
 
 $notEqualArray = array(
     array(
-        'foo' => 'baz',
-        'bar' => 'foo'
+        'foo' => 'bar',
+        'bar' => 'foo',
+        'object' => $objectTwo
     )
 );
 
