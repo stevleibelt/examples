@@ -4,10 +4,12 @@
  * @since 2014-04-23
  */
 
+namespace Example\PHP\OOP;
+
 //--------
 //class and interface definition
 //--------
-class FooBar extends stdClass implements Foo, Bar
+class FooBar extends \stdClass implements Foo, Bar
 {
     public function foo()
     {
@@ -31,4 +33,4 @@ interface Bar
 }
 
 //if you have an object, simple use "instanceof"
-echo var_export(class_implements('FooBar')) . PHP_EOL;
+echo var_export(class_implements('Example\PHP\OOP\FooBar')) . PHP_EOL;
