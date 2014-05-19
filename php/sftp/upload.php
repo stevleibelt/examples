@@ -10,10 +10,10 @@
  *      http://www.sitepoint.com/using-ssh-and-sftp-with-php/
  */
 
-$localFilePath = '/tmp/sent_file'
+$localFilePath = '/tmp/sent_file';
 $password = '<password>';
 $port = 22;
-$remoteFilePath = '/tmp/received_file'
+$remoteFilePath = '/tmp/received_file';
 $username = '<username>';
 $url = '<url>';
 
