@@ -8,6 +8,8 @@
  *      http://www.php.net/manual/en/function.ssh2-connect.php
  *      http://www.php.net/manual/en/function.ssh2-scp-send.php
  *      http://www.sitepoint.com/using-ssh-and-sftp-with-php/
+ * alternative:
+ *      https://github.com/phpseclib/phpseclib
  */
 
 $localFilePath = '/tmp/sent_file';
