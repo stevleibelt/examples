@@ -4,7 +4,7 @@
  * @since 2013-12-06
  */
 
- $file = __FILE__;
+$file = __FILE__;
 
- echo 'file: ' . $file . PHP_EOL;
- echo 'dirname: ' . dirname($file) . PHP_EOL;
+echo 'file: ' . $file . PHP_EOL;
+echo 'dirname: ' . dirname($file) . PHP_EOL;
