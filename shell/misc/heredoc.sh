@@ -2,7 +2,7 @@
 ####
 # Example of how to use heredoc
 #
-# @author stev leibelt <artodeto@arcor.de>
+# @author stev leibelt <artodeto@bazzline.net>
 # @since 2013-07-09
 ####
 
