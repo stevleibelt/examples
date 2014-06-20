@@ -3,6 +3,11 @@
 /**
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-06-20
+ * @see
+ *  https://code.google.com/p/pear-console-progressbar/source/browse/trunk/ProgressBar.php
+ *  http://pear.php.net/package/Console_Progressbar
+ *  http://ezcomponents.org/docs/api/latest/introduction_ConsoleTools.html#progress-indication
+ *  https://github.com/activeingredient/ezComponents/blob/master/ConsoleTools/src/progressbar.php
  */
 
 class ProgressBar
