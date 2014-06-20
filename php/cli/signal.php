@@ -39,11 +39,11 @@ class Example
 
         foreach ($this->items as $item) {
             if ($this->processExecution) {
-                'waiting for ' . $item . ' seconds' . PHP_EOL;
+                echo 'waiting for ' . $item . ' seconds' . PHP_EOL;
                 sleep($item);
                 pcntl_signal_dispatch();
             } else {
-                break;
+                break 1;
             }
         }   
     }   
@@ -51,6 +51,7 @@ class Example
     protected function signalHandler($signal)
     {   
         echo 'cought signal: "' . $signal . '"' . PHP_EOL;
+        $this->processExecution = false;
     }
 }
 
