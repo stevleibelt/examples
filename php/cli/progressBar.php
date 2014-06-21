@@ -100,12 +100,15 @@ class ProgressBar
 $items = array(
     3,4,87,1,23,5,7,8,423,34,12,3432
 );
-$progressBar = new ProgressBar();
+$totalNumberOfItems = count($items);
 
-$progressBar->setTotalSteps(count($items));
+$progressBar = new ProgressBar();
+$progressBar->setTotalSteps($totalNumberOfItems);
 
 foreach ($items as $key => $item) {
     $progressBar->update($key);
     sleep(1);
 }
+
 echo PHP_EOL;
+echo 'total number of items: ' . $totalNumberOfItems . PHP_EOL;
