@@ -20,6 +20,11 @@ class ProgressBar
     /**
      * @var bool
      */
+    private $initialStepWasZero = false;
+
+    /**
+     * @var bool
+     */
     private $isFinished = true;
 
     /**
@@ -50,6 +55,12 @@ class ProgressBar
     {
         if (!$this->isFinished) {
             $this->currentStep = (int) $current;
+            if ($this->currentStep === 0) {
+                $this->initialStepWasZero = true;
+            }
+            if ($this->initialStepWasZero) {
+                ++$this->currentStep;
+            }
             $this->resetCursor();
             $this->draw();
         }
@@ -97,18 +108,30 @@ class ProgressBar
     }
 }
 
-$items = array(
-    3,4,87,1,23,5,7,8,423,34,12,3432
+$numberOfItems = array(
+    3,6,9,12,150
 );
-$totalNumberOfItems = count($items);
-
 $progressBar = new ProgressBar();
-$progressBar->setTotalSteps($totalNumberOfItems);
 
-foreach ($items as $key => $item) {
-    $progressBar->update($key);
-    sleep(1);
+foreach ($numberOfItems as $totalNumberOfItems) {
+    $items = array();
+    $startTime = microtime(true);
+
+    for ($iterator = 0; $iterator < $totalNumberOfItems; ++$iterator) {
+        $items[] = $iterator;
+    }
+    $totalNumberOfItems = count($items);
+
+    $progressBar->setTotalSteps($totalNumberOfItems);
+
+    foreach ($items as $key => $item) {
+        $progressBar->update($key);
+        sleep(1);
+    }
+
+    $totalTime = microtime(true) - $startTime;
+
+    echo PHP_EOL;
+    echo 'total number of items: ' . $totalNumberOfItems . PHP_EOL;
+    echo 'total time: ' . (int) $totalTime . ' seconds' . PHP_EOL;
 }
-
-echo PHP_EOL;
-echo 'total number of items: ' . $totalNumberOfItems . PHP_EOL;
