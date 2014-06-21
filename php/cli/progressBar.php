@@ -10,6 +10,9 @@
  *  https://github.com/activeingredient/ezComponents/blob/master/ConsoleTools/src/progressbar.php
  */
 
+/**
+ * Class ProgressBar
+ */
 class ProgressBar
 {
     /**
@@ -48,6 +51,11 @@ class ProgressBar
         $this->storeCursorPosition();
     }
 
+    public function isFinished()
+    {
+        $this->update($this->totalSteps);
+    }
+
     /**
      * @param int $current
      */
@@ -66,7 +74,7 @@ class ProgressBar
         }
     }
 
-    public function draw()
+    private function draw()
     {
         $numberOfStepDraws = (($this->currentStep * $this->totalStepSize) / $this->totalSteps);
         $numberOfMissingStepDraws = ($this->totalStepSize - $numberOfStepDraws);
