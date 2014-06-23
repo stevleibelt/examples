@@ -10,12 +10,20 @@
  *  https://github.com/activeingredient/ezComponents/blob/master/ConsoleTools/src/progressbar.php
  */
 
+/**
+ * Class ProgressBar
+ */
 class ProgressBar
 {
     /**
      * @var int
      */
     private $currentStep = 0;
+
+    /**
+     * @var bool
+     */
+    private $initialStepWasZero = false;
 
     /**
      * @var bool
@@ -43,6 +51,11 @@ class ProgressBar
         $this->storeCursorPosition();
     }
 
+    public function isFinished()
+    {
+        $this->update($this->totalSteps);
+    }
+
     /**
      * @param int $current
      */
@@ -50,12 +63,18 @@ class ProgressBar
     {
         if (!$this->isFinished) {
             $this->currentStep = (int) $current;
+            if ($this->currentStep === 0) {
+                $this->initialStepWasZero = true;
+            }
+            if ($this->initialStepWasZero) {
+                ++$this->currentStep;
+            }
             $this->resetCursor();
             $this->draw();
         }
     }
 
-    public function draw()
+    private function draw()
     {
         $numberOfStepDraws = (($this->currentStep * $this->totalStepSize) / $this->totalSteps);
         $numberOfMissingStepDraws = ($this->totalStepSize - $numberOfStepDraws);
@@ -98,15 +117,30 @@ class ProgressBar
     }
 }
 
-$items = array(
-    3,4,87,1,23,5,7,8,423,34,12,3432
+$numberOfItems = array(
+    3,6,9,12,150
 );
 $progressBar = new ProgressBar();
 
-$progressBar->setTotalSteps(count($items));
+foreach ($numberOfItems as $totalNumberOfItems) {
+    $items = array();
+    $startTime = microtime(true);
 
-foreach ($items as $key => $item) {
-    $progressBar->update($key);
-    sleep(1);
+    for ($iterator = 0; $iterator < $totalNumberOfItems; ++$iterator) {
+        $items[] = $iterator;
+    }
+    $totalNumberOfItems = count($items);
+
+    $progressBar->setTotalSteps($totalNumberOfItems);
+
+    foreach ($items as $key => $item) {
+        $progressBar->update($key);
+        sleep(1);
+    }
+
+    $totalTime = microtime(true) - $startTime;
+
+    echo PHP_EOL;
+    echo 'total number of items: ' . $totalNumberOfItems . PHP_EOL;
+    echo 'total time: ' . (int) $totalTime . ' seconds' . PHP_EOL;
 }
-echo PHP_EOL;
