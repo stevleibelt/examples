@@ -48,7 +48,7 @@ class Example
         }   
     }   
 
-    protected function signalHandler($signal)
+    private function signalHandler($signal)
     {   
         echo 'cought signal: "' . $signal . '"' . PHP_EOL;
         $this->processExecution = false;
