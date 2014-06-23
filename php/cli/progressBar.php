@@ -73,6 +73,7 @@ class ProgressBar
 
         if ($this->currentStep >= $this->totalSteps) {
             $this->isFinished = true;
+            $output .= PHP_EOL;
         }
 
         echo $output;
