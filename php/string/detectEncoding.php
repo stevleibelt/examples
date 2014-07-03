@@ -7,10 +7,16 @@
  *  http://php.net/manual/en/function.mb-detect-encoding.php
  */
 
-$string = 'áéóú';
+$strings = array(
+    'áéóú',
+    'Ã¶'
+);
 
-echo 'string: "' . $string . '"' . PHP_EOL . 
-    'has encoding: "' . detectEncoding($string) . '"' . PHP_EOL;
+foreach ($strings as $string) {
+    echo 'string: "' . $string . '"' . PHP_EOL . 
+        'has encoding: "' . detectEncoding($string) . '"' . PHP_EOL;
+    echo utf8_decode($string) . PHP_EOL;
+}
 
 /**
  * @param string $content
@@ -27,6 +33,15 @@ function detectEncoding($content)
     );
     //set encoding detection order - first match will stop detection
     mb_detect_order($detectionOrder);
+    $encoding = mb_detect_encoding($content);
+
+    return $encoding;
+}
+
+
+function detectEncoding2($content)
+{
+    mb_detect_order("ASCII,UTF-8,ISO-8859-1,windows-1252,iso-8859-15");
     $encoding = mb_detect_encoding($content);
 
     return $encoding;
