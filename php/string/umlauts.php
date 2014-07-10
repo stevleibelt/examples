@@ -5,6 +5,7 @@
  * @see
  *  http://www.sebastianviereck.de/mysql-php-umlaute-sonderzeichen-utf8-iso/
  *  http://bueltge.de/wp-content/download/wk/utf-8_kodierungen.pdf
+ *  http://www.semantic-mediawiki.org/wiki/Thread:Help_talk:CSV_format/Problems_with_umlaut
  */
 
 $isCalledFromCommandLineInterface = (PHP_SAPI === 'cli');
