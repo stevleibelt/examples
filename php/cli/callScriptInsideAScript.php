@@ -4,8 +4,9 @@
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-07-11
  * @see
- *  http://de2.php.net/manual/en/function.exec.php
- *  http://de1.php.net/manual/en/function.shuffle.php
+ *  http://www.php.net/manual/en/function.pcntl-exec.php
+ *  http://www.php.net/manual/en/function.exec.php
+ *  http://www.php.net/manual/en/function.shuffle.php
  */
 
  $isCalledFromCommandLineInterface = (PHP_SAPI === 'cli');
