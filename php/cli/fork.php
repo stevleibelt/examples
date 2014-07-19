@@ -7,6 +7,8 @@
  *  https://en.wikipedia.org/wiki/Fork_(operating_system)
  *  http://www.yolinux.com/TUTORIALS/ForkExecProcesses.html
  *  http://www.electrictoolbox.com/article/php/process-forking/
+ *  http://phpsblog.agustinvillalba.com/
+ *  http://oliversmith.io/technology/2011/10/07/speeding-up-php-using-process-forking-for-image-resizing/
  *  http://php.net/manual/en/function.pcntl-fork.php
  *  https://github.com/mitallast/php-fork
  *  https://github.com/jimbojsb/workman
