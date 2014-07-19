@@ -67,6 +67,7 @@ class Forker
     public function wait()
     {
         foreach ($this->processIds as $processId => $startTime) {
+            $status = 0;
             pcntl_waitpid($processId, $status, WUNTRACED);
             if ($status > 0) {
                 throw new RuntimeException(
