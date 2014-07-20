@@ -9,6 +9,7 @@
  *  http://www.electrictoolbox.com/article/php/process-forking/
  *  http://phpsblog.agustinvillalba.com/
  *  http://oliversmith.io/technology/2011/10/07/speeding-up-php-using-process-forking-for-image-resizing/
+ *  http://de2.php.net/manual/en/function.posix-mkfifo.php
  *  http://php.net/manual/en/function.pcntl-fork.php
  *  https://github.com/mitallast/php-fork
  *  https://github.com/jimbojsb/workman
