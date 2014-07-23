@@ -8,7 +8,7 @@ $anotherRound = true;
 $data = array();
 $initialMemoryUsage = memory_get_usage(true);
 $iterator = 0;
-$memoryUsageInMegaByteToGenerate = 4;
+$memoryUsageInMegaByteToGenerate = 1;
 
 while ($anotherRound) {
     $data[] = $iterator;
