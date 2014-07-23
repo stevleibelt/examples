@@ -13,7 +13,7 @@ $memoryUsageInMegaByteToGenerate = 1;
 while ($anotherRound) {
     $data[] = $iterator;
     $currentMemoryUsage = (memory_get_usage(true) - $initialMemoryUsage);
-    $currentMemoryUsageInMegaBytes = ($currentMemoryUsage / 1024 / 1024);
+    $currentMemoryUsageInMegaBytes = ($currentMemoryUsage / (1024 * 1024));
     if ($currentMemoryUsageInMegaBytes === $memoryUsageInMegaByteToGenerate) {
         $anotherRound = false;
     }
