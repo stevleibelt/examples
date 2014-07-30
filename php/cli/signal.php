@@ -15,6 +15,8 @@ class Example
 
     public function execute()
     {
+        echo 'process id: ' . getmypid() . PHP_EOL;
+
         declare(ticks = 10);
 
         pcntl_signal(SIGHUP,    array($this, 'signalHandler'));
