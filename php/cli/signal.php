@@ -3,6 +3,7 @@
 /**
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-06-20
+ * @see https://en.wikipedia.org/wiki/SIGHUP
  */
 
 class Example
