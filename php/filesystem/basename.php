@@ -8,3 +8,8 @@ $file = __FILE__;
 
 echo 'file: ' . $file . PHP_EOL;
 echo 'basename: ' . basename($file) . PHP_EOL;
+
+$dir = __DIR__;
+
+echo 'dir: ' . $dir . PHP_EOL;
+echo 'basename: ' . basename($dir) . PHP_EOL;
