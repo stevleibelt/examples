@@ -80,7 +80,7 @@ function getRandomString($length = 8, $charString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZa
 
 function startsWithOne($haystack, $needle)
 {
-    return (substr($haystack, 0, strlen($needle) === $needle));
+    return (substr($haystack, 0, strlen($needle)) === $needle);
 }
 
 function startsWithTwo($haystack, $needle)
