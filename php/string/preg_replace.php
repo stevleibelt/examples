@@ -2,6 +2,7 @@
 /**
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-08-06
+ * @see http://php.net/manual/en/function.preg-replace.php
  */
 
 $subject = 'a12345-dasd-231';
