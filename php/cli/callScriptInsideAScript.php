@@ -11,13 +11,13 @@
 
  $isCalledFromCommandLineInterface = (PHP_SAPI === 'cli');
 
- try {
-     if (!$isCalledFromCommandLineInterface) {
-         throw new Exception('this is a command line script only');
-     }
+try {
+    if (!$isCalledFromCommandLineInterface) {
+        throw new Exception('this is a command line script only');
+    }
 
-     if ($argc < 2) {
-         throw new Exception('Usage: ' . basename(__FILE__) . ' <path_to_log_file> [<number_of_iterations>]');
+    if ($argc < 2) {
+        throw new Exception('Usage: ' . basename(__FILE__) . ' <path_to_log_file> [<number_of_iterations>]');
     }
 
     $numberOfIteration = ($argc > 2) ? $argv[2] : 0;
