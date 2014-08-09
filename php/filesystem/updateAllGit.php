@@ -76,7 +76,7 @@ try {
      */
     function directoryWalker($basePath)
     {
-    echo 'base path: ' . $basePath . PHP_EOL;
+        echo 'base path: ' . $basePath . PHP_EOL;
         $names = getDirectoryNames($basePath);
 
         if (in_array('.git', $names)) {
