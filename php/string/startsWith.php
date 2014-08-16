@@ -11,8 +11,12 @@ echo 'generating test' . PHP_EOL;
 $testCases = array();
 
 for ($i=0; $i<10000; ++$i) {
-    if (($i % 1000) === 0) {
+    if (($i % 100) === 0) {
         echo '.';
+        if (($i !== 0)
+            && ($i % 8000) === 0) {
+            echo PHP_EOL;
+        }
     }
 
     $testCases[] = array(
