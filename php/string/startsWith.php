@@ -41,7 +41,7 @@ $methodNamesToRuntime = array(
 foreach ($methodNamesToRuntime as $methodName => &$runtime) {
     $start = microtime(true);
     foreach($testCases as $testCase) {
-        startswithOne($testCase['haystack'], $testCase['needle']);
+        $methodName($testCase['haystack'], $testCase['needle']);
     }
     $runtime = (microtime(true) - $start);
 }
