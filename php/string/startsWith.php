@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 /**
  * link: http://stackoverflow.com/questions/834303/php-startswith-and-endswith-functions
