@@ -25,50 +25,39 @@ for ($i=0; $i<10000; ++$i) {
     );
 }
 echo PHP_EOL;
-echo 'done';
+echo 'done' . PHP_EOL;
 echo PHP_EOL;
 
-$start = microtime(true);
-foreach($testCases as $testCase) {
-    startswithOne($testCase['haystack'], $testCase['needle']);
-}
-echo 'startswithOne: ' . (microtime(true) - $start) . ' seconds'.PHP_EOL;
+$methodNamesToRuntime = array(
+    'startswithOne' => null,
+    'startswithTwo' => null,
+    'startswithThree' => null,
+    'startswithFour' => null,
+    'startswithFive' => null,
+    'startswithSix' => null,
+    'startswithSeven' => null
+);
 
-$start = microtime(true);
-foreach($testCases as $testCase) {
-    startswithTwo($testCase['haystack'], $testCase['needle']);
+foreach ($methodNamesToRuntime as $methodName => &$runtime) {
+    $start = microtime(true);
+    foreach($testCases as $testCase) {
+        startswithOne($testCase['haystack'], $testCase['needle']);
+    }
+    $runtime = (microtime(true) - $start);
 }
-echo 'startswithTwo: ' . (microtime(true) - $start) . ' seconds'.PHP_EOL;
 
-$start = microtime(true);
-foreach($testCases as $testCase) {
-    startswithThree($testCase['haystack'], $testCase['needle']);
+foreach ($methodNamesToRuntime as $methodName => $runtime) {
+    $lengthOfMethodName = strlen($methodName);
+    $numberOfWhiteSpaces = 20 - $lengthOfMethodName;
+    echo $methodName . ': ' . str_repeat(' ', $numberOfWhiteSpaces) . ' ' . $runtime . ' seconds.' . PHP_EOL;
 }
-echo 'startswithThree: ' . (microtime(true) - $start) . ' seconds'.PHP_EOL;
 
-$start = microtime(true);
-foreach($testCases as $testCase) {
-    startswithFour($testCase['haystack'], $testCase['needle']);
-}
-echo 'startswithFour: ' . (microtime(true) - $start) . ' seconds'.PHP_EOL;
+natsort($methodNamesToRuntime);
+reset($methodNamesToRuntime);
+$fastestMethod = key($methodNamesToRuntime);
 
-$start = microtime(true);
-foreach($testCases as $testCase) {
-    startswithFive($testCase['haystack'], $testCase['needle']);
-}
-echo 'startswithFive: ' . (microtime(true) - $start) . ' seconds'.PHP_EOL;
-
-$start = microtime(true);
-foreach($testCases as $testCase) {
-    startswithSix($testCase['haystack'], $testCase['needle']);
-}
-echo 'startswithSix: ' . (microtime(true) - $start) . ' seconds'.PHP_EOL;
-
-$start = microtime(true);
-foreach($testCases as $testCase) {
-    startswithSeven($testCase['haystack'], $testCase['needle']);
-}
-echo 'startswithSeven: ' . (microtime(true) - $start) . ' seconds'.PHP_EOL;
+echo PHP_EOL;
+echo 'fastest method is "' . $fastestMethod . '" with ' . $methodNamesToRuntime[$fastestMethod] . ' seconds.' . PHP_EOL;
 
 //functions
 function getRandomString($length = 8, $charString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
