@@ -49,6 +49,7 @@ foreach ($methodNamesToRuntime as $methodName => &$runtime) {
 foreach ($methodNamesToRuntime as $methodName => $runtime) {
     $lengthOfMethodName = strlen($methodName);
     $numberOfWhiteSpaces = 20 - $lengthOfMethodName;
+
     echo $methodName . ': ' . str_repeat(' ', $numberOfWhiteSpaces) . ' ' . $runtime . ' seconds.' . PHP_EOL;
 }
 
@@ -69,7 +70,7 @@ function getRandomString($length = 8, $charString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZa
     }
 
     return $string;
- }
+}
 
 function startsWithOne($haystack, $needle)
 {
