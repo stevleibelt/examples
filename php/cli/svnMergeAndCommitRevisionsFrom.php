@@ -2,6 +2,7 @@
 /**
  * @author: stev leibelt <artodeto@bazzline.net>
  * @since: 2014-08-25
+ * @todo create classes out of it
  */
 
 define('IS_DRY_RUN', true);
@@ -99,17 +100,17 @@ function svnCommit($message, $isDryRun = false)
 }
 
 try {
-    $basePath = 'https://svn.my-domain.net/';
+    $basePath = 'https://svn.my-domain.net/';   //@todo - adapt to your needs
     $currentWorkingDirectory = getcwd();
-    $projectRoot = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..');
+    $projectRoot = realpath(__DIR__);   //@todo - adapt to your needs
     $filePath = array_shift($argv);
     $source = array_shift($argv);
     $revisions = $argv;
     $repository = array_pop(explode('=', $source));
-    $validRepositories = array('trunk', 'branch', 'release');
+    $validRepositories = array('trunk', 'branch', 'release');   //@todo - adapt to your needs
 
     $usage = 'Usage: ' . PHP_EOL .
-        '    ' . basename(__FILE__) . ' source="<trunk|branch/my_branch|release/1.2.3>" <revision_number> [<revision_number>]';
+        '    ' . basename(__FILE__) . ' source="<trunk|branch/my_branch|release/1.2.3>" <revision_number> [<revision_number>]';   //@todo - adapt to your needs
 
     //validation
     if (strlen($source) === 0) {
