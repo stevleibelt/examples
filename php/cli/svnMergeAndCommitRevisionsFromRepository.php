@@ -23,11 +23,6 @@ class SvnMergeAndCommitRevisionsFromRepository
     private $input;
 
     /**
-     * @var bool
-     */
-    private $isDryRun;
-
-    /**
      * @var string
      */
     private $projectRootPath;
@@ -56,14 +51,6 @@ class SvnMergeAndCommitRevisionsFromRepository
     public function setInput(Input $input)
     {
         $this->input = $input;
-    }
-
-    /**
-     * @param boolean $isDryRun
-     */
-    public function setIsDryRun($isDryRun)
-    {
-        $this->isDryRun = (boolean) $isDryRun;
     }
 
     /**
@@ -185,7 +172,7 @@ class SvnMergeAndCommitRevisionsFromRepository
     public function getUsage()
     {
         return 'Usage: ' . PHP_EOL .
-            '    ' . basename(__FILE__) . ' repository="<' . implode('|', $this->validRepositories) . '>" revisions="<revision_number>[,<revision_number>]"';
+            '    ' . basename(__FILE__) . ' repository="<' . implode('|', $this->validRepositories) . '>" revisions="<revision_number>[,<revision_number>]" [--dry-run]';
     }
 
     /**
@@ -225,6 +212,7 @@ class SvnMergeAndCommitRevisionsFromRepository
         }
 
         $revisions = explode(',', $this->input->getParameterValue('revisions', ''));
+        $isDryRun = $this->input->hasLongOption('dry-run');
 
         //merging
         $url = $this->basePath . $repository;
@@ -238,8 +226,8 @@ class SvnMergeAndCommitRevisionsFromRepository
             $message = trim($lines[3]);
             $commitMessage = 'Merged ' . $revision . '(' . $author . ') from ' . $repository . ': ' . $message;
 
-            $this->merge($revision, $url, $this->isDryRun);
-            $this->commit($commitMessage, $this->isDryRun);
+            $this->merge($revision, $url, $isDryRun);
+            $this->commit($commitMessage, $isDryRun);
         }
         chdir($currentWorkingDirectory);
     }
@@ -255,7 +243,6 @@ try {
     //@todo - start - adapt to your needs
     $process->setBasePath('https://svn.my-domain.net/');
     $process->setProjectRootPath(__DIR__);
-    $process->setIsDryRun(true);
     $process->setValidRepositories(array('trunk', 'branch', 'release'));
     //@todo - end - adapt to your needs
     $process->setInput($input);
