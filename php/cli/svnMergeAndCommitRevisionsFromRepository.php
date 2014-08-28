@@ -212,9 +212,11 @@ class SvnMergeAndCommitRevisionsFromRepository
         }
 
         $revisions = explode(',', $this->input->getParameterValue('revisions', ''));
+        natsort($revisions);
         $isDryRun = $this->input->hasLongOption('dry-run');
 
         //merging
+        $messages = array();
         $url = $this->basePath . $repository;
         chdir($this->projectRootPath);
 
@@ -228,8 +230,16 @@ class SvnMergeAndCommitRevisionsFromRepository
 
             $this->merge($revision, $url, $isDryRun);
             $this->commit($commitMessage, $isDryRun);
+            $messages[] = $message;
         }
         chdir($currentWorkingDirectory);
+
+        echo PHP_EOL;
+        echo '================================' . PHP_EOL;
+        echo 'Changes:' . PHP_EOL;
+        foreach ($messages as $message) {
+            echo '  * ' . $message . PHP_EOL;
+        }
     }
 }
 
