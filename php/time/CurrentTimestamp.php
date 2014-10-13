@@ -7,6 +7,11 @@
  * @since 2014-10-13
  */
 
+
+/**
+ * Class CurrentTimestamp
+ * @package Inhouse\Utils
+ */
 class CurrentTimestamp
 {
     /**
@@ -18,11 +23,11 @@ class CurrentTimestamp
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function __tostring()
     {
-        return time();
+        return (string) time();
     }
 }
 
