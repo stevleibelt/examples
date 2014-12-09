@@ -2,6 +2,8 @@
 
 ## [tcpdg](https://github.com/stevleibelt/examples/tree/master/php/pdf/tcpdf)
 
+### general
+
     TCPDF is a PHP class for generating PDF files on-the-fly without requiring external extensions.
 
 * [homepage](http://www.tcpdf.org/)
@@ -10,13 +12,17 @@
 * [github](https://github.com/tecnickcom/TCPDF)
 * [LGPL 3 license](http://www.tcpdf.org/license.php)
 
+### my two cents
+
 * not getting it running
 * one big monster file
 * strange parameter names
 * to much for simple and quick usage
 * no support for pdf file as template
 
-## dompdf
+## [dompdf](https://github.com/stevleibelt/examples/tree/master/php/pdf/dompdf)
+
+### general
 
     dompdf is an HTML to PDF converter. 
 
@@ -24,9 +30,18 @@
 * [examples](http://pxd.me/dompdf/www/examples.php)
 * [github](https://github.com/dompdf/dompdf)
 * [packagist](http://packagist.org/packages/dompdf/dompdf)
+* [wiki](https://github.com/dompdf/dompdf/wiki/Usage)
 * [LGPL 2.1 license](https://github.com/dompdf/dompdf/blob/master/LICENSE.LGPL)
 
+### my two cents
+
+* dompdf.php is the main "doc"
+* provided examples are not that kind of examples I would like
+* no support for pdf file as template
+
 ## mpdf
+
+### general
 
     A PHP class to generate PDF files from HTML with Unicode/UTF-8 and CJK support
 
@@ -38,6 +53,8 @@
 
 ## zendpdf
 
+### general
+
     Zend Pdf Component
 
 * [homepage](http://packages.zendframework.com/)
@@ -47,6 +64,8 @@
 
 ## knp-snappy 
 
+### general
+
     PHP5 library allowing thumbnail, snapshot or PDF generation from a url or a html page.
 
 * [github](http://github.com/KnpLabs/snappy)
@@ -54,6 +73,8 @@
 * [MIT license](https://github.com/KnpLabs/snappy/blob/master/LICENSE)
 
 ## php-pdf
+
+### general
 
     Pdf and graphic files generator library for PHP.
 
