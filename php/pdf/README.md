@@ -1,8 +1,8 @@
 # php pdf generator components
 
-## tcpdg
+## [tcpdg](https://github.com/stevleibelt/examples/tree/master/php/pdf/tcpdf)
 
-	TCPDF is a PHP class for generating PDF files on-the-fly without requiring external extensions.
+    TCPDF is a PHP class for generating PDF files on-the-fly without requiring external extensions.
 
 * [homepage](http://www.tcpdf.org/)
 * [examples](http://www.tcpdf.org/examples.php)
@@ -12,7 +12,7 @@
 
 ## dompdf
 
-	dompdf is an HTML to PDF converter. 
+    dompdf is an HTML to PDF converter. 
 
 * [homepage](http://pxd.me/dompdf/www/)
 * [examples](http://pxd.me/dompdf/www/examples.php)
@@ -22,7 +22,7 @@
 
 ## mpdf
 
-	A PHP class to generate PDF files from HTML with Unicode/UTF-8 and CJK support
+    A PHP class to generate PDF files from HTML with Unicode/UTF-8 and CJK support
 
 * [homepage](http://www.mpdf1.com/mpdf/)
 * [examples]http://www.mpdf1.com/mpdf/index.php?page=Examples)
@@ -32,7 +32,7 @@
 
 ## zendpdf
 
-	Zend Pdf Component
+    Zend Pdf Component
 
 * [homepage](http://packages.zendframework.com/)
 * [github](https://github.com/zendframework/ZendPdf.git)
@@ -41,7 +41,7 @@
 
 ## knp-snappy 
 
-	PHP5 library allowing thumbnail, snapshot or PDF generation from a url or a html page.
+    PHP5 library allowing thumbnail, snapshot or PDF generation from a url or a html page.
 
 * [github](http://github.com/KnpLabs/snappy)
 * [packagist](http://packagist.org/packages/knplabs/knp-snappy)
@@ -49,7 +49,7 @@
 
 ## php-pdf
 
-	Pdf and graphic files generator library for PHP.
+    Pdf and graphic files generator library for PHP.
 
 * [github](https://github.com/psliwa/PHPPdf.git)
 * [packagist](http://packagist.org/packages/psliwa/php-pdf)
