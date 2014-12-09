@@ -10,6 +10,12 @@
 * [github](https://github.com/tecnickcom/TCPDF)
 * [LGPL 3 license](http://www.tcpdf.org/license.php)
 
+* not getting it running
+* one big monster file
+* strange parameter names
+* to much for simple and quick usage
+* no support for pdf file as template
+
 ## dompdf
 
     dompdf is an HTML to PDF converter. 

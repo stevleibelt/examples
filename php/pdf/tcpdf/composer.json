@@ -1,0 +1,5 @@
+{
+    "require": {
+        "tecnick.com/tcpdf": "6.1.0"
+    }
+}
