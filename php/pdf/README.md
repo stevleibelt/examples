@@ -80,6 +80,12 @@
 * [packagist](http://packagist.org/packages/knplabs/knp-snappy)
 * [MIT license](https://github.com/KnpLabs/snappy/blob/master/LICENSE)
 
+### my two cents
+
+* easy to use
+* runs good
+* library via composer is not working, only local installation
+
 ## [php-pdf](https://github.com/stevleibelt/examples/tree/master/php/pdf/php-pdf)
 
 ### general
@@ -93,3 +99,11 @@
 ### my two cents
 
 * no documentation
+
+## other ideas
+
+* use sofflice --headless --convert-to pdf my.odf
+    * odt is a zip container
+    * you can manipulate the content.xml and compress this folder to an odt
+    * [images in odt](http://orgmode.org/manual/Images-in-ODT-export.html)
+* take a look on [PHPWord](https://github.com/PHPOffice/PHPWord)
