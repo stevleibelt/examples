@@ -106,4 +106,5 @@
     * odt is a zip container
     * you can manipulate the content.xml and compress this folder to an odt
     * [images in odt](http://orgmode.org/manual/Images-in-ODT-export.html)
+* use [unoconv](http://dag.wiee.rs/home-made/unoconv/)
 * take a look on [PHPWord](https://github.com/PHPOffice/PHPWord)
