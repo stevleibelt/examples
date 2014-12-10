@@ -70,7 +70,7 @@
 * can work with pdf as template
 * can not work with html as template
 
-## knp-snappy
+## [knp-snappy](https://github.com/stevleibelt/examples/tree/master/php/pdf/knp-snappy)
 
 ### general
 
