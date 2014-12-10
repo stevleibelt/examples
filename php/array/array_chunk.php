@@ -5,14 +5,14 @@
  */
 
 $array = array();
-for ($i=0;$i<=100;$i++) {
+for ($i=0; $i<=100; ++$i) {
   $array['key' . $i] = 'value' . $i;
 }
 
-$numberOfCrons = 4;
+$chunkSize = 4;
 $numberOfArray = count($array);
 
-$size = ceil($numberOfArray / $numberOfCrons);
+$size = ceil($numberOfArray / $chunkSize);
 
 $chunks = array_chunk($array, $size);
 

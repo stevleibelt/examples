@@ -1,5 +1,5 @@
 {
     "require": {
-        "zendframework/zendpdf": "2.0.2"
+        "psliwa/php-pdf": "1.2.5"
     }
 }

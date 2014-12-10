@@ -15,4 +15,10 @@ $overwriteIfExists = true;
 
 $pdf = \ZendPdf\PdfDocument::load(__DIR__ . '/../resources/example.pdf');
 
+foreach ($pdf->pages as $page) {
+    /** @var \ZendPdf\Page $page */
+    $page->setFont(new \ZendPdf\Resource\Font\Simple\Standard\Courier(), 12);
+    $page->drawText('fooo', 22, 46);
+}
+
 $pdf->save(__DIR__ . '/example.pdf', $overwriteIfExists);
