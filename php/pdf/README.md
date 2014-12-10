@@ -80,7 +80,7 @@
 * [packagist](http://packagist.org/packages/knplabs/knp-snappy)
 * [MIT license](https://github.com/KnpLabs/snappy/blob/master/LICENSE)
 
-## php-pdf
+## [php-pdf](https://github.com/stevleibelt/examples/tree/master/php/pdf/php-pdf)
 
 ### general
 
