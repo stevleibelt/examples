@@ -1,6 +1,6 @@
 # php pdf generator components
 
-## [tcpdg](https://github.com/stevleibelt/examples/tree/master/php/pdf/tcpdf)
+## [tcpdf](https://github.com/stevleibelt/examples/tree/master/php/pdf/tcpdf)
 
 ### general
 
@@ -18,7 +18,8 @@
 * one big monster file
 * strange parameter names
 * to much for simple and quick usage
-* no support for pdf file as template
+* can work with html as template
+* can not work with pdf as template
 
 ## [dompdf](https://github.com/stevleibelt/examples/tree/master/php/pdf/dompdf)
 
@@ -37,7 +38,8 @@
 
 * dompdf.php is the main "doc"
 * provided examples are not that kind of examples I would like
-* no support for pdf file as template
+* can work with html as template
+* can not work with pdf as template
 
 ## mpdf
 
@@ -51,7 +53,7 @@
 * [packagist](http://packagist.org/packages/mpdf/mpdf)
 * [GPL 1+ license](https://github.com/finwe/mpdf/blob/master/LICENSE.txt)
 
-## zendpdf
+## [zendpdf](https://github.com/stevleibelt/examples/tree/master/php/pdf/zendpdf)
 
 ### general
 
@@ -62,7 +64,13 @@
 * [packagist](http://packagist.org/packages/zendframework/zendpdf)
 * [BSD 3 Clause license](https://github.com/zendframework/ZendPdf/blob/master/LICENSE.txt)
 
-## knp-snappy 
+### my two cents
+
+* no documentation
+* can work with pdf as template
+* can not work with html as template
+
+## knp-snappy
 
 ### general
 
