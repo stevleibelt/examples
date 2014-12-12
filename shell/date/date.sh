@@ -22,3 +22,8 @@ echo 'date +%y-%m-%d'
 DATE=$(date +'%y-%m-%d')
 echo $DATE
 echo ''
+
+echo 'date +%Y-%m-%d'
+DATE=$(date +'%Y-%m-%d')
+echo $DATE
+echo ''
