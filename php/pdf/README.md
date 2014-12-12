@@ -105,6 +105,7 @@
 * [libre office api](http://api.libreoffice.org/)
 * [apache open office api](http://www.openoffice.org/api/)
 * [headless file conversion using libre office as a service](http://www.linuxquestions.org/questions/blog/sag47-492023/headless-file-conversion-using-libreoffice-as-a-service-35310/)
+* works with odt and odg files (and many more)
 
 ## other ideas
 
