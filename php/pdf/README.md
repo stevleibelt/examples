@@ -105,13 +105,21 @@
 * [libre office api](http://api.libreoffice.org/)
 * [apache open office api](http://www.openoffice.org/api/)
 * [headless file conversion using libre office as a service](http://www.linuxquestions.org/questions/blog/sag47-492023/headless-file-conversion-using-libreoffice-as-a-service-35310/)
+* [images in odt](http://orgmode.org/manual/Images-in-ODT-export.html)
 * works with odt and odg files (and many more)
+* use sofflice --headless --convert-to pdf my.odf
+* workflow:
+    * unzip existing odt file
+    * manipulate archive content
+    * zip manipulated content
+    * convert to pdf
+
+## [unoconv](https://github.com/stevleibelt/examples/tree/master/php/pdf/unoconv)
+
+* use [unoconv](http://dag.wiee.rs/home-made/unoconv/)
+* works with a bunch of file formats
+* can have the same work flow as with soffice
 
 ## other ideas
 
-* use sofflice --headless --convert-to pdf my.odf
-    * odt is a zip container
-    * you can manipulate the content.xml and compress this folder to an odt
-    * [images in odt](http://orgmode.org/manual/Images-in-ODT-export.html)
-* use [unoconv](http://dag.wiee.rs/home-made/unoconv/)
 * take a look on [PHPWord](https://github.com/PHPOffice/PHPWord)
