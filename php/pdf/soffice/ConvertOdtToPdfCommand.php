@@ -26,4 +26,16 @@ class ConvertOdtToPdfCommand extends Command
             );
         }
     }
+
+    /**
+     * @throws RuntimeException
+     */
+    public function validateEnvironment()
+    {
+        if (!is_executable('/usr/bin/soffice')) {
+            throw new RuntimeException(
+                '/usr/bin/soffice is mandatory'
+            );
+        }
+    }
 } 

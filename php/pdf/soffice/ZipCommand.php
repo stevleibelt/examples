@@ -13,14 +13,19 @@ class ZipCommand extends Command
 {
     /**
      * @param string $archiveName
-     * @param array $items
+     * @param string $path
      * @return array
      */
-    public function zip($archiveName, array $items)
+    public function zip($archiveName, $path)
     {
-        $command = '/usr/bin/zip -r ' . $archiveName . ' ' . implode(' ' , $items);
+        $cwd = getcwd();
+        $fullQualifiedArchivePath = realpath($cwd . DIRECTORY_SEPARATOR . $archiveName);
+        chdir($path);
+        $command = '/usr/bin/zip -r ' . $fullQualifiedArchivePath . ' *';
+        $lines = $this->execute($command);
+        chdir($cwd);
 
-        return $this->execute($command);
+        return $lines;
     }
 
     /**
@@ -48,5 +53,23 @@ class ZipCommand extends Command
         $command = '/usr/bin/unzip -l ' . $pathToArchive;
 
         return $this->execute($command);
+    }
+
+    /**
+     * @throws RuntimeException
+     */
+    public function validateEnvironment()
+    {
+        if (!is_executable('/usr/bin/unzip')) {
+            throw new RuntimeException(
+                '/usr/bin/unzip is mandatory'
+            );
+        }
+
+        if (!is_executable('/usr/bin/zip')) {
+            throw new RuntimeException(
+                '/usr/bin/zip is mandatory'
+            );
+        }
     }
 }

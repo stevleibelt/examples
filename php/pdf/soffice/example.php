@@ -1,34 +1,54 @@
 <?php
 /**
  * @author stev leibelt <artodeto@bazzline.net>
- * @since 2014-12-10 
+ * @since 2014-12-10
+ *
+ * build and tested under:
+ *  Linux <host name> 3.17.6-1-ARCH #1 SMP PREEMPT Sun Dec 7 23:43:32 UTC 2014 x86_64 GNU/Linux
  */
 
 require_once 'Command.php';
 require_once 'ConvertOdtToPdfCommand.php';
+require_once 'ReplaceStringsInFileCommand.php';
 require_once 'ZipCommand.php';
 
-$archivePath = 'example';
-$filePath = __DIR__ . '/../resources/example.odt';
+$pathToZipArchive   = 'example';
+$pathToContentXml   = $pathToZipArchive . '/content.xml';
+$sourceFilePath     = __DIR__ . '/../resources/example.odt';
 
-$zip = new ZipCommand();
-$convert = new ConvertOdtToPdfCommand();
+$convert    = new ConvertOdtToPdfCommand();
+$replace    = new ReplaceStringsInFileCommand();
+$zip        = new ZipCommand();
 
-mkdir($archivePath);
-$lines = $zip->unzip($filePath, $archivePath);
+try {
+    $convert->validateEnvironment();
+    $replace->validateEnvironment();
+    $zip->validateEnvironment();
 
-foreach ($lines as $line) {
-    echo $line . PHP_EOL;
-}
+    mkdir($pathToZipArchive);
+    $lines = $zip->unzip($sourceFilePath, $pathToZipArchive);
 
-$lines = $convert->convert($filePath);
+    foreach ($lines as $line) {
+        echo $line . PHP_EOL;
+    }
 
-foreach ($lines as $line) {
-    echo $line . PHP_EOL;
-}
+    $replace->replace($pathToContentXml, array('Mix' => 'Miximix'));
 
-$lines = $zip->zip('example', array($archivePath));
+    $lines = $zip->zip('example', $pathToZipArchive);
 
-foreach ($lines as $line) {
-    echo $line . PHP_EOL;
+    foreach ($lines as $line) {
+        echo $line . PHP_EOL;
+    }
+
+    $lines = $convert->convert($pathToZipArchive . '.zip');
+
+    foreach ($lines as $line) {
+        echo $line . PHP_EOL;
+    }
+} catch (Exception $exception) {
+    echo 'error occurred:' . PHP_EOL;
+    echo 'exception type: '  . get_class($exception) . PHP_EOL;
+    echo 'exception message: ' . $exception->getMessage() . PHP_EOL;
+    echo '----' . PHP_EOL;
+    echo $exception->getTraceAsString();
 }

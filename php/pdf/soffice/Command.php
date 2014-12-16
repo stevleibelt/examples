@@ -38,6 +38,13 @@ class Command
     }
 
     /**
+     * @throws RuntimeException
+     */
+    public function validateEnvironment()
+    {
+    }
+
+    /**
      * @param int $return
      * @param string $command
      * @throws RuntimeException
