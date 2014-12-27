@@ -4,6 +4,11 @@
 
 # example
 
+## debug
+
+* this example shows you all available variables
+* to enable autocompletion, simple write 'source [path/to/]completion/debug
+
 ## simple / one dimensional
 
 * based on [quick and dirty example](http://buddylindsey.com/quick-and-dirty-write-your-own-bash-autocomplete/)
