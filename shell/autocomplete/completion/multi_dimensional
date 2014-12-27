@@ -1,0 +1,35 @@
+_multi_dimensional()
+{
+    #define variables
+    local current previous
+
+    #empty list
+    COMPREPLY=()
+
+    #assign content to variables
+    #add " if you are dealing with spaces
+    current=${COMP_WORDS[COMP_CWORD]}
+    previous=${COMP_WORDS[COMP_CWORD-1]}
+
+    #start of second dimension
+    case $previous in
+        'foo')
+            COMPREPLY=( $(compgen -W "bar foobar" -- $current) )
+            return 0
+            ;;
+        'bar')
+            COMPREPLY=( $(compgen -W "foo foobar" -- $current) )
+            return 0
+            ;;
+        'foobar')
+            COMPREPLY=( $(compgen -W "foo bar" -- $current) )
+            return 0
+            ;;
+    esac
+
+    #start of first dimension
+    COMPREPLY=( $(compgen -W "foo bar foobar" -- $current) )
+    return 0
+}
+
+complete -F _multi_dimensional example.sh
