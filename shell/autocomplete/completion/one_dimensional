@@ -1,0 +1,9 @@
+_one_dimensional()
+{
+    local current=${COMP_WORDS[COMP_CWORD]}
+
+    COMPREPLY=( $(compgen -W "foo bar foobar" -- $current) )
+    #echo $(compgen -W "foo bar foobar" -- $current)
+}
+
+complete -F _one_dimensional example.sh
