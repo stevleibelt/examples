@@ -14,4 +14,5 @@ for ($numberOfLines = 0; $numberOfLines < $maximumNumberOfLines; ++$numberOfLine
         echo '.';
     }
     echo PHP_EOL;
+    usleep(500000); //wait for half a second
 }
