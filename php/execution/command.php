@@ -6,6 +6,10 @@
  * @since 2015-01-09
  */
 
+if (isset($argv[1])) {
+    echo 'identifier: ' . $argv[1] . PHP_EOL;
+}
+
 $maximumNumberOfLines = 4;
 $maximumNumberOfCharacters = 80;
 

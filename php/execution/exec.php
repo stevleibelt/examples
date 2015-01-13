@@ -6,7 +6,7 @@
 
 $return = 0;
 $lines = array();
-$command = 'php exampleCommand.php';
+$command = 'php command.php';
 $line = exec($command, $lines, $return);
 
 echo PHP_EOL;

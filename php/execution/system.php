@@ -5,7 +5,7 @@
  */
 
 $return = 0;
-$command = 'php exampleCommand.php';
+$command = 'php command.php';
 $line = system($command, $return);
 
 echo PHP_EOL;

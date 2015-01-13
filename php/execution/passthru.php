@@ -5,7 +5,7 @@
  */
 
 $return = 0;
-$command = 'php exampleCommand.php';
+$command = 'php command.php';
 passthru($command, $return);
 
 echo PHP_EOL;
