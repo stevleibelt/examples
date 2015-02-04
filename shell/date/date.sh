@@ -23,7 +23,7 @@ DATE=$(date +'%y-%m-%d')
 echo $DATE
 echo ''
 
-echo 'date +%Y-%m-%d'
-DATE=$(date +'%Y-%m-%d')
+echo 'date +%Y-%m-%d %H:%M:%S'
+DATE=$(date +'%Y-%m-%d %H:%M:%S')
 echo $DATE
 echo ''
