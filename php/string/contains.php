@@ -4,6 +4,11 @@
  * @since 2015-02-03
  */
 
+/**
+ * @param string $string
+ * @param string $search
+ * @return boolean
+ */
 function contains($string, $search)
 {
     if (strlen($search) == 0) {
