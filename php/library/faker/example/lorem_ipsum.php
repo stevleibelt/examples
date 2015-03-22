@@ -5,7 +5,7 @@
  * @since 2015-03-22
  */
 
-require_once '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 $faker = \Faker\Factory::create();
 
