@@ -1,0 +1,15 @@
+Net\Bazzline\Alice\Basic\User:
+  user_{1..10}:
+    cv: 42%? n/a : <text()>
+    email: max_<current()>@mustermann.de
+    name: Max Mustermann <current()>
+Net\Bazzline\Alice\Basic\Team:
+  team_1:
+    description: two manuel selected users
+    members: [@user_3, @user_7]
+  team_2:
+    description: three randomly selected users
+    members: 3x @user_*
+  team_3:
+    description: One up to four randomly selected users
+    members: <numberBetween(1, 4)>x @user_*
