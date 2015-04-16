@@ -4,6 +4,7 @@
  *
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-03-13
+ * @result: fastest method is startsWithFive: return (strncmp($haystack, $needle, strlen($needle)) === 0);
  */
 
 echo 'generating test' . PHP_EOL;
