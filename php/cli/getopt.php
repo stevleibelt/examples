@@ -32,7 +32,7 @@ if (!is_null($command)) {
 }
 
 if ($debug) {
-    echo PHP_EOL . 'debug information . PHP_EOL;
+    echo PHP_EOL . 'debug information' . PHP_EOL;
     echo '$argv: ' . PHP_EOL . var_export($argv, true) . PHP_EOL;
     echo 'getopt: ' . PHP_EOL . var_export($options, true) . PHP_EOL;
 }
