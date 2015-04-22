@@ -14,9 +14,9 @@ $longOptions = array(
 
 $options = getopt($shortOptions, $longOptions);
 
-$message = (isset($options['m'])) ? $options['m'] : ((isset($options['message'])) ? $options['message'] : null);
-$command = (isset($options['c'])) ? $options['c'] : ((isset($options['command'])) ? $options['command'] : null);
-$debug = (isset($options['d'])) ? true : (isset($options['debug']));
+$message    = (isset($options['m'])) ? $options['m'] : ((isset($options['message'])) ? $options['message'] : null);
+$command    = (isset($options['c'])) ? $options['c'] : ((isset($options['command'])) ? $options['command'] : null);
+$debug      = (isset($options['d'])) ? true : (isset($options['debug']));
 
 if (is_null($message)) {
     echo 'Usage: getopt.php -m"message" [-c"command"] [-d]' . PHP_EOL;
