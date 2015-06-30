@@ -17,6 +17,7 @@ if (!function_exists('readline')) {
 function completion($input, $index, $length)
 {
     echo PHP_EOL;
+    echo var_export(readline_info(), true) . PHP_EOL;
     echo var_export(func_get_args(), true) . PHP_EOL;
 }
 
