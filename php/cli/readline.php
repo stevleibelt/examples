@@ -7,6 +7,9 @@
  *  http://php.net/manual/en/ref.readline.php
  *  http://php.net/manual/en/function.readline.php
  *  http://php.net/manual/en/features.commandline.io-streams.php
+ *  http://blog.timcrider.com/2012/05/23/php-readline-auto-completion/
+ *  http://www.techchorus.net/10-examples-inspire-you-use-php-interactive-shell
+ *  http://www.amazium.com/blog/php-in-the-dark-input-output
  */
 
 if (!function_exists('readline')) {
