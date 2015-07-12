@@ -43,7 +43,6 @@ function removeSameKeys(array $one, array $two)
         }
     }
 
-    echo var_export($array, true) . PHP_EOL;
     return $array;
 }
 
