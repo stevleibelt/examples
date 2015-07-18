@@ -1,6 +1,6 @@
 <?php
 /**
- * @author stev leibelt <artodeto@arcor.de>
+ * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-09-09
  * @see
  *  http://de2.php.net/manual/en/function.array-unshift.php
