@@ -19,10 +19,21 @@ foreach ($queries as $query) {
     $urls[] = $url;
 }
 
+//if you want to test the timeout, add an url where a script like the following 
+//is running
+//@link 
+//https://github.com/stevleibelt/examples/commit/2e6dea7938efa70828b5078868c7c671aa4743ca
+//$urls[] = 'http://<host>/test_timeout.php?wait=10';
+
 foreach ($urls as $url)
 {
     echo 'calling url: ' . $url . PHP_EOL;
-    $response = callUrl($url);
+
+    try {
+        $response = callUrl($url);
+    } catch (Exception $exception) {
+        echo $exception->getMessage() . PHP_EOL;
+    }
 
     //echo var_export($response, true) . PHP_EOL;
 }
@@ -37,12 +48,20 @@ function callUrl($url)
     curl_setopt_array(
         $curl,
         array(
+            CURLOPT_TIMEOUT         => 4,
             CURLOPT_HTTPGET         => true,
             CURLOPT_RETURNTRANSFER  => true,
             CURLOPT_URL             => $url
         )
     );
     $response = curl_exec($curl);
+    if (curl_errno($curl) != 0) {
+        $message = 'url: ' . $url . ' created an error' . PHP_EOL . 
+            'error number: ' . curl_errno($curl) . PHP_EOL . 
+            'error message: ' . curl_error($curl);
+
+        throw new Exception($message);
+    }
     curl_close($curl);
 
     return $response;
