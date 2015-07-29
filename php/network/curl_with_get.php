@@ -37,7 +37,7 @@ function callUrl($url)
     curl_setopt_array(
         $curl,
         array(
-            CURLOPT_HTTPGET         => true,    //default curl request is a post
+            CURLOPT_HTTPGET         => true,
             CURLOPT_RETURNTRANSFER  => true,
             CURLOPT_URL             => $url
         )
