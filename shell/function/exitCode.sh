@@ -10,4 +10,7 @@ ls -halt .
 echo 'previous command returned exit code: "'$?'"'
 
 ls -halt /root
+echo -e "\e[41m" #set background to bold red: https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+echo ''
 echo 'previous command returned exit code: "'$?'"'
+echo -e "\e[0m" #reset font
