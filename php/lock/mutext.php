@@ -6,7 +6,7 @@
  */
 
 if (!class_exists('Mutex')) {
-    exit ('Mutex not installed, try to install PECL pthreads >= 2.0.0' . PHP_EOL);
+    exit('Mutex not installed, try to install PECL pthreads >= 2.0.0' . PHP_EOL);
 }
 $mutex = Mutex::create();
 echo var_export($mutex, true) . PHP_EOL;
