@@ -1,0 +1,6 @@
+{
+    "require": {
+        "fzaninotto/Faker": "^1.5",
+        "nelmio/alice": "^2.1"
+    }
+}

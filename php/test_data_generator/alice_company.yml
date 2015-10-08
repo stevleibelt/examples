@@ -1,0 +1,14 @@
+CompanyUser:
+    user{1..10}:
+        userName: <username()>
+        fullName: <firstName()> <lastName()>
+        birthDate: <date()>
+        email: <email()>
+
+Company:
+    group1:
+        name: Foundation für Recht und Verfassung
+        owner: @user1
+        members: <numberBetween(1, 10)>x @user*
+        createdAt: <dateTimeBetween('-200 days', 'now')>
+        updatedAt: <dateTimeBetween($createdAt, 'now')>
