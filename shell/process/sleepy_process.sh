@@ -13,6 +13,35 @@ fi
 
 SECONDS_TO_RUN="$1"
 
-echo 'sleeping for '$SECONDS_TO_RUN
+if [[ $# -gt 1 ]]; then
+    HAS_FILE_NAME=TRUE
+    FILE_NAME="$2"
+else
+    HAS_FILE_NAME=FALSE
+fi
+
+BE_VERBOSE=1
+
+if [[ $# -gt 2 ]]; then
+    if [[ "$3" == "silent" ]]; then
+        BE_VERBOSE=0
+    fi
+fi
+
+if [[ $BE_VERBOSE -eq 1 ]]; then
+    echo 'sleeping for '$SECONDS_TO_RUN
+fi
+
+if [[ $HAS_FILE_NAME ]]; then
+    touch $FILE_NAME
+fi
+
 sleep $SECONDS_TO_RUN
-echo 'finished'
+
+if [[ $HAS_FILE_NAME ]]; then
+    rm $FILE_NAME
+fi
+
+if [[ $BE_VERBOSE -eq 1 ]]; then
+    echo 'finished'
+fi

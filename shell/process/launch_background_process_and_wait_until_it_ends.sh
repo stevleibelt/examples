@@ -6,6 +6,9 @@
 #   http://unix.stackexchange.com/questions/76717/bash-launch-background-process-and-check-when-it-ends
 ####
 
+#enable bash job support (fg & bg)
+set -o monitor
+
 SCRIPT_PATH=$(cd $(dirname "$0"); pwd)
 
 bash $SCRIPT_PATH/sleepy_process.sh 2 &
