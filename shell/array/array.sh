@@ -11,11 +11,15 @@ declare -a ARRAY_ENTRIES=('foo' 'bar' 'foobar');
 
 echo "Array has "${#ARRAY_ENTRIES[@]}" elements."
 echo "First entry has "${#ARRAY_ENTRIES}" characters."
+echo "Adding entry "baz" to the array."
+#add entry to the array
+ARRAY_ENTRIES+=("baz")
 
 for ARRAY_ENTRY in ${ARRAY_ENTRIES[@]}; do
   echo "$ARRAY_ENTRY";
 done;
 
+echo ''
 echo "Calling two elements, starting from second position: "${ARRAY_ENTRIES[@]:1:2}
 
 #inarray
