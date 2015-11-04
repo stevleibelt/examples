@@ -4,7 +4,6 @@
  * @since 2014-08-29
  */
 
-$filePath = array_shift($argv);
 $timestamps = $argv;
 
 foreach ($timestamps as $timestamp) {
