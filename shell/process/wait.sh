@@ -1,5 +1,7 @@
 #!/bin/bash
 ####
+# launch_background_process_and_wait_until_it_ends
+####
 # @author stev leibelt <artodeto@bazzline.net>
 # @since 2015-10-29
 # @see
