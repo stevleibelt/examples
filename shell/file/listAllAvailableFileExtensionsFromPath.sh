@@ -2,6 +2,9 @@
 ####
 # @author stev leibelt <artodeto@bazzline.net>
 # @since 2015-11-13
+# @thanks
+#   https://github.com/alexanderduring
+#   https://github.com/dirkwinkhaus
 ####
 
 if [[ $# -eq 0 ]]; then
