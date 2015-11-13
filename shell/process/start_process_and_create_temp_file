@@ -1,0 +1,26 @@
+#!/bin/bash
+####
+# @author stev leibelt <artodeto@bazzline.net>
+# @since 2015-11-11
+####
+
+if [[ $# -eq 0 ]]; then
+    echo 'No arguments supplied'
+    echo 'usage:'
+    echo '<command> <path to executable> [<file_name>]'
+    exit 1
+fi
+
+PATH_TO_EXECUTABLE="$1"
+
+if [[ $# -gt 1 ]]; then
+    FILE_NAME="$2"
+else
+    FILE_NAME='/tmp/start_process_and_create_temp_file_'$$
+fi
+
+touch $FILE_NAME
+
+$($PATH_TO_EXECUTABLE)
+
+rm $FILE_NAME
