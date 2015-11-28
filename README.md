@@ -1,10 +1,19 @@
-examples
-========
+# Stev Leibelt's Example Section
 
-general examples for all kinde of content
+This repository contains a lot of free as in freedom examples for multiple programming languages or tools.
 
-php
----
+## Programming Languages
 
-This is my general php script and tool area. A lot of files are created to test something or to see how php works.
-As in general, the number of scripts are grown by time and also the code quality improves and so differs from file to file (hopefully ;-)).
+* javascript
+* php
+* shell
+
+## Tools
+
+* docker
+
+## A Few Words About the Code Quality
+
+This is my general code and tool area. A lot of files are created to test something or to see how it works.
+
+As in general, the number of files had grown by time and also the code quality had improved by time and may so differ from file to file (hopefully ;-)).
