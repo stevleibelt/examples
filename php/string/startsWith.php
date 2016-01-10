@@ -4,8 +4,8 @@
  *
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-03-13
- * @result: fastest method for not being case insensitive is "startswithFive" with 0.024760007858276 seconds.
- * @result: fastest method for being case insensitive is "startswithSeven" with 0.024828910827637 seconds.
+ * @result: fastest method for not being case insensitive is "startsWithFive" with 0.024760007858276 seconds.
+ * @result: fastest method for being case insensitive is "startsWithSeven" with 0.024828910827637 seconds.
  */
 
 echo 'generating test' . PHP_EOL;

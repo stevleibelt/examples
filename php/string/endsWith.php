@@ -5,7 +5,7 @@
  *
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-03-13
- * @result fastest method is "startsWithOne" with 0.0226149559021 seconds
+ * @result fastest method is "endsWithOne" with 0.0226149559021 seconds
  */
 
 echo 'generating test' . PHP_EOL;
