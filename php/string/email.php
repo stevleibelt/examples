@@ -3,6 +3,7 @@
 //http://www.rfc-base.org/txt/rfc-2822.txt
 //https://tools.ietf.org/html/rfc6531#section-3.7.4
 //https://tools.ietf.org/html/rfc5322
+//http://rumkin.com/software/email/rules.php
 
 //still unfinished
 
