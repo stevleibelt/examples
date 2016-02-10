@@ -4,6 +4,8 @@
 //https://tools.ietf.org/html/rfc6531#section-3.7.4
 //https://tools.ietf.org/html/rfc5322
 //http://rumkin.com/software/email/rules.php
+//https://bugzilla.mozilla.org/show_bug.cgi?id=614930
+//http://trac.roundcube.net/ticket/1490082
 //https://github.com/egulias/EmailValidator
 //https://github.com/rottingham/EmailValidator/tree/master/src/com/rottingham
 
