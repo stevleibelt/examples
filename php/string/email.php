@@ -10,6 +10,7 @@
 //https://github.com/rottingham/EmailValidator/tree/master/src/com/rottingham
 
 //still unfinished
+//single quotes are illegal, double quotes are allowed
 
 /**
  * Class EMailAddress
