@@ -1,0 +1,69 @@
+#@todo
+#   use multiple compose files to remove machine specific settings
+#       https://docs.docker.com/compose/extends/#multiple-compose-files
+#   add xdebug
+#       https://sandro-keil.de/blog/2015/10/05/docker-php-xdebug-cli-debugging/
+#       https://github.com/prooph/docker-files/tree/master/php
+#   add redis
+#       https://github.com/docker-library/redis
+#   add logrotate
+#       https://sandro-keil.de/blog/2015/03/11/logrotate-for-docker-container/
+#   add profiler
+#       https://sandro-keil.de/blog/2015/02/10/php-profiling-tools/
+#   add kibana
+#       https://github.com/docker-library/kibana
+#   add elastic search
+#       https://github.com/docker-library/elasticsearch
+#   add logstash
+#       https://github.com/docker-library/logstash
+#   optional
+#       https://github.com/docker-library/rabbitmq
+#       https://github.com/docker-library/haproxy
+#
+#@todo: what about ansible?
+#   http://nathanleclaire.com/blog/2015/11/10/using-ansible-with-docker-machine-to-bootstrap-host-nodes/
+#   https://toddpagden.wordpress.com/2015/10/29/ansible-and-docker-the-payload-payoff/
+#   https://leanpub.com/the-devops-2-toolkit
+#
+#@todo: what about vagrant?
+#   https://www.vagrantup.com/docs/provisioning/docker.html
+#   http://blog.scottlowe.org/2015/08/04/using-vagrant-docker-machine-together/
+#
+#@see: https://github.com/docker-library
+#@see: https://hub.docker.com/_/php/
+application:
+  #command: php -S 0.0.0.0:5000 -t /var/www/html
+  #image: php:5.6-cli
+  build: ./webserver
+  environment:
+    #XDEBUG_CONFIG: remote_host={{YOUR_IP_ADDRESS}}
+    XDEBUG_CONFIG: remote_host=172.17.0.1
+  links:
+    - database
+    - cache
+  ports:
+    - 5000:5000
+  restart: always
+  volumes:
+      - ./application:/var/www/html
+#@see: https://hub.docker.com/_/mariadb/
+#@see: https://hub.docker.com/_/percona/
+database:
+  environment:
+    MYSQL_ROOT_PASSWORD: toor
+    MYSQL_DATABASE: application
+    MYSQL_USER: user
+    MYSQL_PASSWORD: resu
+  #image: mariadb:10.1.11
+  image: percona:latest
+  ports:
+    - 3306:3306
+  restart: always
+  volumes:
+    - ./database:/var/lib/mysql
+#@see: https://hub.docker.com/_/redis/
+cache:
+  image: redis
+
+#docker-compose up
+#open http://0.0.0.0:5000 in your webbrowser
