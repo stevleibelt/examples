@@ -16,7 +16,7 @@ LOCAL_NUMBER_OF_FITTING_MOUNTED_ZPOOLS=$(zpool list | grep $LOCAL_ZPOOL_NAME | w
 
 if [[ $LOCAL_NUMBER_OF_FITTING_MOUNTED_ZPOOLS -eq 1 ]]; then
     zpool scrub $LOCAL_ZPOOL_NAME
-elif
+else
     echo "found "$LOCAL_NUMBER_OF_FITTING_MOUNTED_ZPOOLS" mounted and fitting zpools by the name "$LOCAL_ZPOOL_NAME
     echo "nothing is scrubbed"
 
