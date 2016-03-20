@@ -24,6 +24,7 @@ for ARRAY_ENTRY in "${ARRAY_ENTRIES[@]}"; do
   echo "    $ARRAY_ENTRY";
 done;
 
+#@see: http://www.techrepublic.com/article/using-arrays-in-bash/
 echo ""
 echo "An other way of looping through"
 echo ""
