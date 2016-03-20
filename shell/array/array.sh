@@ -7,7 +7,7 @@
 #array
 #based on http://www.thegeekstuff.com/2010/06/bash-array-tutorial/
 #http://wiki.bash-hackers.org/syntax/arrays
-declare -a ARRAY_ENTRIES=("foo" "bar" "foobar");
+declare -a ARRAY_ENTRIES=("foo" "bar" "foo bar");
 
 echo "Array has "${#ARRAY_ENTRIES[@]}" elements."
 echo "First entry has "${#ARRAY_ENTRIES}" characters."
@@ -15,9 +15,23 @@ echo "Adding entry "baz" to the array."
 #add entry to the array
 ARRAY_ENTRIES+=("baz")
 
-for ARRAY_ENTRY in ${ARRAY_ENTRIES[@]}; do
-  echo "$ARRAY_ENTRY";
+#the quotes are important to deal with string containing whitespaces
+#@see: http://stackoverflow.com/a/30133471
+echo ""
+echo "On way of looping through the array"
+echo ""
+for ARRAY_ENTRY in "${ARRAY_ENTRIES[@]}"; do
+  echo "    $ARRAY_ENTRY";
 done;
+
+echo ""
+echo "An other way of looping through"
+echo ""
+NUMBER_OF_ENTRIES=${#ARRAY_ENTRIES}
+
+for ((ITERATOR=0;ITERATOR<=$NUMBER_OF_ENTRIES;++ITERATOR)); do
+    echo "    "${ARRAY_ENTRIES[${ITERATOR}]}
+done
 
 echo ""
 echo "Calling two elements, starting from second position: "${ARRAY_ENTRIES[@]:1:2}
