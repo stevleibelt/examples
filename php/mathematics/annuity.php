@@ -1,5 +1,7 @@
 <?php
 /**
+ * Annuity calculation via command line interface
+ *
  * @see
  *  https://en.wikipedia.org/wiki/Annuity
  * @author stev leibelt <artodeto@bazzline.net>
