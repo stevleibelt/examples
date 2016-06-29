@@ -14,8 +14,8 @@ if ($argc < 3) {
     exit(1);
 }
 
-$password       = $argv[1];
-$hash           = $argv[2];
+$hash       = $argv[2];
+$password   = $argv[1];
 
 $isValid = password_verify($password, $hash);
 
