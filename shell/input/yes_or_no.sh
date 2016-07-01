@@ -2,6 +2,8 @@
 ####
 # simple example how to ask yes or now questions in a bash environment
 #
+# @see
+#   http://www.shellhacks.com/en/Yes-No-in-Bash-Script-Prompt-for-Confirmation
 # @author stev leibelt <artodeto@bazzline.net>
 # @since 2016-07-01
 ####
