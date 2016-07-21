@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Toggle Display - JavaScript - Example - Stev Leibelt</title>
+    </head>
+    <body>
+        <button onclick="toggleDisplayOfAnElement('section-one')">+/- One</button><br />
+        <div id="section-one">
+            section one
+        </div>
+
+        <button onclick="toggleDisplayOfAnElement('section-two')">+/- Two</button><br />
+        <div id="section-two">
+            section two
+        </div>
+
+        <button onclick="toggleDisplayOfAnElement('section-three')">+/- Three</button><br />
+        <div id="section-three">
+            section three
+        </div>
+
+        <button onclick="toggleDisplayOfAnElement('section-one')">+/- One</button>
+
+        <script type="text/javascript">
+            function toggleDisplayOfAnElement(elementDomId) {
+                var documentElement = document.getElementById(elementDomId);
+
+                documentElement.style.display = (documentElement.style.display != 'none' ? 'none' : '');
+            }
+        </script>
+    </body>
+</html>
