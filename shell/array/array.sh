@@ -2,6 +2,8 @@
 ########
 # @author stevleibelt
 # @since 2012-11-26
+# @see  http://www.linuxjournal.com/content/bash-arrays
+#       http://www.tldp.org/LDP/abs/html/arrays.html
 ########
 
 #array
@@ -28,9 +30,9 @@ done;
 echo ""
 echo "An other way of looping through"
 echo ""
-NUMBER_OF_ENTRIES=${#ARRAY_ENTRIES}
+NUMBER_OF_ENTRIES=${#ARRAY_ENTRIES[*]}
 
-for ((ITERATOR=0;ITERATOR<=$NUMBER_OF_ENTRIES;++ITERATOR)); do
+for ((ITERATOR=0;ITERATOR<$NUMBER_OF_ENTRIES;++ITERATOR)); do
     echo "    "${ARRAY_ENTRIES[${ITERATOR}]}
 done
 

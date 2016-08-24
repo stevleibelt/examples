@@ -26,8 +26,17 @@ echo ''
 echo "Calling two elements, starting from second position: "${ARRAY_ENTRIES[@]:1:2}
 
 #inarray
-if [[ ${ARRAY_ENTRIES[*]} == bar ]];  then
+if [[ ${ARRAY_ENTRIES[*]} == bar ]];
+then
   echo "There is a bar in the foo!"
+fi
+
+#array key or index exist
+#@see: http://stackoverflow.com/questions/13219634/easiest-way-to-check-for-an-index-or-a-key-in-an-array
+#if [[ ${ARRAY_ENTRIES["bar"]}+exists ]];
+if [[ ! -z ${ARRAY_ENTRIES["bar"]} ]];
+then
+    echo "key \"bar\" exists"
 fi
 
 #remove first internal variable
