@@ -51,5 +51,10 @@ if [[ ${ARRAY_ENTRIES[*]} == bar ]];  then
   echo "There is a bar in the foo!"
 fi
 
+#size of an array
+
+echo ""
+echo "the array contains ${#ARRAY_ENTRIES[@]} elements"
+
 #remove first internal variable
 #shift
