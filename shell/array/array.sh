@@ -37,6 +37,13 @@ for ((ITERATOR=0;ITERATOR<$NUMBER_OF_ENTRIES;++ITERATOR)); do
 done
 
 echo ""
+echo "Fetching the keys to get the content"
+echo ""
+for ARRAY_KEY in ${!ARRAY_ENTRIES[@]}; do
+    echo "$ARRAY_KEY => ${ARRAY_ENTRIES["$ARRAY_KEY"]}";
+done;
+
+echo ""
 echo "Calling two elements, starting from second position: "${ARRAY_ENTRIES[@]:1:2}
 
 #inarray
