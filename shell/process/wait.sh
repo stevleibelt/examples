@@ -19,8 +19,16 @@ PID_ONE=$!
 bash $SCRIPT_PATH/sleepy_process.sh 3 &
 PID_TWO=$!
 
+echo "."
+sleep 0.5
+echo "."
+
 wait $PID_ONE
 echo 'PID ONE has ended'
+
+echo "."
+sleep 0.5
+echo "."
 
 wait
 echo 'all background processes are done'
