@@ -23,7 +23,8 @@ bash ${SCRIPT_PATH}/sleepy_process.sh 5 &
 PID_THREE=$!
 
 wait ${PID_ONE}
-echo 'PID ONE has ended'
+echo ""
+echo "PID ONE has ended"
 
 #begin of keeping the session alive
 echo ""
@@ -58,4 +59,5 @@ printf "\033[K"
 #end of keeping the session alive
 
 wait
+echo ""
 echo 'all background processes are done'
