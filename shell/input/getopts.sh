@@ -13,7 +13,7 @@ SHOW_USAGE=1
 #a, b and c are simple flags
 #d has an argument
 #if you put this into a function, you have to provide the function the arguments like <function name> $@
-while getopts ":abcd:" CURRENT_OPTION;
+while getopts "abcd:" CURRENT_OPTION;
 do
     case ${CURRENT_OPTION} in
         a )
