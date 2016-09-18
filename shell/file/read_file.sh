@@ -18,3 +18,6 @@ do
     echo -e "${CURRENT_LINE_NUMBER}\t: ${CURRENT_LINE_CONTENT}"
     ((++CURRENT_LINE_NUMBER))
 done < "${FILENAME}"
+
+#available with bash 4
+readarray -t FILE_CONTENT_AS_ARRAY < "${FILENAME}"
