@@ -12,11 +12,18 @@
 STRING="FooBar-1.2.3-baz.tar.gz";
 
 #substringing with positions
-WITHOUT_FOO=${STRING:3};
-ONLY_NUMBERS=${STRING:7:5};
+FIRST_THREE_CHARACTERS=${STRING:0:3};
+FROM_FOURTH_CHARACTER=${STRING:3};
+A_PIECE_OF=${STRING:7:5};
 LAST_CHARACTER=${STRING: -1};
 
-echo "string is: ${STRING}"
-echo "without Foo: ${WITHOUT_FOO}"
-echo "only numbers: ${ONLY_NUMBERS}"
-echo "last charachter: ${LAST_CHARACTER}"
+echo ":: String"
+echo "   ${STRING}"
+echo ":: First three characters"
+echo "   ${FIRST_THREE_CHARACTERS}"
+echo ":: From fourth character"
+echo "   ${FROM_FOURTH_CHARACTER}"
+echo ":: A piece of"
+echo "   ${A_PIECE_OF}"
+echo ":: Last charachter"
+echo "   ${LAST_CHARACTER}"
