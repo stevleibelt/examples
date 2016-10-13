@@ -3,7 +3,8 @@
 # @author stev leibelt <artodeto@bazzline.net>
 # @since 2016-10-13
 # @see
-#   http://www.tldp.org/LDP/abs/html/untyped.html
+#   http://stackoverflow.com/a/2172364
+#   http://www.tldp.org/LDP/abs/html/string-manipulation.html
 ####
 
 declare -a LIST_OF_STRINGS=( "there is no foo without a bar" "there is a foo" "there is a bar" "no foo" "no bar" "foobar" )
