@@ -13,9 +13,9 @@ else
 fi
 
 START_TIMESTAMP=$(date +'%s')
-echo 'sleeping for '$SLEEP' seconds'
-sleep $SLEEP's'
+echo "sleeping for ${SLEEP} seconds"
+sleep "${SLEEP}s"
 END_TIMESTAMP=$(date +'%s')
 DIFF=$(($END_TIMESTAMP-$START_TIMESTAMP))
 
-echo 'Runtime: '$DIFF' in seconds'
+echo "Runtime: ${DIFF} in seconds"
