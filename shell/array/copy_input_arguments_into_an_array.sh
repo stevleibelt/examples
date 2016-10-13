@@ -6,8 +6,9 @@
 
 LOCAL_ARRAY=( "$@" )
 
-echo "outputting your provided arguments"
+echo ":: Outputting your provided arguments"
 
-for LOCAL_VARIABLE in "${LOCAL_ARRAY[@]}"; do
-    echo $LOCAL_VARIABLE
+for LOCAL_VARIABLE in "${LOCAL_ARRAY[@]}";
+do
+    echo "   ${LOCAL_VARIABLE}"
 done
