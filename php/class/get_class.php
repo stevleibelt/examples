@@ -4,6 +4,8 @@
  * @since 2014-09-02
  */
 
+namespace De\Leibelt\Stev\Example\Php\Classes;
+
 class MyClass
 {
 }
