@@ -14,4 +14,9 @@ class MyClass
 $myClass = new MyClass();
 
 //echo $myClass must be an object
-echo 'get_class($myClass): ' . get_class($myClass) . PHP_EOL;
+echo ':: Outputting ful qualified class name.' . PHP_EOL;
+echo get_class($myClass) . PHP_EOL;
+echo PHP_EOL;
+
+echo ':: Outputting the class name.' . PHP_EOL;
+echo basename(str_replace('\\', '/', get_class($myClass))) . PHP_EOL;
