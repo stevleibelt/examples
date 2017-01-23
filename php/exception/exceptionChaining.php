@@ -7,11 +7,11 @@
 try {
     try {
         throw new Exception(
-            'line ' . __LINE__
+            'first exception'
         );
     } catch (Exception $exception) {
         throw new Exception(
-            'line ' . __LINE__,
+            'second exception',
             0,
             $exception
         );
