@@ -11,14 +11,15 @@ $needles = array(
     'foobar'
 );
 
-
 echo 'string: "' . $string . '"' . PHP_EOL;
-foreach ($needles as $needle) {
-    $firstPosition = strpos($string, $needle);
-    $lastPosition = strrpos($string, $needle);
+echo PHP_EOL;
 
-    echo $needle . PHP_EOL;
-    echo (($firstPosition !== false) ? 'first position: ' . $firstPosition : 'not found') . PHP_EOL;
-    echo (($lastPosition !== false) ? 'last position: ' . $lastPosition : 'not found') . PHP_EOL;
+foreach ($needles as $needle) {
+    $firstPosition  = strpos($string, $needle);
+    $lastPosition   = strrpos($string, $needle);
+
+    echo 'search for the needle: "' . $needle . '"' . PHP_EOL;
+    echo '  ' . (($firstPosition !== false) ? 'first position: ' . $firstPosition : 'not found') . PHP_EOL;
+    echo '  ' . (($lastPosition !== false) ? 'last position: ' . $lastPosition : 'not found') . PHP_EOL;
     echo PHP_EOL;
 }
