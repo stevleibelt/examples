@@ -2,6 +2,8 @@
 /**
  * link: http://stackoverflow.com/questions/834303/php-startswith-and-endswith-functions
  *
+ * @attantion, currently there is no return value validation implemented!
+ *
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-03-13
  * @result: fastest method for not being case insensitive is "startsWithFive" with 0.011387825012207 seconds.
@@ -37,7 +39,7 @@ $methodNamesToRuntime = array(
     'startsWithFive'    => null,
     'startsWithSix'     => null,
     'startsWithSeven'   => null,
-    'startsWithEight'   => null
+    //'startsWithEight'   => null   //currently marked as invalid
 );
 
 foreach (array(false, true) as $caseInsensitive) {
