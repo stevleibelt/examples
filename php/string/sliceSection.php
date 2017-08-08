@@ -4,17 +4,23 @@
  * @since 2017-01-30
  */
 
-function sliceSection ($string, $start, $end)
+/**
+ * @param string $haystack
+ * @param string $start
+ * @param string $end
+ * @return string
+ */
+function sliceSection ($haystack, $start, $end)
 {
-    $positionOfTheStart         = strpos($string, $start);
+    $positionOfTheStart         = strpos($haystack, $start);
     $positionOfTheStartIsValid  = ($positionOfTheStart !== false);
     $section                    = null;
 
     if ($positionOfTheStartIsValid) {
         $positionOfTheStartWithLengthOfStart    = $positionOfTheStart + strlen($start);
-        $lengthOfTheSection                     = strpos($string, $end, $positionOfTheStartWithLengthOfStart) - $positionOfTheStartWithLengthOfStart;   //start searching for $end at $positionOfTheStartWithLengthOfStart and subtract the length of the string including the end of $start
+        $lengthOfTheSection                     = strpos($haystack, $end, $positionOfTheStartWithLengthOfStart) - $positionOfTheStartWithLengthOfStart;   //start searching for $end at $positionOfTheStartWithLengthOfStart and subtract the length of the string including the end of $start
 
-        $section = substr($string, $positionOfTheStartWithLengthOfStart, $lengthOfTheSection);
+        $section = substr($haystack, $positionOfTheStartWithLengthOfStart, $lengthOfTheSection);
     }
 
     return $section;
