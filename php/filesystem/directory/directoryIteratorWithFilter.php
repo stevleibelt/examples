@@ -12,10 +12,11 @@ echo 'Iterating over current directory.' . PHP_EOL;
 iteratePath($path);
 
 $filename = 'myFile_' . time() . '_' . getmypid() . '.php';
-echo 'Creating file "' . $filename . '"' . PHP_EOL;
-echo 'Iterating over current directory.' . PHP_EOL;
 
+echo 'Creating file "' . $filename . '"' . PHP_EOL;
 touch($filename);
+
+echo 'Iterating over current directory.' . PHP_EOL;
 iteratePath($path);
 unlink($filename);
 
@@ -48,7 +49,7 @@ function iteratePath($path)
 class Php5FileFilterIterator extends FilterIterator
 {
     /**
-     * Accepts php5 extended files.
+     * Accepts php extended files.
      * 
      * @author artodeto
      * @return boolean
@@ -56,6 +57,6 @@ class Php5FileFilterIterator extends FilterIterator
      */
     public function accept()
     {
-        return (preg_match('@\.(php5)$@i', $this->current()));
+        return (preg_match('@\.(php)$@i', $this->current()));
     }
 }
