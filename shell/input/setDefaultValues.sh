@@ -5,6 +5,7 @@
 ####
 
 VAR=${1:-'foo'}
+FOO=${2:-''}
 
-echo '$VAR: '$VAR
-exit 0
+echo "\$VAR: ${VAR}"
+echo "\$FOO: ${FOO}"
