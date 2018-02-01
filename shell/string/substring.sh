@@ -16,6 +16,7 @@ FIRST_THREE_CHARACTERS=${STRING:0:3};
 FROM_FOURTH_CHARACTER=${STRING:3};
 A_PIECE_OF=${STRING:7:5};
 LAST_CHARACTER=${STRING: -1};
+WITHOUT_THE_EXTENSION=${STRING:0:-3}
 
 echo ":: String"
 echo "   ${STRING}"
@@ -27,3 +28,5 @@ echo ":: A piece of"
 echo "   ${A_PIECE_OF}"
 echo ":: Last charachter"
 echo "   ${LAST_CHARACTER}"
+echo ":: Without the extension"
+echo "   ${WITHOUT_THE_EXTENSION}"
