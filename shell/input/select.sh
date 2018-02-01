@@ -6,11 +6,12 @@
 
 LIST='foo bar foobar baz'
 
-select OPTION in $LIST ; do
-    if [ ! -z "$OPTION" ] ; then
+select OPTION in ${LIST} ; do
+    if [[ ! -z "${OPTION}" ]];
+    then
         break
     fi
 done
 
-echo 'selected: '$OPTION
-exit 0
+echo ":: Selected value."
+echo "   ${OPTION}"

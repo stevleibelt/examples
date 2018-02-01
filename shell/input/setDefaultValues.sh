@@ -6,5 +6,4 @@
 
 VAR=${1:-'foo'}
 
-echo '$VAR: '$VAR
-exit 0
+echo "\$VAR: ${VAR}"
