@@ -11,7 +11,8 @@
 
 STRING="FooBar-1.2.3-baz.tar.gz";
 
-#substringing with positions
+#Substringing with positions
+#${STRING:<start>:<length>"
 FIRST_THREE_CHARACTERS=${STRING:0:3};
 FROM_FOURTH_CHARACTER=${STRING:3};
 A_PIECE_OF=${STRING:7:5};
