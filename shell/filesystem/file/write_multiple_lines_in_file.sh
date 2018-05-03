@@ -9,6 +9,8 @@
 # http://mywiki.wooledge.org/BashGuide/InputAndOutput
 
 touch foo
+#overwrite whole content by using "cat >"
+#adding content by using "cat >>"
 cat > foo <<EOT
 This is an example content for the file.
 New line and text.

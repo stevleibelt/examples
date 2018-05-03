@@ -16,7 +16,7 @@ echo 'all arguments: '$@;
 if [ "$#" -ge 3 ]; then
     echo 'outputting argument starting with third one'
     for ARGUMENT in ${@:3} ; do 
-        echo $ARGUMENT; 
+        echo "${ARGUMENT}"; 
     done
 else
     echo 'call me with more then two arguments';

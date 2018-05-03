@@ -8,5 +8,5 @@
 # also valid
 #for var in "$@"; do
 for PARAMETER in $* ; do
-    echo $PARAMETER
+    echo "${PARAMETER}"
 done

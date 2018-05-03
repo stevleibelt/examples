@@ -4,8 +4,8 @@
 # @since 2014-03-05
 ####
 
-echo 'enter something'
+echo ":: Enter something."
 read VALUE
 
-echo 'you have entered something like that: "'$VALUE'"'
-exit 0
+echo ":: You have entered the following value."
+echo "   ${VALUE}"

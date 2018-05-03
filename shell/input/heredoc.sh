@@ -13,4 +13,3 @@ foobar
 EOF
 
 echo -e '\ndone'
-exit 0
