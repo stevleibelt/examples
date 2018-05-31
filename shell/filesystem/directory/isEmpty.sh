@@ -12,9 +12,9 @@ else
     LOCAL_PATH_TO_THE_DIRECTORY="$1"
 fi
 
-echo ":: using path $LOCAL_PATH_TO_THE_DIRECTORY"
+echo ":: using path ${LOCAL_PATH_TO_THE_DIRECTORY}"
 
-if [[ ! "$(ls -A $LOCAL_PATH_TO_THE_DIRECTORY)" ]]
+if [[ ! "$(ls -A ${LOCAL_PATH_TO_THE_DIRECTORY})" ]]
 then
     echo ":: directory is empty"
 else
