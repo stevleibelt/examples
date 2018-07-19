@@ -1,10 +1,9 @@
 <?php
 /**
- * validate if $needle is in $array
+ * validate if two arrays are equal
  *
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-03-28
- * @todo get it done - yoda says "research some has to be done"
  */
 
 $objectOne = new stdClass();
