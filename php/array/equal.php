@@ -10,34 +10,64 @@
 $objectOne = new stdClass();
 $objectTwo = new stdClass();
 
-$array = array(
-    array(
-        'foo' => 'bar',
-        'bar' => 'foo',
-        'object' => $objectOne
-    )
-);
+$array = [
+    [
+        'bar'       => 'foo',
+        'foo'       => 'bar',
+        'object'    => $objectOne
+    ]
+];
 
-$equalArray = array(
-    array(
-        'foo' => 'bar',
-        'bar' => 'foo',
-        'object' => $objectOne
-    )
-);
+$equalArray = [
+    [
+        'bar'       => 'foo',
+        'foo'       => 'bar',
+        'object'    => $objectOne
+    ]
+];
 
-$notEqualArray = array(
-    array(
-        'foo' => 'bar',
-        'bar' => 'foo',
-        'object' => $objectTwo
-    )
-);
+$notEqualArray = [
+    [
+        'bar'       => 'foo',
+        'foo        ' => 'bar',
+        'object'    => $objectTwo
+    ]
+];
 
-function compareArrays(array $arrayOne, array $arrayTwo)
+function compareArraysOne(array $arrayOne, array $arrayTwo)
 {
-    echo 'Array one and array two are ' . (($arrayOne === $arrayTwo) ? 'equal' : 'not equal') . '.' . PHP_EOL;
+    echo ':: Array one and array two are ' . (($arrayOne === $arrayTwo) ? 'equal' : 'not equal') . '.' . PHP_EOL;
 }
 
-compareArrays($array, $equalArray);
-compareArrays($array, $notEqualArray);
+function compareArraysTwo(array $arrayOne, array $arrayTwo)
+{
+    foreach (array_keys($arrayOne) as $key) {
+        if (!array_key_exists($key, $arrayTwo)) {
+            echo ':: key >>' . $key . '<< does not exist in arrayTwo!' . PHP_EOL;
+
+            exit(1);
+        }
+
+        if (is_array($arrayOne[$key])) {
+            compareArraysTwo($arrayOne[$key], $arrayTwo[$key]);
+        } else {
+            if ($arrayOne[$key] !== $arrayTwo[$key]) {
+                echo ':: key >>' . $key . '<< differs'. PHP_EOL;
+                echo '   arrayOne: ' . $arrayOne[$key] . PHP_EOL;
+                echo '   arrayTwo: ' . $arrayTwo[$key] . PHP_EOL;
+            }
+        }
+    }
+}
+
+echo ':: Comparing array with equalArray using compareArraysOne' . PHP_EOL;
+compareArraysOne($array, $equalArray);
+echo ':: Comparing array with notEqualArray using compareArraysOne' . PHP_EOL;
+compareArraysOne($array, $notEqualArray);
+
+echo PHP_EOL;
+
+echo ':: Comparing array with equalArray using compareArraysTwo' . PHP_EOL;
+compareArraysTwo($array, $equalArray);
+echo ':: Comparing array with notEqualArray using compareArraysTwo' . PHP_EOL;
+compareArraysTwo($array, $notEqualArray);
