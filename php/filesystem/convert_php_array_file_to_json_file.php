@@ -23,14 +23,11 @@ echo '   File path: ' . $pathToTheDumpFile . PHP_EOL;
 
 file_put_contents(
     $pathToTheDumpFile,
-    var_export(
-        json_encode(
-            file_get_contents(
-                $pathToThePhpArrayFile
-            ),
-            JSON_PRETTY_PRINT
+    json_encode(
+        require_once(
+            $pathToThePhpArrayFile
         ),
-        true
+        JSON_PRETTY_PRINT
     )
 );
 

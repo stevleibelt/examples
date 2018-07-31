@@ -23,6 +23,7 @@ echo '   File path: ' . $pathToTheDumpFile . PHP_EOL;
 
 file_put_contents(
     $pathToTheDumpFile,
+    '<?php' . PHP_EOL . 'return ' .
     var_export(
         json_decode(
             file_get_contents(
