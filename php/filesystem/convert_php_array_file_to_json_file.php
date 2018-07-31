@@ -28,7 +28,7 @@ file_put_contents(
             file_get_contents(
                 $pathToThePhpArrayFile
             ),
-            true
+            JSON_PRETTY_PRINT
         ),
         true
     )
