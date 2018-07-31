@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 ####
-# converts a json file to a php array file
+# converts a php array file to a json file
 ####
 # @since 2018-07-31
 # @author stev leibelt <artodeto@bazzline.net>
@@ -9,14 +9,14 @@
 
 if ($argc < 2) {
     echo ':: Invalid amount of arguments provided.' . PHP_EOL;
-    echo '   ' . basename(__FILE__) . ' <path to the json file>' . PHP_EOL;
+    echo '   ' . basename(__FILE__) . ' <path to the php array file>' . PHP_EOL;
 
     exit(1);
 }
 
-$pathToTheJsonFile = $argv[1];
+$pathToThePhpArrayFile = $argv[1];
 
-$pathToTheDumpFile  = $pathToTheJsonFile . '.php';
+$pathToTheDumpFile  = $pathToThePhpArrayFile . '.json';
 
 echo ':: Dumping in progress' . PHP_EOL;
 echo '   File path: ' . $pathToTheDumpFile . PHP_EOL;
@@ -24,9 +24,9 @@ echo '   File path: ' . $pathToTheDumpFile . PHP_EOL;
 file_put_contents(
     $pathToTheDumpFile,
     var_export(
-        json_decode(
+        json_encode(
             file_get_contents(
-                $pathToTheJsonFile
+                $pathToThePhpArrayFile
             ),
             true
         ),
