@@ -14,6 +14,8 @@ function toNumbers($string)
     return filter_var($string, FILTER_SANITIZE_NUMBER_INT);
 }
 
+echo ':: Important, FILTER_SANITIZE_NUMBER_INT returns numbers *plus* - and +' . PHP_EOL;
+
 $strings = array(
     'foo',
     'bar',
@@ -21,10 +23,11 @@ $strings = array(
     '12f',
     'f23',
     '2d23ad2',
+    '2d23-ad2',
     'sad3.312asd2,23'
 );
 
 foreach ($strings as $string) {
-    echo 'string: "' . $string . '"' . PHP_EOL .
-        'contains following numbers: ' . toNumbers($string) . PHP_EOL;
+    echo '   String: "' . $string . '"' . PHP_EOL .
+        '   Contains following numbers: ' . toNumbers($string) . PHP_EOL;
 }
