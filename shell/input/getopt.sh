@@ -3,7 +3,7 @@
 # @see
 #   https://stackoverflow.com/questions/402377/using-getopts-in-bash-shell-script-to-get-long-and-short-command-line-options
 # @author stev leibelt <artodeto@bazzline.net>
-# @since 2014-03-25
+# @since 2018-08-13
 ####
 
 CONTENT_OF_ARGUMENT_D=""
@@ -15,17 +15,23 @@ SHOW_USAGE=1
 #a, b and c are simple flags
 #d has an argument
 #if you put this into a function, you have to provide the function the arguments like <function name> $@
-while getopts "abcd:" CURRENT_OPTION;
+while true;
 do
-    case ${CURRENT_OPTION} in
-        a )
+    case "${1}" in
+        -a )
             FLAG_A_IS_ENABLED=1
+            shift
             ;;
-        b )
+        -b )
             FLAG_B_IS_ENABLED=1
+            shift
             ;;
-        c )
+        -c )
             FLAG_C_IS_ENABLED=1
+            shift
+            ;;
+        *)
+            break
             ;;
     esac
 done
