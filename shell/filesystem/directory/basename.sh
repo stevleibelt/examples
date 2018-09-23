@@ -6,7 +6,7 @@
 # @since 2016-10-24
 ########
 
-BASE_NAME=$(basename $0)
+BASE_NAME=$(basename ${0})
 
-echo ":: outputting the base name of this script."
+echo ":: Outputting the base name of this script."
 echo "${BASE_NAME}"
