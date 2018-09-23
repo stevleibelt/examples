@@ -12,12 +12,12 @@ then
     exit 1
 fi
 
-SECONDS_TO_RUN="$1"
+SECONDS_TO_RUN="${1}"
 
 if [[ $# -gt 1 ]];
 then
     HAS_FILE_NAME=1
-    FILE_NAME="$2"
+    FILE_NAME="${2}"
 else
     HAS_FILE_NAME=0
 fi
@@ -26,7 +26,7 @@ BE_VERBOSE=1
 
 if [[ $# -gt 2 ]];
 then
-    if [[ "$3" == "silent" ]];
+    if [[ "${3}" == "silent" ]];
     then
         BE_VERBOSE=0
     fi
