@@ -27,3 +27,8 @@ echo "date +'%Y-%m-%d %H:%M:%S'"
 DATE=$(date +'%Y-%m-%d %H:%M:%S')
 echo ${DATE}
 echo ""
+
+echo "date +'%Y%m%d.%H%M%S'"
+DATE=$(date +'%Y%m%d.%H%M%S')
+echo ${DATE}
+echo ""
