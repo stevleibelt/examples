@@ -8,10 +8,14 @@
 
 STRING="There is no foo without a bar"
 SUBSTRING="foo"
+echo "String: >>${STRING}<<."
+
 # index of starts with "0"
-INDEX_OF_FOO=$(expr index "$STRING" $SUBSTRING)
+INDEX_OF_FOO=$(expr index "${STRING}" "${SUBSTRING}")
+echo "Index of starts with 0 >>${INDEX_OF_FOO}<<."
+
 # add "+1" to start with position "1"
 INDEX_OF_FOO=$((INDEX_OF_FOO+1))
+echo "Index plus 1 >>${INDEX_OF_FOO}<<."
 
-echo $STRING
-echo 'foo is on position: '$INDEX_OF_FOO
+echo ">>foo<< is on position: >>${INDEX_OF_FOO}<<."
