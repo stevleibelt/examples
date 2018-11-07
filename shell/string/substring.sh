@@ -21,13 +21,21 @@ WITHOUT_THE_EXTENSION=${STRING:0:-3}
 
 echo ":: String"
 echo "   ${STRING}"
+
 echo ":: First three characters"
 echo "   ${FIRST_THREE_CHARACTERS}"
+
 echo ":: From fourth character"
 echo "   ${FROM_FOURTH_CHARACTER}"
+
 echo ":: A piece of"
-echo "   ${A_PIECE_OF}"
+echo "${A_PIECE_OF}"
+
 echo ":: Last charachter"
 echo "   ${LAST_CHARACTER}"
+
 echo ":: Without the extension"
 echo "   ${WITHOUT_THE_EXTENSION}"
+
+echo ":: All after baz."
+echo "   "${STRING#*"baz"}

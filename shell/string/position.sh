@@ -11,6 +11,8 @@ SUBSTRING="foo"
 echo "String: >>${STRING}<<."
 
 # index of starts with "0"
+echo ":: IMPORTANT"
+echo "   This is just checking the position of the first character (\"${SUBSTRING:0:1}\" of \"${SUBSTRING}\") in the \"${STRING}\""
 INDEX_OF_FOO=$(expr index "${STRING}" "${SUBSTRING}")
 echo "Index of starts with 0 >>${INDEX_OF_FOO}<<."
 
