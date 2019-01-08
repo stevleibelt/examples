@@ -4,7 +4,24 @@
 # @since 2012-11-26
 # @see  http://www.linuxjournal.com/content/bash-arrays
 #       http://www.tldp.org/LDP/abs/html/arrays.html
+#       https://opensource.com/article/18/5/you-dont-know-bash-intro-bash-arrays
 ########
+
+####
+# syntax            result
+#
+# array=()          create an empty array
+# array=(1 2 3)     initialize an array
+# ${array[2]}       retrieve third element
+# ${array[@]}       retrieve all elements
+# ${!array[@]}      retrieve array indices
+# ${#array[@]}      calculate array size
+# array[0]=3        overwrite first element
+# array+=(4)        append value(s)
+# string=$(ls)      save ls output as a string
+# array( $(ls )     save ls output as an array of files
+# ${array[@]:s:n}   retrieve n elements starting at index s
+####
 
 #array
 #based on http://www.thegeekstuff.com/2010/06/bash-array-tutorial/
@@ -20,7 +37,7 @@ ARRAY_ENTRIES+=("baz")
 #the quotes are important to deal with string containing whitespaces
 #@see: http://stackoverflow.com/a/30133471
 echo ""
-echo ":: On way of looping through the array"
+echo ":: On way of looping through the array."
 echo ""
 
 for ARRAY_ENTRY in "${ARRAY_ENTRIES[@]}";
@@ -28,10 +45,20 @@ do
     echo "    ${ARRAY_ENTRY}";
 done;
 
+echo ""
+echo ":: Iterating over the index."
+echo ""
+
+for ARRAY_INDEX in "${!ARRAY_ENTRIES[@]}";
+do
+    echo "   ${ARRAY_ENTRIES[${ARRAY_INDEX}]}"
+done
+
 #@see: http://www.techrepublic.com/article/using-arrays-in-bash/
 echo ""
-echo ":: An other way of looping through"
+echo ":: An other way of looping through."
 echo ""
+
 NUMBER_OF_ENTRIES=${#ARRAY_ENTRIES[*]}
 
 for ((ITERATOR=0;ITERATOR<${NUMBER_OF_ENTRIES};++ITERATOR));
@@ -40,7 +67,7 @@ do
 done
 
 echo ""
-echo ":: Fetching the keys to get the content"
+echo ":: Fetching the keys to get the content."
 echo ""
 for ARRAY_KEY in ${!ARRAY_ENTRIES[@]};
 do
