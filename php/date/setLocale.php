@@ -1,3 +1,4 @@
+#!/bin/env php
 <?php
 /**
  * @see http://php.net/manual/en/function.setlocale.php

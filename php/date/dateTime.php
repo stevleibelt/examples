@@ -1,3 +1,4 @@
+#!/bin/env php
 <?php
 /**
  * @author stev leibelt <artodeto@bazzline.net>
