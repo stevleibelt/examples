@@ -4,10 +4,12 @@
  *
  * @attantion, currently there is no return value validation implemented!
  *
+ * Latest results done with >>PHP 7.3.7<<
+ *  fastest method for not being case insensitive is "startsWithThree" with 0.014227867126465 seconds.
+ *  fastest method for being case insensitive is "startsWithThree" with 0.017825126647949 seconds.
+ *
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-03-13
- * @result: fastest method for not being case insensitive is "startsWithFive" with 0.011387825012207 seconds.
- * @result: fastest method for being case insensitive is "startsWithEight" with 0.0081050395965576 seconds.
  */
 
 echo 'generating test' . PHP_EOL;
