@@ -8,6 +8,26 @@
  *  fastest method for not being case insensitive is "startsWithThree" with 0.014227867126465 seconds.
  *  fastest method for being case insensitive is "startsWithThree" with 0.017825126647949 seconds.
  *
+ * For the log, the full output:
+ *  startsWithOne:         0.014333009719849 seconds.
+ *  startsWithTwo:         0.93849587440491 seconds.
+ *  startsWithThree:       0.014227867126465 seconds.
+ *  startsWithFour:        0.024863958358765 seconds.
+ *  startsWithFive:        0.015030145645142 seconds.
+ *  startsWithSix:         0.026879072189331 seconds.
+ *  startsWithSeven:       0.026879072189331 seconds.
+ *
+ *  fastest method for not being case insensitive is "startsWithThree" with 0.014227867126465 seconds.
+ *  startsWithThree:       0.017825126647949 seconds.
+ *  startsWithOne:         0.052682161331177 seconds.
+ *  startsWithFive:        0.056452035903931 seconds.
+ *  startsWithFour:        0.065667152404785 seconds.
+ *  startsWithSix:         0.069534063339233 seconds.
+ *  startsWithSeven:       0.05298900604248 seconds.
+ *  startsWithTwo:         0.05298900604248 seconds.
+ *
+ *  fastest method for being case insensitive is "startsWithThree" with 0.017825126647949 seconds.
+ *
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-03-13
  */
