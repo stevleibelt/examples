@@ -1,0 +1,6 @@
+---
+- hosts: all
+  order: sorted
+  gather_facts: False
+  roles:
+    - common

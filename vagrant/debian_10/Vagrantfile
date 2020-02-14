@@ -1,0 +1,24 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "debian/buster64"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.cpus = 2
+    vb.memory = 2048
+  end
+
+  #order matters
+  config.vm.provision "shell", path: "setup/bash/enable_non_free_packages.sh"
+  config.vm.provision "shell", path: "setup/bash/install_or_update_mandatory_software.sh"
+
+  config.vm.provision "guest_ansible" do |ansible|
+    ansible.playbook = "setup/ansible/playbook.yml"
+    ansible.extra_vars = {
+      "ansible_python_interpreter" => "/usr/bin/python3"
+    }
+  end
+
+  config.vm.synced_folder "local_share/", "/media/vagrant_share"
+end

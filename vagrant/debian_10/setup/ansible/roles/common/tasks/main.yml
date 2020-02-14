@@ -1,0 +1,21 @@
+---
+#this role contains common tasks each machine should have
+
+- name: Install a finest selection of useful packages
+  become: yes
+  become_method: sudo
+  package:
+    name:
+      - curl
+      - dnsutils
+      - git
+      - htop
+      - lsof
+      - ncdu
+      - nmon
+      - screen
+      - strace
+      - tree
+      - vim
+      - wget
+    state: latest
