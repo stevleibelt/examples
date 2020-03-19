@@ -1,6 +1,6 @@
 :: ================
 :: Starts procmon on a remote pc, waits until you are done and opens log with procmon.
-;;
+::
 :: Usage:
 ::  log_psexec_on_a_remote_pc_and_view_it_with_procman.bat <string: computer name>
 :: ================
