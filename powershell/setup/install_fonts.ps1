@@ -3,7 +3,7 @@
 # Automatically installs fonts from provided source path.
 #
 # Usage:
-#   fonts.ps1 <string: path to the fonts to install>
+#   install_fonts.ps1 <string: path to the fonts to install>
 ####
 # @todo
 #   find better names for the variables
