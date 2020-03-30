@@ -8,7 +8,8 @@
 # @todo
 #   find better names for the variables
 ####
-# @see https://4sysops.com/archives/install-fonts-with-a-powershell-script/
+# @see  https://4sysops.com/archives/install-fonts-with-a-powershell-script/
+#       https://powershell.org/forums/topic/install-fonts-using-invoke-command/
 # @since 2020-03-26
 # @author stev leibelt <artodeto@bazzline.net>
 ####
@@ -31,7 +32,7 @@ $destinationPathOfTheFonts  = "C:\Windows\Fonts"
 $objShell                   = New-Object -ComObject Shell.Application
 $openType                   = "(Open Type)"
 $regPath                    = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts"
-$sourceFolderObject         = $objShell.namespace($pathToTheRotisFont)
+$sourceFolderObject         = $objShell.namespace($sourcePathOfTheFonts)
 $trueType                   = "(True Type)"
 
 Write-Host ":: Installing fonts."
@@ -47,17 +48,17 @@ Foreach ($file in $sourceFolderObject.items()) {
     } ElseIf ($fileType -eq "TrueType font file") {
         $regKeyName = $fontName,$trueType -join " "
     } Else {
+        Write-Host $("File type >>" + $fileType + "<< is not supported!")
         Continue
     }
 
     $fontDestinationPath    = $($destinationPathOfTheFonts + "\" + $file.Name)
-    $regKeyValue            = $file.Name
 
     if (!(Test-Path $fontDestinationPath)) {
         Write-Host $("   Installing font >>" + $fontName + "<< from file >>" + $file.Name + "<<.")
         Copy-Item $file.Path $destinationPathOfTheFonts
 
-        Write-Host $("   Creating registry entry >>" + $regKeyName + "<< with value >>" + $regKeyValue + "<<.")
-        $null = New-ItemProperty -Path $regPath -Name $regKeyName -Value $regKeyValue -PropertyType String -Force
+        Write-Host $("   Creating registry entry >>" + $regKeyName + "<< with value >>" + $file.Name + "<<.")
+        New-ItemProperty -Path $regPath -Name $regKeyName -Value $file.Name -PropertyType String -Force | Out-Null:
     }
 }
