@@ -43,9 +43,9 @@ Foreach ($file in $sourceFolderObject.items()) {
     $fontName   = $($sourceFolderObject.getDetailsOf($file, 21));
     $fileType   = $($sourceFolderObject.getDetailsOf($file, 2));
 
-    if ($fileType -eq "OpenType font file") {
+    if ($fileType -like "OpenTyper*") {
         $regKeyName = $fontName,$openType -join " "
-    } ElseIf ($fileType -eq "TrueType font file") {
+    } ElseIf ($fileType -like "TrueType*") {
         $regKeyName = $fontName,$trueType -join " "
     } Else {
         Write-Host $("File type >>" + $fileType + "<< is not supported!")
