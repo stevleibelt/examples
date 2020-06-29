@@ -10,11 +10,40 @@
 
 function handle_sigterm ()
 {
-    echo "handle_sigterm executed"
+    echo "   function `handle_sigterm` executed. CTRL+Z pressed :-)."
 }
 
-trap "handle_sigterm" SIGTERM
-trap "echo \"SIGINT or SIGSTP received\"" SIGINT SIGHUP
+function handle_sigint ()
+{
+    let NUMBER_OF_HANDLED_SIGINT++
+    echo
 
-echo "sleeping for 30 seconds"
-sleep 30
+    if [[ $NUMBER_OF_HANDLED_SIGINT == 1  ]];
+    then
+        echo "   Please don't do this again."
+    elif [[ $NUMBER_OF_HANDLED_SIGINT == 2  ]];
+    then
+        echo "   Last warning, please stop this or I will stop it."
+    else
+        echo "   I quit."
+        exit
+    fi
+}
+
+trap handle_sigterm SIGTERM
+#do not trap SIGKILL or SIGSTOP since it ends up in undefined results
+#trap "echo \"   SIGSTOP received\"" SIGSTOP
+#SIGTSTP is not working since the process is already sleeping
+trap "echo \"   SIGTSTP received\"" SIGTSTP
+trap handle_sigint SIGINT
+trap "echo \"   ERR received\"" ERR
+trap "echo \"   EXIT received\"" EXIT
+
+#following would not work
+#   while sleep 10
+#the reason for that is that interrupted commands, like the `while sleep 10`, are not restarted after the trap is triggered.
+while true
+do
+    echo ":: Sleeping for 30 seconds"
+    sleep 30
+done
