@@ -98,7 +98,7 @@ If ($YouWantToKnowMore -like "y") {
 
     $InputToOperationSystem = @{}
     $Iterator = 1;
-    Write-Host "  0) Kein Filter"
+    Write-Host "  0) No filter"
 
     ForEach ($OperatingSystem in $OperatingSystemToBuildHashTable.Keys) {
         Write-Host ("  " + $Iterator + ") " + $OperatingSystem)
@@ -126,7 +126,7 @@ If ($YouWantToKnowMore -like "y") {
             Write-Host "Wollen Sie nach einer Build Version Filtern?"
 
             $Iterator = 1;
-            Write-Host "  0) Kein Filter"
+            Write-Host "  0) No filter"
 
             ForEach ($BuildVersion in $OperatingSystemToBuildHashTable[$SelectedOperatingSystem].Keys) {
                 Write-Host ("  " + $Iterator + ") " + $BuildVersion)
@@ -195,7 +195,7 @@ If ($DisplayMore -eq $true) {
                 }
 
                 If ($AddItemToPreparedOutput -eq $true) {
-                    $Item = New-Object –TypeName PSObject –Prop @{
+                    $Item = New-Object â€“TypeName PSObject â€“Prop @{
                         OperatingSystem = $OperatingSystem
                         WinVer = If ($Windows10BuildToVersionToWinVersion.ContainsKey($BuildVersion)) { $Windows10BuildToVersionToWinVersion[$BuildVersion] } Else { "" }
                         BuildVersion = $BuildVersion
