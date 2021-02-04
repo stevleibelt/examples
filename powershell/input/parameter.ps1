@@ -10,13 +10,13 @@
 #define it at the top of your code
 
 param (
-    [string]$optionalstring = "there is no foo without a bar",
-    [string]$mandatorystring = $( Read-Host "Please input something, something please!" ),
-    [switch]$force = $false
+    [Parameter(Mandatory=$true)] [string]$mandatorystring = $( Read-Host "Please input something, something please!" ),
+    [Parameter(Mandatory=$false)] [string]$optionalstring = "there is no foo without a bar",
+    [Parameter(Mandatory=$false)] [switch]$force = $false
 )
 
-Write-Host $("Parameter >>mandatorystring<< contains: " $mandatorystring)
-Write-Host $("Parameter >>optionalstring<< contains: " $optionalstring)
+Write-Host $("Parameter >>mandatorystring<< contains: " + $mandatorystring)
+Write-Host $("Parameter >>optionalstring<< contains: " + $optionalstring)
 
 If ($force) {
     Write-Host "Flag >>force<< was used."
