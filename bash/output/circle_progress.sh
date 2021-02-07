@@ -1,12 +1,15 @@
 #!/bin/bash
 ####
-# @author stev leibelt <artodeto@bazzline.net>
+# You spin me round, round, baby round, round
+####
 # @since 2015-10-30
+# @author stev leibelt <artodeto@bazzline.net>
 ####
 
 ITERATOR=0;
 
-# store current cursor position
+#store current cursor position
+#   this way, the next output is a line below the current position
 printf "\0337"
 
 while true

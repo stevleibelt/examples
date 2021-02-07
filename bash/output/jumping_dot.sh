@@ -1,4 +1,16 @@
 #!/bin/bash
+####
+# Instead of a circle, we have the following dot metamorphose
+#   1 2 3 4 5 6 7 8 9 0
+#   . o O o . o O o . 
+####
+# @since: 2020-07-29
+# @author: Stev Leibelt <artodeto@bazzline.net>
+####
+
+#store current cursor position
+#   this way, the next output is a line below the current position
+printf "\0337"
 
 while true;
 do
@@ -18,7 +30,6 @@ do
         *)
             printf "\0338 "
     esac
+
     sleep 1
-#1 2 3 4 5 6 7 8 9 0
-#. o O o . o O o . 
 done
