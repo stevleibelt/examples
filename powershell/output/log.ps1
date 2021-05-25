@@ -13,6 +13,9 @@ If (!(Test-Path $logFilePath)) {
 }
 
 $logFile = ($logFilePath + [IO.Path]::DirectorySeparatorChar + $logFileName)
+#you could also use a StreamWriter
+# @see: https://devblogs.microsoft.com/powershell-community/how-to-send-output-to-a-file/
+#$logFileSteam = [System.IO.StreamWriter]::new($logFile)
 #eo: setup
 
 #bo: function
@@ -28,7 +31,10 @@ Function Log-Message {
 
     $logMessage = '{0} {1} [{2}]: {3}' -f $currentDate,$currentTime,$logLevel,$message
 
+    #`>>` is equivalent to Out-File -Append
     $logMessage >> $logFile
+    #if you would use a stream
+    #$logFileStream.WriteLine($logMessage)
 }
 #eo: function
 
