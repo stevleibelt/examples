@@ -22,7 +22,7 @@ function _net_bazzline_example_bash_input_getopt ()
     while true;
     do
         case "${1}" in
-            -a | "--alpha" )
+            "-a" | "--alpha" )  #as you can see, you can put "-a" in \" or not
                 FLAG_A_IS_ENABLED=1
                 shift 1
                 ;;
