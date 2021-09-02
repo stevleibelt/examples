@@ -10,11 +10,11 @@
 
 function _net_bazzline_example_bash_input_getopt ()
 {
-    CONTENT_OF_ARGUMENT_D=""
-    FLAG_A_IS_ENABLED=0
-    FLAG_B_IS_ENABLED=0
-    FLAG_C_IS_ENABLED=0
-    SHOW_USAGE=1
+    local CONTENT_OF_ARGUMENT_D=""
+    local FLAG_A_IS_ENABLED=0
+    local FLAG_B_IS_ENABLED=0
+    local FLAG_C_IS_ENABLED=0
+    local SHOW_USAGE=1
 
     #a, b and c are simple flags
     #d has an argument
