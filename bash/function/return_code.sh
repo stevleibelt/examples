@@ -20,7 +20,7 @@ function _reacting_on_return_code ()
 }
 
 ####
-# <param> <return_code>
+# @param: <int: return_code>
 ####
 function _generate_return_code ()
 {
