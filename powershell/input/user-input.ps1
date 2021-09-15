@@ -15,7 +15,7 @@ If ($UserName.Length -eq 0) {
     $UserName = 'Neo'
 }
 
-Write-Host $($UserName + " ...")
+Write-Host "${UserName} ..."
 
 If ($YesOrNo.StartsWith('y')) {
     Write-Host "   Computer says yes."
