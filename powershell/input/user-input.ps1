@@ -6,7 +6,8 @@
 # @author stev leibelt <artodeto@bazzline.net>
 ####
 
-$YesOrNo = Read-Host -Prompt ':: Yes or no? (y/N) '
+#uppercase N indicates that this is the default answer.
+$YesOrNo = Read-Host -Prompt ':: Yes or no? (y|N) '
 $UserName = Read-Host -Prompt ':: Input your user name.'
 
 If ($UserName.Length -eq 0) {
