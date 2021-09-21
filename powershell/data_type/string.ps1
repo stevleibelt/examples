@@ -9,6 +9,8 @@
 $string = "This is my Example String."
 
 Write-Host $("Example string: >>" + $string + "<<.")
+Write-Host $("   In uppercase: >>" + $string.toUpper() + "<<.")
+Write-Host $("   In lowercase: >>" + $string.toLower() + "<<.")
 
 if ( $string.startsWith("Exa") )
 {
