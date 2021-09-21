@@ -19,12 +19,12 @@ Function Display-NestedLoopProgress {
 
     For ($I = 1; $I -le $TotalAmount; ++$I) {
         #We are taking care of the id to be able to reference to it
-        Write-Progress -Activity "Display-NestedLoopProgress" -Status "$I / $TotalAmount complete:" -PercentComplete $I -CurrentOperation "Outer Loop" -Id 0
+        Write-Progress -Activity "Display-Outer-NestedLoopProgress" -Status "$I / $TotalAmount complete:" -PercentComplete $I -CurrentOperation "Outer Loop" -Id 0
 
         For ($J = 1; $J -le $TotalAmount; ++$J) {
             #Importent here is that you provide explicit an id plus using the previously
             #   create id as reference/parent id
-            Write-Progress -Activity "Display-NestedLoopProgress" -Status "$J / $TotalAmount complete:" -PercentComplete $J -CurrentOperation "Inner Loop" -Id 1 -ParentId 0
+            Write-Progress -Activity "Display-Inner-NestedLoopProgress" -Status "$J / $TotalAmount complete:" -PercentComplete $J -CurrentOperation "Inner Loop" -Id 1 -ParentId 0
             #Not needed for real world example.
             Start-Sleep -Milliseconds 2
         }
