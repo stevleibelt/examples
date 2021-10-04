@@ -18,7 +18,7 @@
 #>
 
 #autoloading
-$ListOfPublicFunctionFilePath = [System.IO.Path]::Combine)$PSScriptRoot, "source", "public", "*.ps1")
+$ListOfPublicFunctionFilePath = [System.IO.Path]::Combine($PSScriptRoot, "source", "public", "*.ps1")
 Get-ChildItem -Path $ListOfPublicFunctionFilePath -Exclude *.test.ps1, *profile.ps1 | ForEach-Object {
     Try {
         . $_.FullName
@@ -27,7 +27,7 @@ Get-ChildItem -Path $ListOfPublicFunctionFilePath -Exclude *.test.ps1, *profile.
     }
 }
 
-$ListOfPrivateFunctionFilePath = [System.IO.Path]::Combine)$PSScriptRoot, "source", "private", "*.ps1")
+$ListOfPrivateFunctionFilePath = [System.IO.Path]::Combine($PSScriptRoot, "source", "private", "*.ps1")
 Get-ChildItem -Path $ListOfPrivateFunctionFilePath -Exclude *.test.ps1, *profile.ps1 | ForEach-Object {
     Try {
         . $_.FullName
