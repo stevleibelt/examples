@@ -35,4 +35,12 @@ Function List-Values
     }
 }
 
-#Export-ModuleMember -Function List-Values
+Function Write-FooBar
+{
+    Write-Host ":: FooBar"
+}
+
+#With the lines below, you are defining the public functions
+#   of your module.
+#Export-ModuleMember -Function List-Values,`
+#                              Write-FooBar

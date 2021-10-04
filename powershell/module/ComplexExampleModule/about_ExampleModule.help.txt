@@ -1,0 +1,18 @@
+TOPIC
+    about_<ExampleModule>
+
+SHORT DESCRIPTION
+    This is a short, one-liner, description
+
+LONG DESCRIPTION
+    This is a longer description.
+    Multiple lines long.
+
+EXAMPLES
+    Some lines with examples how to use this module.
+
+KEYWORDS
+    tagOne tagTwo useful worlds
+
+SEE ALSO
+    Text only references for further reading
