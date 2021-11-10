@@ -29,3 +29,26 @@ $HashTable = @{
 }
 
 $HashTable.GetEnumerator() | Sort Name | Format-Table @{Label='My alternative for name';Expression={$_.Name}},@{Label='My alternative for value';Expression={$_.Value}} -AutoSize
+
+####
+#@see https://devblogs.microsoft.com/powershell-community/how-to-use-formatenumerationlimit/
+####
+function Test-GlobalFormatEnumerationLimit
+{
+    Write-Host ":: Outputting more than four columns."
+
+    Write-Host "   Outputting the first four processes before adapting \$FormatEnumerationLimit."
+    Get-Process | Select-Object -Property Name, Threads -First 4
+    #$FormatEnumerationLimit is behaving differently
+    #   Local scoping is not working
+    $OldFormatEnumerationLimit = $Global:FormatEnumerationLimit
+
+    $Global:FormatEnumerationLimit = 1
+    Write-Host "   Outputting the first four processes after adapting \$FormatEnumerationLimit."
+    Get-Process | Select-Object -Property Name, Threads -First 4
+
+    #You have to change it back
+    $Global:FormatEnumerationLimit = $OldFormatEnumerationLimit
+}
+
+Test-GlobalFormatEnumerationLimit
