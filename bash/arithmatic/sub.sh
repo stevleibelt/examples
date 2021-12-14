@@ -4,6 +4,12 @@
 # @since 2014-03-22
 ####
 
-RESULT=`expr 2 - 1`
+function _sub ()
+{
+    local ONE=1
+    local RESULT=`expr 2 - ${ONE}`
 
-echo '2 - 1 is: '$RESULT
+    echo ":: 2 - 1 is >>${RESULT}<<"
+}
+
+_sub
