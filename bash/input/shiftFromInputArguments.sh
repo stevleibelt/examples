@@ -6,15 +6,20 @@
 #   http://stackoverflow.com/questions/21166739/bash-manual-input-and-shift-of-positional-parameters
 ####
 
-echo ":: number of arguments: ${#}.";
-echo ":: all arguments: ${@}.";
+function _example()
+{
+    echo ":: number of arguments >>${#}<<.";
+    echo ":: all arguments >>${@}<<.";
 
-if [[ $# -ge 3 ]];
-then
-    echo ":: shifting the first two arguments."
-    shift 2
-    echo ":: outputting the available arguments."
-    echo $*
-else
-    echo ":: call me with more then two arguments"
-fi
+    if [[ $# -ge 3 ]];
+    then
+        echo ":: shifting the first two arguments."
+        shift 2
+        echo ":: outputting the available arguments."
+        echo $*
+    else
+        echo ":: call me with more then two arguments"
+    fi
+}
+
+_example $@
