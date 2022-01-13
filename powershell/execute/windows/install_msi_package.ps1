@@ -15,15 +15,6 @@
 # @author stev leibelt <artodeto@bazzline.net>
 ####
 
-#bo: setup
-$IsDryRun = $false
-$PathToBinaryFile = Join-Path -Path $PSScriptRoot -ChildPath "bin" -AdditionalChildPath "my_example.msi"
-$LocalInstallationPath = "C:\MyExample" #just use it if you really need it!
-$LogFilePath = Join-Path -Path $PSScriptRoot -ChildPath "log"
-$OldVerbosePrefence = $VerbosePreference
-$VerbosePreference = "Continue"
-#eo: setup
-
 #bo: function
 Function Check-FileIntegrity
 {
@@ -79,11 +70,11 @@ Function Install-Software
         [string] $LocalInstallationPath,
 
         [Parameter(Mandatory = $true)]
-        [string] $PathToTheLogFile
-    )
-    $DateTimeStamp = Get-Date -Format "yyyyMMdd.HHmmss"
+        [string] $PathToTheLogFile,
 
-    $PathToTheLogFile = '{0}{1}_{2}.log' -f ($PSScriptRoot + "\log\"),$env:computername,$DateTimeStamp
+        [Parameter(Mandatory = $true)]
+        [bool] $UseLogging
+    )
 
     Write-Verbose ":: Starting MSI installation."
     #@see: https://powershellexplained.com/2016-10-21-powershell-installing-msi-files/
@@ -94,9 +85,17 @@ Function Install-Software
         "/qn"
         "/norestart"
         "/quiet"
-        "/L*v"
-        $PathToTheLogFile
     )
+
+    If ($UseLogging -eq $true) {
+        $DateTimeStamp = Get-Date -Format "yyyyMMdd.HHmmss"
+
+        $PathToTheLogFile = '{0}{1}_{2}.log' -f ($PSScriptRoot + "\log\"),$env:computername,$DateTimeStamp
+
+        #@see: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec#logging-options
+        $MsiArguments += "/L*v"
+        $MsiArguments += $PathToTheLogFile
+    }
 
     If ($IsDryRun -eq $true) {
         Write-Host $MsiArguments
@@ -113,8 +112,24 @@ Function Install-Software
     }
 }
 
-If (Check-FileIntegrity $PathToBinaryFile) {
-    Install-Software $PathToBinaryFile $LocalInstallationPath $LogFilePath
+Function _Execute-Main
+{
+    #bo: setup
+    $IsDryRun = $false
+    #-AdditionalChildPath is only working with PowerShell 7.2++
+    $PathToBinaryFile = Join-Path -Path $PSScriptRoot -ChildPath "bin" -AdditionalChildPath "my_example.msi"
+    $LocalInstallationPath = "C:\MyExample" #just use it if you really need it!
+    $LogFilePath = Join-Path -Path $PSScriptRoot -ChildPath "log"
+    $OldVerbosePrefence = $VerbosePreference
+    $UseLogging = $true
+    $VerbosePreference = "Continue"
+    #eo: setup
+
+    If (Check-FileIntegrity $PathToBinaryFile) {
+        Install-Software $PathToBinaryFile $LocalInstallationPath $LogFilePath $UseLogging
+    }
+
+    $VerbosePreference = $OldVerbosePrefence
 }
 
-$VerbosePreference = $OldVerbosePrefence
+_Execute-Main
