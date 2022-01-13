@@ -90,7 +90,7 @@ Function Install-Software
     If ($UseLogging -eq $true) {
         $DateTimeStamp = Get-Date -Format "yyyyMMdd.HHmmss"
 
-        $PathToTheLogFile = '{0}{1}_{2}.log' -f ($PSScriptRoot + "\log\"),$env:computername,$DateTimeStamp
+        $PathToTheLogFile = '{0}{1}_{2}_{3}.log' -f ($PSScriptRoot + "\log\"),$env:computername,$env:username,$DateTimeStamp
 
         #@see: https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec#logging-options
         $MsiArguments += "/L*v"
