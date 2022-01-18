@@ -47,6 +47,25 @@ Function Create-MyObject
     ##way two
     $Object | Add-Member -MemberType NoteProperty -Name MySecondProperty -Value 'MySecondProperty'
 
+    #creating a method
+    ##first, create a variable containing the script block for the methods
+    $MyToStringMethodBlock = {
+        param (
+            [Parameter(Mandatory = $false)]
+            [string] $ValueStartString = '>>',
+
+            [Parameter(Mandatory = $false)]
+            [string] $ValueEndString = '<<'
+        )
+
+        $ObjectPropertiesAsString = "Schema: ${ValueStartString}$($this.Schema)<<, Table: ${ValueStartString}($this.Table)${ValueEndString}, Comment: ${ValueStartString}$($this.Comment)${ValueEndString}, MyFirstPropertiy: ${ValueStartString}$($this.MyFirstProperty)${ValueEndString}, MySecondProperty: ${ValueStartString}$($this.MySecondProperty)${ValueEndString}"
+
+
+        return $ObjectPropertiesAsString
+    }
+    ##second, add this block as property
+    Add-Member -InputObject $Object -MemberType ScriptMethod -Name 'MyToString' -Value $MyToStringMethodBlock
+
     #return
     return $Object
 }
@@ -59,4 +78,12 @@ Write-Host ""
 
 Write-Host ":: Outputting MyFirstObject.GetType()."
 $MyFirstObject.GetType()
+Write-Host ""
+
+Write-Host ":: Calling MyFirstObject.MyToString()."
+Write-Host $MyFirstObject.MyToString()
+Write-Host ""
+
+Write-Host ":: Calling MyFirstObject.MyToString('=>', '<=')."
+Write-Host $MyFirstObject.MyToString('=>', '<=')
 Write-Host ""
