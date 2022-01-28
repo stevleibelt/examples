@@ -41,7 +41,7 @@ Function Create-MyObject
     #creating new object
     $Object = New-Object -Type PSObject -Property $Properties
 
-    #addming properties after creating the object
+    #adding properties after creating the object
     ##way one
     Add-Member -InputObject $Object -MemberType NoteProperty -Name MyFirstProperty -Value 'MyFirstProperty'
     ##way two
