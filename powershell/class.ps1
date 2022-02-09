@@ -5,6 +5,7 @@
 # @see
 #   https://arcanecode.com/2021/12/14/fun-with-powershell-classes-the-basics/
 #   https://adamtheautomator.com/powershell-classes/
+#   https://arcanecode.com/2022/02/07/fun-with-powershell-classes-static-properties-and-methods/
 # @since 2021-12-15
 # @author stev leibelt <artodeto@bazzline.net>
 ####
@@ -51,8 +52,8 @@ class MyClass
 class MyOtherClass : MyClass
 {
     [int] $Id
-    [int]hidden $MySecretId
-    [int]static $MaximumId = 999
+    hidden [int] $MySecretId
+    static [int] $MaximumId = 999
 
     MyOtherClass ([string] $Name, [int] $Id)
     {
@@ -63,6 +64,17 @@ class MyOtherClass : MyClass
     [int] GetId()
     {
         return $this.Id
+    }
+
+    [void] DoFoo()
+    {
+        Write-Host ":: there is no foo without a bar."
+    }
+
+    static [void] DoBar([string] $Text = 'there is no bar without a foo')
+    {
+        #you can not use $this
+        Write-Host $(":: ${Text}.")
     }
 }
 
@@ -83,3 +95,6 @@ Write-Host ""
 Write-Host ":: Using the extended class."
 Write-Host $("   >>" + $MyOtherClass.GetId() + "<<.")
 Write-Host $("   >>" + $MyOtherClass.GetName() + "<<.")
+Write-Host $("   >>" + [MyOtherClass]::MaximumId + "<<.")
+$MyOtherClass.DoFoo()
+[MyOtherClass]::DoBar
