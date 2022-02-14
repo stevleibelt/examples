@@ -6,6 +6,7 @@
 #   https://arcanecode.com/2021/12/14/fun-with-powershell-classes-the-basics/
 #   https://adamtheautomator.com/powershell-classes/
 #   https://arcanecode.com/2022/02/07/fun-with-powershell-classes-static-properties-and-methods/
+#   https://arcanecode.com/2022/02/14/fun-with-powershell-classes-overloading/
 # @since 2021-12-15
 # @author stev leibelt <artodeto@bazzline.net>
 ####
