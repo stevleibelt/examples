@@ -2,6 +2,8 @@
 ####
 # Arrays and hashtables
 ####
+# @see:
+#   https://www.windowspro.de/script/strings-ersetzen-loeschen-powershell
 # @since 2021-02-04
 # @author stev leibelt <artodeto@bazzline.net>
 ####
@@ -31,3 +33,6 @@ if ( -Not $string.contains("freedom") )
 {
     Write-Host "String does not contain with >>freedom<<"
 }
+
+Write-Host ":: Replacing >>Example<< with >>Superduper<<."
+Write-Host $string.Replace('Example', 'Superduper')
