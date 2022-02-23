@@ -23,6 +23,21 @@
 # ${array[@]:s:n}   retrieve n elements starting at index s
 ####
 
+#a working array example in sh
+#see: https://unix.stackexchange.com/a/323535
+ARRAY=""
+ARRAY="${ARRAY} there"
+ARRAY="${ARRAY} is"
+ARRAY="${ARRAY} no"
+ARRAY="${ARRAY} foo"
+ARRAY="${ARRAY} without"
+ARRAY="${ARRAY} a"
+ARRAY="${ARRAY} bar"
+
+for WORD in "${ARRAY}"; do
+    echo ${WORD}
+done
+
 #array
 #based on http://www.thegeekstuff.com/2010/06/bash-array-tutorial/
 #http://wiki.bash-hackers.org/syntax/arrays
