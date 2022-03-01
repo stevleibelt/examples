@@ -6,17 +6,25 @@
 # @since 2014-03-17
 ####
 
-STRING="There is no foo without a bar"
-#hashtag only works with variables
-LENGTH_WITH_HASHTAG=${#STRING}
+####
+# [@param <string: the string you want to validate>
+####
+function _main ()
+{
+    local STRING="${1-'There is no foo without a bar'}"
+    #hashtag only works with variables
+    local LENGTH_WITH_HASHTAG=${#STRING}
 
-#following are working with real strings also
-LENGTH_WITH_WORDCOUNT=$(echo $STRING | wc -c)
-LENGTH_WITH_AWK=$(echo $STRING | awk '{print length}')
-LENGTH_WITH_EXPR=$(expr length "$STRING")
+    #following are working with real strings also
+    local LENGTH_WITH_WORDCOUNT=$(echo $STRING | wc -c)
+    local LENGTH_WITH_AWK=$(echo $STRING | awk '{print length}')
+    local LENGTH_WITH_EXPR=$(expr length "$STRING")
 
-echo "${STRING} has a length of:"
-echo "  * with hashtag: ${LENGTH_WITH_HASHTAG}"
-echo "  * with wc: ${LENGTH_WITH_WORDCOUNT}"
-echo "  * with awk: ${LENGTH_WITH_AWK}"
-echo "  * with expr: ${LENGTH_WITH_EXPR}"
+    echo ":: The string >>${STRING}<< has a length of:"
+    echo "  * with hashtag: >>${LENGTH_WITH_HASHTAG}<<"
+    echo "  * with wc: >>${LENGTH_WITH_WORDCOUNT}<<"
+    echo "  * with awk: >>${LENGTH_WITH_AWK}<<"
+    echo "  * with expr: >>${LENGTH_WITH_EXPR}<<"
+}
+
+_main $*
