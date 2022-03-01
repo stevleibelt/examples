@@ -10,8 +10,8 @@ Get-WindowsCapability -Name RSAT* -Online | Select-Object -Property DisplayName,
 
 Write-Host ""
 Write-Host ":: If you want to install all RSAT-Tools."
-Write-Host "   Run >>Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability –Online<<"
+Write-Host "   Run >>Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability Online<<"
 
 Write-Host ""
 Write-Host ":: If you want to install all missing RSAT-Tools."
-Write-Host "   Run >>Get-WindowsCapability -Name RSAT* -Online | where State -EQ NotPresent | Add-WindowsCapability –Online<<."
+Write-Host "   Run >>Get-WindowsCapability -Name RSAT* -Online | where State -EQ NotPresent | Add-WindowsCapability Online<<."
