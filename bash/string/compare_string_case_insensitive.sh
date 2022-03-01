@@ -14,6 +14,8 @@
 ####
 function test_strings_are_equal ()
 {
+    #we have to compare the size of strings to prevent marking
+    # the second string >>fo<< as equal to the first string >>foo<<
     if [ ${#1} -eq ${#2} ];
     then
         if echo ${1} | grep -iqF ${2};
