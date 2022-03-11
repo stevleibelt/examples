@@ -6,23 +6,29 @@
 
 function optionalParameters()
 {
-    case $# in
-        2)  parameterOne=$1
-            parameterTwo=$2
-            echo 'parameter one: '$parameterOne
-            echo 'parameter two: '$parameterTwo
+    case ${#} in
+        2)
+            PARAMETER_ONE="${1}"
+            PARAMETER_TWO="${2}"
+
+            echo ":: outputting parameters."
+            echo "   parameter one: ${PARAMETER_ONE}"
+            echo "   parameter two: ${PARAMETER_TWO}"
             ;;
-        3)  option=$1
-            parameterOne=$2
-            parameterTwo=$3
-            echo 'option: '$option
-            echo 'parameter one: '$parameterOne
-            echo 'parameter two: '$parameterTwo
+        3)
+            OPTION="${1}"
+            PARAMETER_ONE="${2}"
+            PARAMETER_TWO="${3}"
+
+            echo ":: outputting parameters."
+            echo "   parameter one: ${PARAMETER_ONE}"
+            echo "   parameter two: ${PARAMETER_TWO}"
             ;;
-        *)  echo 'Usage: '$0' [-option] <parameter one> <parameter two>'
+        *)
+            echo ":: Usage: ${0} [-option] <parameter one> <parameter two>"
             exit 1
             ;;
     esac
 }
 
-optionalParameters "$@"
+optionalParameters "${@}"
