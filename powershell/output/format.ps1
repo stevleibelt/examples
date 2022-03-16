@@ -39,6 +39,9 @@ function Test-GlobalFormatEnumerationLimit
 
     Write-Host "   Outputting the first four processes before adapting \$FormatEnumerationLimit."
     Get-Process | Select-Object -Property Name, Threads -First 4
+
+    Write-Host "   Outputting the first two processes in a very verbose way."
+    Get-Process | Select-Object -First 2 | Format-List *
     #$FormatEnumerationLimit is behaving differently
     #   Local scoping is not working
     $OldFormatEnumerationLimit = $Global:FormatEnumerationLimit
