@@ -4,8 +4,21 @@
 # @since 2014-03-05
 ####
 
-echo ":: Enter something."
-read VALUE
+function _main ()
+{
+    echo ":: Enter something."
+    read VALUE
 
-echo ":: You have entered the following value."
-echo "   ${VALUE}"
+    echo ":: You have entered the following value."
+    echo "   >>${VALUE}<<"
+    echo ""
+
+    echo ":: Please enter a path. Path completion is enabled."
+    read -e FILE_PATH
+
+    echo ":: You have entered the following value."
+    echo "   >>${FILE_PATH}<<"
+    echo ""
+}
+
+_main

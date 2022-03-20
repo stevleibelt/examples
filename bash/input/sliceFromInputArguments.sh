@@ -10,14 +10,17 @@
 #   http://unix.aspcode.net/view/635395087004115229144850/bash-slice-of-positional-parameters
 ####
 
-echo 'number of arguments: '$#;
-echo 'all arguments: '$@;
+echo ":: Number of arguments >>${#}<<"
+echo ":: All arguments: >>${@}<<"
 
-if [ "$#" -ge 3 ]; then
-    echo 'outputting argument starting with third one'
-    for ARGUMENT in ${@:3} ; do 
-        echo "${ARGUMENT}"; 
+if [[ ${#} -ge 3 ]];
+then
+    echo ":: Outputting argument starting with third one"
+
+    for ARGUMENT in ${@:3} ;
+    do 
+        echo "   ${ARGUMENT}"; 
     done
 else
-    echo 'call me with more then two arguments';
+    echo ":: Please call me with more then two arguments"
 fi
