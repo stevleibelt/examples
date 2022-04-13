@@ -18,6 +18,10 @@ function _main ()
 
     echo ":: You have entered the following value."
     echo "   >>${FILE_PATH}<<"
+    if [[ ! -f "${FILE_PATH}" ]];
+    then
+        echo "   File path does not exist!"
+    fi
     echo ""
 }
 
