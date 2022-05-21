@@ -47,6 +47,12 @@ DATE=$(date +'%Y%m%d.%H%M%S')
 echo ${DATE}
 echo ""
 
+#19831006-133700
+echo "date +'%Y%m%d-%H%M%S'"
+DATE=$(date +'%Y%m%d-%H%M%S')
+echo ${DATE}
+echo ""
+
 echo "date --date=yesterday +%Y%m%d"
 DATE=$(date --date=yesterday +%Y%m%d)
 echo ${DATE}
