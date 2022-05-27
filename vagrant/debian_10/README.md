@@ -8,7 +8,6 @@ This setup is tested from a Windows 10 host.
 
 * download and install (use choco if possible)
     * virtual box
-    * virtual box guest additions
     * vagrant
 * initialize the box (create file "Vagrant" in current working directory)
 ```

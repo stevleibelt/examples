@@ -6,15 +6,20 @@
 # @since 2016-02-02
 ####
 
-LOCAL_DATE=$(date +'%Y-%m-%d %H:%M:%S')
-LOCAL_SCRIPT_PATH=$(cd $(dirname "${BASH_SOURCE[0]}"); pwd)
-LOCAL_IP=$(hostname -i)
+function _main ()
+{
+    LOCAL_DATE=$(date +'%Y-%m-%d %H:%M:%S')
+    LOCAL_SCRIPT_PATH=$(cd $(dirname "${BASH_SOURCE[0]}"); pwd)
+    LOCAL_IP=$(hostname -i)
 
-LOCAL_LOG_MESSAGE="[$LOCAL_DATE]: $HOSTNAME - $LOCAL_IP"
+    LOCAL_LOG_MESSAGE="[$LOCAL_DATE]: $HOSTNAME - $LOCAL_IP"
 
-# either output it
-echo ${LOCAL_LOG_MESSAGE}
-#or put it into a file
-#or use the logger
-logger -i -p cron.debug "${LOCAL_LOG_MESSAGE}"
-#echo ${LOCAL_LOG_MESSAGE} >> "${LOCAL_SCRIPT_PATH}/logger.log"
+    # either output it
+    echo ${LOCAL_LOG_MESSAGE}
+    #or put it into a file
+    #or use the logger
+    logger -i -p cron.debug "${LOCAL_LOG_MESSAGE}"
+    #echo ${LOCAL_LOG_MESSAGE} >> "${LOCAL_SCRIPT_PATH}/logger.log"
+}
+
+_main
