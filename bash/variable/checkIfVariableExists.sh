@@ -16,7 +16,7 @@ function _main ()
         echo ":: Variable BAR does not exist."
     else
         echo ":: Variable BAR does exist."
-        echo "   Value is >>${BAR}"
+        echo "   Value is >>${BAR}<<"
     fi
 
     if [[ -z ${FOO+x} ]];
