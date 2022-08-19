@@ -35,5 +35,18 @@ function _ask_with_case ()
     done
 }
 
+function _ask_with_input ()
+{
+    read -p "> Once again, {y|Y} or {n|N}? " -r
+
+    if [[ ${REPLY} =~ ^[Yy]$  ]];
+    then
+        echo "   YES!"
+    else
+        echo "   NO!"
+    fi
+}
+
 _ask_with_if ${1}
 _ask_with_case ${1}
+_ask_with_input
