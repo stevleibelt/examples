@@ -39,3 +39,10 @@ echo "   ${WITHOUT_THE_EXTENSION}"
 
 echo ":: All after baz."
 echo "   "${STRING#*"baz"}
+
+echo ":: All until the last -."
+echo "   ${STRING%-*}"
+
+echo ":: All until the last -."
+echo "   ${STRING%%-*}"
+

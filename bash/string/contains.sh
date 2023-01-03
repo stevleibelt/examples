@@ -30,3 +30,11 @@ then
 else
     echo ">>${SUBSTRING}<< is not inside >>${STRING}<<."
 fi
+
+if [[ ${STRING} == *iz* ]];
+then
+    echo ">>iz<< is inside >>${STRING}<<."
+else
+    echo ">>iz<< is not inside >>${STRING}<<."
+fi
+
