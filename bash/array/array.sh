@@ -34,8 +34,12 @@ ARRAY="${ARRAY} without"
 ARRAY="${ARRAY} a"
 ARRAY="${ARRAY} bar"
 
-for WORD in "${ARRAY}"; do
-    echo ${WORD}
+echo ":: Outputting array content."
+#as you will see this results in a single line in bash
+
+for WORD in "${ARRAY}";
+do
+    echo "   ${WORD}"
 done
 
 #array
@@ -43,8 +47,9 @@ done
 #http://wiki.bash-hackers.org/syntax/arrays
 declare -a ARRAY_ENTRIES=("foo" "bar" "foo bar");
 
+echo ""
 echo ":: Array has "${#ARRAY_ENTRIES[@]}" elements."
-echo ":: First entry has "${#ARRAY_ENTRIES}" characters."
+echo "   First entry has "${#ARRAY_ENTRIES}" characters."
 echo ":: Adding entry "baz" to the array."
 #add entry to the array
 ARRAY_ENTRIES+=("baz")
@@ -53,7 +58,6 @@ ARRAY_ENTRIES+=("baz")
 #@see: http://stackoverflow.com/a/30133471
 echo ""
 echo ":: On way of looping through the array."
-echo ""
 
 for ARRAY_ENTRY in "${ARRAY_ENTRIES[@]}";
 do
@@ -62,7 +66,6 @@ done;
 
 echo ""
 echo ":: Iterating over the index."
-echo ""
 
 for ARRAY_INDEX in "${!ARRAY_ENTRIES[@]}";
 do
@@ -72,7 +75,6 @@ done
 #@see: http://www.techrepublic.com/article/using-arrays-in-bash/
 echo ""
 echo ":: An other way of looping through."
-echo ""
 
 NUMBER_OF_ENTRIES=${#ARRAY_ENTRIES[*]}
 
@@ -83,7 +85,7 @@ done
 
 echo ""
 echo ":: Fetching the keys to get the content."
-echo ""
+
 for ARRAY_KEY in ${!ARRAY_ENTRIES[@]};
 do
     echo "${ARRAY_KEY} => ${ARRAY_ENTRIES["${ARRAY_KEY}"]}";
@@ -95,7 +97,7 @@ echo ":: Calling two elements, starting from second position: "${ARRAY_ENTRIES[@
 #inarray
 if [[ ${ARRAY_ENTRIES[*]} == bar ]];
 then
-  echo ":: There is a bar in the foo!"
+  echo "   There is a bar in the foo!"
 fi
 
 #size of an array
@@ -110,13 +112,30 @@ echo ":: Sorting array"
 IFS=$'\n' SORTED_ARRAY_ENTRIES=($(sort <<<"${ARRAY_ENTRIES[*]}"))
 unset IFS
 
-echo ":: Outputing conntent"
 echo ""
+echo ":: Outputing conntent"
 
 for ARRAY_ENTRY in "${SORTED_ARRAY_ENTRIES[@]}";
 do
   echo "    ${ARRAY_ENTRY}";
 done;
+
+echo ""
+echo ":: Check if key exists"
+
+if [[ -z ${ARRAY_ENTRIES[2]} ]];
+then
+  echo "   Key >>2<< does not."
+else
+  echo "   Key >>2<< exists."
+fi
+
+if [[ -z ${ARRAY_ENTRIES[99]} ]];
+then
+  echo "   Key >>99<< does not."
+else
+  echo "   Key >>99<< exists."
+fi
 
 #remove first internal variable
 #shift
