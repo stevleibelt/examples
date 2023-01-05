@@ -29,3 +29,4 @@ echo -e '\n'
 echo '%10.4s'
 printf '%10.4s' $STRING
 echo -e '\n'
+

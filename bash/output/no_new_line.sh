@@ -6,3 +6,4 @@
 
 echo -n 'there is no foo'
 echo ' without a bar'
+
