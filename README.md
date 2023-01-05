@@ -18,6 +18,10 @@ This repository contains a lot of free as in freedom examples for multiple progr
 * [docker](docker)
 * [vagrant](vagrant)
 
+## Links
+
+* [Machine language programming](https://opensource.com/article/23/1/learn-machine-language-retro-computer) - 20230105
+
 ## A Few Words About the Code Quality
 
 This is my general code and tool area. A lot of files are created to test something or to see how it works.
