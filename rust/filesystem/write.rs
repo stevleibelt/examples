@@ -3,6 +3,9 @@ use std::io::{self, prelude::*};
 
 /**
  * @see: https://opensource.com/article/23/1/read-write-files-rust
+ *
+ * Use tokio if you want to be serious
+ *  https://github.com/tokio-rs/tokio
  */
 
 fn main() -> std::io::Result<()> {
