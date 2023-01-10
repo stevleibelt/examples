@@ -13,10 +13,10 @@
 ####
 function string_starts_with ()
 {
-    if [[ $# -eq 2 ]];
+    if [[ ${#} -eq 2 ]];
     then
-        local STRING="$1"
-        local SUB_STRING="$2"
+        local STRING="${1}"
+        local SUB_STRING="${2}"
         local LENGTH_OF_SUB_STRING=${#SUB_STRING}
         local STRING_WITH_SUB_STRING_ONLY=${STRING:0:$LENGTH_OF_SUB_STRING}
 
