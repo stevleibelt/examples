@@ -1,4 +1,4 @@
-package net.bazzline.java.example.loop;
+package net.bazzline.java.example.method;
 
 /**
  * @see: https://opensource.com/article/23/1/java-methods
@@ -8,7 +8,7 @@ public class Example {
   public static void main(String[] args) {
 
       long currentTimeMillis = System.currentTimeMillis();
-      string currentStatus;
+      String currentStatus;
 
       if ( currentTimeMillis % 2 == 0 ) {
           currentStatus = "good";
