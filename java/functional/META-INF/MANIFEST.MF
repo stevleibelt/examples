@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+Main-Class: package net.bazzline.java.example.functional/Example
