@@ -6,11 +6,29 @@
 #   http://www.tldp.org/LDP/abs/html/untyped.html
 ####
 
-string='there is no foo without a bar'
+function _main ()
+{
+  local MY_STRING="There is no foo without a bar"
 
-echo $string
+  echo ":: Dumping initial string content."
+  echo "   ${MY_STRING}"
+  echo ""
 
-string=${string/no foo/never a bar}
+  echo "   Replacing >>no foo<< with >>never a bar<<."
+  MY_STRING=${MY_STRING/no foo/never a bar}
 
-echo 'replaced'
-echo $string
+  echo ":: Dumping string content."
+  echo "   ${MY_STRING}"
+  echo ""
+
+  echo "   Replacing >> << with >>_<<."
+  echo "   Removing all >>a<<."
+  MY_STRING=$( echo ${MY_STRING} | tr ' ' '_' | tr -d 'a' )
+
+  echo ":: Dumping string content."
+  echo "   ${MY_STRING}"
+  echo ""
+}
+
+_main ${@}
+

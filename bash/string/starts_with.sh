@@ -33,17 +33,22 @@ function string_starts_with ()
     fi
 }
 
-declare -a LIST_OF_STRINGS=( "there is no foo without a bar" "there is a foo" "there is a bar" "no foo" "no bar" "foobar" )
-STRING_TO_CHECK_FOR="there is"
+function _main ()
+{
+  declare -a LIST_OF_STRINGS=( "there is no foo without a bar" "there is a foo" "there is a bar" "no foo" "no bar" "foobar" )
+  STRING_TO_CHECK_FOR="there is"
 
-for STRING in "${LIST_OF_STRINGS[@]}";
-do
-    echo "The string \"${STRING}\""
+  for STRING in "${LIST_OF_STRINGS[@]}";
+  do
+      echo "The string \"${STRING}\""
 
-    if string_starts_with "${STRING}" "${STRING_TO_CHECK_FOR}"
-    then
-        echo "    starts with \"${STRING_TO_CHECK_FOR}\""
-    else
-        echo "    does not starts with \"${STRING_TO_CHECK_FOR}\""
-    fi
-done
+      if string_starts_with "${STRING}" "${STRING_TO_CHECK_FOR}"
+      then
+          echo "    starts with \"${STRING_TO_CHECK_FOR}\""
+      else
+          echo "    does not starts with \"${STRING_TO_CHECK_FOR}\""
+      fi
+  done
+}
+
+_main ${@}
