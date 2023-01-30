@@ -1,8 +1,8 @@
 [submodule "vendor/jquery/plugin/jquery-hurl"]
-	path = vendor/jquery/plugin/jquery-hurl
+	path = vendor/javascript/jquery/plugin/jquery-hurl
 	url = git://github.com/makesites/jquery-hurl.git
 [submodule "vendor/jquery/plugin/jquery-easy-ticker"]
-	path = vendor/jquery/plugin/jquery-easy-ticker
+	path = vendor/javascript/jquery/plugin/jquery-easy-ticker
 	url = git://github.com/vaakash/jquery-easy-ticker.git
 [submodule "vendor/javascript/jquery/plugin/dotdotdot"]
 	path = vendor/javascript/jquery/plugin/dotdotdot
