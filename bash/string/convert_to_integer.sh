@@ -6,8 +6,14 @@
 # @since 2014-03-18
 ####
 
-STRING="13"
-INTEGER=29
-RESULT=$((STRING+INTEGER))
+function _main ()
+{
+  local STRING="13"
+  local INTEGER=29
 
-echo $STRING' + '$INTEGER' = '$RESULT
+  local RESULT=$((STRING+INTEGER))
+
+  echo "<string: ${STRING}> + <int: ${INTEGER}> = >>${RESULT}<<"
+}
+
+_main ${@}
