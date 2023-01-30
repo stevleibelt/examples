@@ -1,5 +1,7 @@
 <?php
 /**
+ * Example was tested and created by using dompdf 1.2.1
+ *
  * @author stev leibelt <artodeto@bazzline.net>
  * @since 2014-12-09 
  */
