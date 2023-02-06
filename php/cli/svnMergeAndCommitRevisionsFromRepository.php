@@ -5,7 +5,7 @@
  */
 
 require_once 'Input.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'string' . DIRECTORY_SEPARATOR . 'String.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'string' . DIRECTORY_SEPARATOR . 'StringClass.php';
 
 /**
  * Class SvnMergeAndCommitRevisionsFromRepository
@@ -28,7 +28,7 @@ class SvnMergeAndCommitRevisionsFromRepository
     private $projectRootPath;
 
     /**
-     * @var String
+     * @var StringClass
      */
     private $string;
 
@@ -70,9 +70,9 @@ class SvnMergeAndCommitRevisionsFromRepository
     }
 
     /**
-     * @param String $string
+     * @param StringClass $string
      */
-    public function setString(String $string)
+    public function setString(StringClass $string)
     {
         $this->string = $string;
     }
@@ -244,7 +244,7 @@ class SvnMergeAndCommitRevisionsFromRepository
 }
 
 try {
-    $string = new String();
+    $string = new StringClass();
     $input = new Input($string);
     $input->setArguments($argv);
 

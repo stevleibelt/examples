@@ -4,7 +4,7 @@
  * @since 2014-08-20
  */
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'string' . DIRECTORY_SEPARATOR . 'String.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'string' . DIRECTORY_SEPARATOR . 'StringClass.php';
 
 /**
  * Class Input
@@ -37,7 +37,7 @@ class Input
     private $shortOptions;
 
     /**
-     * @var String
+     * @var StringClass
      */
     private $string;
 
@@ -47,10 +47,10 @@ class Input
     private $unhandled;
 
     /**
-     * @param String $string
+     * @param StringClass $string
      * @param array $arguments
      */
-    public function __construct(String $string, array $arguments = array())
+    public function __construct(StringClass $string, array $arguments = array())
     {
         $this->longOptions = array();
         $this->parameters = array();

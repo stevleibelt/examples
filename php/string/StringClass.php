@@ -5,9 +5,9 @@
  */
 
 /**
- * Class String
+ * Class StringClass
  */
-class String
+class StringClass
 {
     /**
      * @param string $string
