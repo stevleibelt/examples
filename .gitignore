@@ -1,3 +1,4 @@
 .idea
 *.jar
+python/__pycache__
 rust/exercism.io/*/debug
