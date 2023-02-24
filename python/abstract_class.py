@@ -9,6 +9,10 @@ class AbstractBase(metaclass=abc.ABCMeta):
     def get_name(self) -> str:
         pass
 
+    @abc.abstractmethod
+    def set_name(self, name: str) -> str:
+        pass
+
 class RealBase(AbstractBase):
 
     def get_name(self) -> str:
