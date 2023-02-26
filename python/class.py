@@ -46,6 +46,7 @@ class PaidEmployee(BaseEmployee):
     def apply_raise(self):
         self._initial_payment = int(self._initial_payment * self._raise_amount)
     
+    #classmethods are used to creae an instance of this class
     @classmethod
     def set_raise_payment_amount(cls, amount):
         cls._raise_amount = amount
