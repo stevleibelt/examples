@@ -1,0 +1,33 @@
+# python
+
+## Module, packages and subpackages
+
+```bash
+# ref: https://fastapi.tiangolo.com/tutorial/bigger-applications/
+
+.
+├── app                  # "app" is a Python package
+│   ├── __init__.py      # this file makes "app" a "Python package"
+│   ├── main.py          # "main" module, e.g. import app.main
+│   ├── dependencies.py  # "dependencies" module, e.g. import app.dependencies
+│   └── routers          # "routers" is a "Python subpackage"
+│   │   ├── __init__.py  # makes "routers" a "Python subpackage"
+│   │   ├── items.py     # "items" submodule, e.g. import app.routers.items
+│   │   └── users.py     # "users" submodule, e.g. import app.routers.users
+│   └── internal         # "internal" is a "Python subpackage"
+│       ├── __init__.py  # makes "internal" a "Python subpackage"
+│       └── admin.py     # "admin" submodule, e.g. import app.internal.admin
+```
+
+
+* The `app` directory contains everything
+  * It has an **empty** file `app/__init__.py`, so it is a "Python package" (a collection of "Python modules"): `app`
+  * It contains an `app/main.py` file. As it is inside a Python package (a directory with a file `__init__.py`), it is a **module** of that package: `app.main`
+* There's also an `app/dependencies.py` file, just like `app/main.py`, it is a **module**: `app.dependencies`
+* There's a subdirectory `app/routers/` with another file `__init__.py`, so it's a **Python subpackage**: `app.routers`
+* The file `app/routers/items.py` is inside a package, `app/routers/`, so, it's a **submodule**: `app.routers.items`
+* The same with `app/routers/users.py`, it's another **submodule**: `app.routers.users`
+* There's also a subdirectory `app/internal/` with another file `__init__.py`, so it's another **Python subpackage**: `app.internal`
+* And the file `app/internal/admin.py` is another **submodule**: `app.internal.admin`
+
+
