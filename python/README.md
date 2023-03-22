@@ -2,6 +2,16 @@
 
 ## Module, packages and subpackages
 
+> A module is a file containing Python definitions and statements.
+
+[source](https://docs.python.org/3/tutorial/modules.html#tut-modules)
+
+> Packages are a way of structuring Python’s module namespace by using “dotted module names”.
+> ...
+> The `__init__.py` files are required to make Python treat directories containing the file as packages.
+
+[source](https://docs.python.org/3/tutorial/modules.html#packages)
+
 ```bash
 # ref: https://fastapi.tiangolo.com/tutorial/bigger-applications/
 
@@ -30,4 +40,12 @@
 * There's also a subdirectory `app/internal/` with another file `__init__.py`, so it's another **Python subpackage**: `app.internal`
 * And the file `app/internal/admin.py` is another **submodule**: `app.internal.admin`
 
+```python
+import routers.items  # This imports the module namespace into your file
+from routers.items import BaseItemClass # This imports names from the module directly into your local namespace
+                                        # This does not introduce the module name into your local namespace, routers is not defined
+
+# To call a method fomr a module namespace, you have to call it with the module namespace
+users.create(name="Max Power")  # Assuming module users has a function called create
+```
 
