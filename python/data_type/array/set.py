@@ -1,5 +1,8 @@
 #!/usr/bin/python
 ####
+# Python also includes a data type for sets. A set is an unordered collection with no duplicate elements. Basic uses include membership testing and eliminating duplicate entries. Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.
+# ref: https://docs.python.org/3/tutorial/datastructures.html#sets - 20230403T08:57:30
+####
 # @see https://pimylifeup.com/python-sets/ - 20220527T15:11:40
 # @since 202205-27
 # @author stev leibelt <artodeto@bazzline.net>
@@ -20,7 +23,7 @@ for x in exampleSet:
     print(x)
 print("")
 
-print(":: Check if >>eampleSet<< contains >>foo<<.")
+print(":: Check if >>exampleSet<< contains >>foo<<.")
 if "foo" in exampleSet:
     print("   >>exampleSet<< does contain >>foo<<.")
 else:
