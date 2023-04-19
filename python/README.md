@@ -49,3 +49,7 @@ from routers.items import BaseItemClass # This imports names from the module dir
 users.create(name="Max Power")  # Assuming module users has a function called create
 ```
 
+## Links
+
+* [30 Days of python](https://www.codingforentrepreneurs.com/courses/30-days-python-38/) - 20230419
+
