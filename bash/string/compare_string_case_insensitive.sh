@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ####
 # Compares a string case insensitive. Works in sh too!
 # @see:
@@ -29,12 +29,13 @@ function test_strings_are_equal ()
 
 function _main ()
 {
-    local FIRST_STRING="${1:-'foo'}"
-    local SECOND_STRING="${2:-'FOO'}"
+    local FIRST_STRING
+    local SECOND_STRING
 
-    test_strings_are_equal "${FIRST_STRING}" "${SECOND_STRING}"
+    FIRST_STRING="${1:-foo}"
+    SECOND_STRING="${2:-FOO}"
 
-    if [ $? -eq 0 ];
+    if test_strings_are_equal "${FIRST_STRING}" "${SECOND_STRING}";
     then
         echo ":: String >>${FIRST_STRING}<< and >>${SECOND_STRING}<< are equal compared case insensitive."
     else
@@ -42,4 +43,5 @@ function _main ()
     fi
 }
 
-_main $*
+_main "${@}"
+
