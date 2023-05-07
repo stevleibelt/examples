@@ -4,7 +4,7 @@
 #   The main operations on a dictionary are storing a value with some key and extracting the value given the key.
 # ref: https://docs.python.org/3/tutorial/datastructures.html#dictionaries - 20230403T08:58:10
 ####
-# @since 20230403
+# @since 2023-04-03
 # @author stev leibelt <artodeto@bazzline.net>
 ####
 

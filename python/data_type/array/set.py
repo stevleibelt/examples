@@ -4,7 +4,7 @@
 # ref: https://docs.python.org/3/tutorial/datastructures.html#sets - 20230403T08:57:30
 ####
 # @see https://pimylifeup.com/python-sets/ - 20220527T15:11:40
-# @since 202205-27
+# @since 2022-05-27
 # @author stev leibelt <artodeto@bazzline.net>
 ####
 
