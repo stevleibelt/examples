@@ -6,16 +6,22 @@
 
 function _main ()
 {
-  echo ":: You've provided following arguments."
-  echo "   ${@}"
+  if [[ ${#} -gt 0 ]];
+  then
+    echo ":: You've provided following arguments."
+    echo "   ${@}"
 
-  echo ""
+    echo ""
 
-  while (( ${#} ))
-  do 
-      echo "   >>${1}<<"
-      shift 1
-  done
+    while (( ${#} ))
+    do 
+        echo "   >>${1}<<"
+        shift 1
+    done
+  else
+    echo ":: No arguments provided"
+    echo "Usage: $(basename ${0}) argument1 [argument2...]"
+  fi
 }
 
 _main "${@}"
