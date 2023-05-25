@@ -92,10 +92,13 @@ do
 done;
 
 echo ""
-echo ":: Calling two elements, starting from second position: "${ARRAY_ENTRIES[@]:1:2}
+echo ":: Calling two elements, starting from second position"
+echo "   "${ARRAY_ENTRIES[@]:1:2}
 
-#inarray
-if [[ ${ARRAY_ENTRIES[*]} == bar ]];
+echo ""
+echo ":: In array"
+#inarray | in array
+if [[ "${ARRAY_ENTRIES[*]}" =~ "bar" ]];
 then
   echo "   There is a bar in the foo!"
 fi
