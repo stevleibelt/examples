@@ -10,43 +10,91 @@
 
 function _ask_with_if ()
 {
-    if echo "${1:-n}" | grep -iq '^y$';
-    then
-        echo "   Yes"
-    else
-        echo "   No"
-    fi
+  echo ":: _ask_with_if"
+  if echo "${1:-n}" | grep -iq '^y$';
+  then
+    echo "   Yes"
+  else
+    echo "   No"
+  fi
 }
 
 function _ask_with_case ()
 {
-    while true; do
-        case ${1:-n} in
-            [Yy]* ) 
-                echo "   Go on and hug someone who looks sad"
-                break;;
-            [Nn]* )
-                echo "   Go on and get a hug from someone"
-                break;;
-            * )
-                echo "   Please input y or n."
-                break;;
-        esac
-    done
+  echo ":: _ask_with_case"
+  while true; do
+    case ${1} in
+      [Yy]* ) 
+        echo "   Yes"
+        break;;
+      [Nn]* )
+        echo "   No"
+        break;;
+      * )
+        echo "   Non of the following chars entered: n, N, y or Y."
+        break;;
+    esac
+  done
+}
+
+function _ask_with_case_and_default_no ()
+{
+  echo ":: _ask_with_case_and_default_no"
+  while true; do
+    case ${1:-n} in #this results in n as default
+      [Yy]* ) 
+        echo "   Yes"
+        break;;
+      [Nn]* )
+        echo "   No"
+        break;;
+      * )
+        echo "   Non of the following chars entered: n, N, y or Y."
+        break;;
+    esac
+  done
 }
 
 function _ask_with_input ()
 {
-    read -p "> Once again, {y|Y} or {n|N}? " -r
+  echo ":: _ask_with_input"
+  read -p "> Once again, {y|Y} or {n|N}? " -r
 
-    if [[ ${REPLY} =~ ^[Yy]$  ]];
-    then
-        echo "   YES!"
-    else
-        echo "   NO!"
-    fi
+  if [[ ${REPLY} =~ ^[Yy]$  ]];
+  then
+    echo "   Yes"
+  elif [[ ${REPLY} =~ ^[Nn]$  ]];
+  then
+    echo "   No"
+  else
+    echo "   Non of the following chars entered: n, N, y or Y."
+  fi
 }
 
-_ask_with_if ${1}
-_ask_with_case ${1}
-_ask_with_input
+function _ask_with_input_and_default_no ()
+{
+  echo ":: _ask_with_input_and_default_no"
+  read -p "> Once again, {y|Y} or {n|N} (default: nN)? " -r
+
+  if [[ ${REPLY} =~ ^[Yy]$  ]];
+  then
+    echo "   Yes"
+  else
+    echo "   No"
+  fi
+}
+
+function _main ()
+{
+  echo "Usage: $(basename ${0}) [<char: [nNyY]>]"
+  echo ""
+
+  _ask_with_if "${1}"
+  _ask_with_case "${1}"
+  _ask_with_case_and_default_no "${1}"
+  _ask_with_input
+  _ask_with_input_and_default_no
+}
+
+_main "${@}"
+
