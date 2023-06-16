@@ -9,12 +9,18 @@
 
 function _main ()
 {
-    local STRING_LENGTH="${1:-4}"
+    local RANDOM_STRING_WITH_CHECKSUM
+    local RANDOM_STRING_WITH_TR
+    local STRING_LENGTH
 
-    local CREATED_RANDOM_STRING=$(echo ${RANDOM} | sha512sum | head -c ${STRING_LENGTH})
+    STRING_LENGTH="${1:-4}"
+
+    RANDOM_STRING_WITH_CHECKSUM=$(echo ${RANDOM} | sha512sum | head -c ${STRING_LENGTH})
+    RANDOM_STRING_WITH_TR=$(tr -dc A-Za-z0-9 < /dev/urandom | head -c ${STRING_LENGTH})
 
     echo ":: Created random string with >>${STRING_LENGTH}<< characters."
-    echo "   >>${CREATED_RANDOM_STRING}<<."
+    echo "   With checksum: >>${RANDOM_STRING_WITH_CHECKSUM}<<."
+    echo "   With tr: >>${RANDOM_STRING_WITH_TR}<<."
 }
 
-_main $@
+_main "${@}"
