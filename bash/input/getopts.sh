@@ -27,11 +27,15 @@ function _print_flag_is_used()
 
 function _main()
 {
+  local CURRENT_CONTENT
+  local CURRENT_OPTION
+  local ARGUMENT_D_IS_USED
+  local ARGUMENT_D_CONTENT
+  local ARGUMENT_E_IS_USED
+  local ARGUMENT_E_CONTENT_ARRAY
   local FLAG_A_IS_ENABLED
   local FLAG_B_IS_ENABLED
   local FLAG_C_IS_ENABLED
-  local ARGUMENT_D_IS_USED
-  local ARGUMENT_D_CONTENT
   local SHOW_USAGE
 
   FLAG_A_IS_ENABLED=0
@@ -39,12 +43,14 @@ function _main()
   FLAG_C_IS_ENABLED=0
   ARGUMENT_D_IS_USED=0
   ARGUMENT_D_CONTENT=""
+  ARGUMENT_E_IS_USED=0
+  declare -a ARGUMENT_E_CONTENT_ARRAY=();
   SHOW_USAGE=0
 
   #a, b and c are simple flags
   #d has an argument
   #if you put this into a function, you have to provide the function the arguments like <function name> $@
-  while getopts "abcd:h" CURRENT_OPTION;
+  while getopts "abcd:e:h" CURRENT_OPTION;
   do
       case ${CURRENT_OPTION} in
           a)
@@ -59,6 +65,10 @@ function _main()
           d)
               ARGUMENT_D_IS_USED=1
               ARGUMENT_D_CONTENT="${OPTARG}"
+              ;;
+          e)
+              ARGUMENT_E_IS_USED=1
+              ARGUMENT_E_CONTENT_ARRAY+=("${OPTARG}")
               ;;
           h)
               SHOW_USAGE=1
@@ -84,6 +94,14 @@ function _main()
   if [[ ${ARGUMENT_D_IS_USED} -eq 1 ]];
   then
     _print_argument_was_provided "d" "${ARGUMENT_D_CONTENT}"
+  fi
+
+  if [[ ${ARGUMENT_E_IS_USED} -eq 1 ]];
+  then
+    for CURRENT_CONTENT in "${ARGUMENT_E_CONTENT_ARRAY[@]}";
+    do
+      _print_argument_was_provided "e" "${CURRENT_CONTENT[@]}"
+    done
   fi
 
   if [[ ${SHOW_USAGE} -eq 1 ]];
