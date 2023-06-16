@@ -52,28 +52,31 @@ function _main()
   #if you put this into a function, you have to provide the function the arguments like <function name> $@
   while getopts "abcd:e:h" CURRENT_OPTION;
   do
-      case ${CURRENT_OPTION} in
-          a)
-              FLAG_A_IS_ENABLED=1
-              ;;
-          b)
-              FLAG_B_IS_ENABLED=1
-              ;;
-          c)
-              FLAG_C_IS_ENABLED=1
-              ;;
-          d)
-              ARGUMENT_D_IS_USED=1
-              ARGUMENT_D_CONTENT="${OPTARG}"
-              ;;
-          e)
-              ARGUMENT_E_IS_USED=1
-              ARGUMENT_E_CONTENT_ARRAY+=("${OPTARG}")
-              ;;
-          h)
-              SHOW_USAGE=1
-              ;;
-      esac
+    case ${CURRENT_OPTION} in
+      a)
+        FLAG_A_IS_ENABLED=1
+        ;;
+      b)
+        FLAG_B_IS_ENABLED=1
+        ;;
+      c)
+        FLAG_C_IS_ENABLED=1
+        ;;
+      d)
+        ARGUMENT_D_IS_USED=1
+        ARGUMENT_D_CONTENT="${OPTARG}"
+        ;;
+      e)
+        ARGUMENT_E_IS_USED=1
+        ARGUMENT_E_CONTENT_ARRAY+=("${OPTARG}")
+        ;;
+      h)
+        SHOW_USAGE=1
+        ;;
+      *)
+        SHOW_USAGE=1
+        ;;
+    esac
   done
 
   if [[ ${FLAG_A_IS_ENABLED} -eq 1 ]];
