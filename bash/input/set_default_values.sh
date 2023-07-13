@@ -6,13 +6,21 @@
 
 function _example()
 {
-    local VAR=${1:-'foo'}
-    local FOO=${2:-''}
-    local BAR=${3:-3}
-    local BAZ=${4}
+    local VAR
+    local FOO
+    local FOZ
+    local BAR
+    local BAZ
+
+    VAR=${1:-'foo'}
+    FOO=${2:-''}
+    FOZ=${3:-${VAR}}
+    BAR=${4:-3}
+    BAZ=${5}
 
     echo "\$VAR >>${VAR}<<."
     echo "\$FOO >>${FOO}<<."
+    echo "\$FOZ >>${FOZ}<<."
     echo "\$BAR >>${BAR}<<."
 
     if [[ -z "${BAZ}" ]];
@@ -23,4 +31,4 @@ function _example()
     fi
 }
 
-_example ${@}
+_example "${@}"
