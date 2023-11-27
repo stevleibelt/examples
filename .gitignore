@@ -2,5 +2,5 @@
 *.jar
 python.d/input/__pycache__/
 python.d/__pycache__
-python.d/__init__.py.d/foo_d/__pycache__
+python.d/__init__.py.d/
 rust.d/exercism.io/*/debug
