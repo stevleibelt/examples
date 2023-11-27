@@ -1,5 +1,6 @@
 .idea
 *.jar
-python/__pycache__
-python/__init__.py.d/foo_d/__pycache__
-rust/exercism.io/*/debug
+python.d/input/__pycache__/
+python.d/__pycache__
+python.d/__init__.py.d/foo_d/__pycache__
+rust.d/exercism.io/*/debug
