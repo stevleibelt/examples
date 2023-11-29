@@ -1,4 +1,5 @@
 #@ref: https://www.youtube.com/watch?v=C-gEQdGVXbk
+from functools import reduce
 
 #bo: conditions
 condition = True
@@ -138,3 +139,143 @@ from datetime import datetime
 print('')
 #eo: secret information
 #timestamp: 13:45
+
+# ref: https://www.freecodecamp.org/news/python-one-liners/
+#bo: create a list without four lines of for-loop code
+print(':: Create a list without using for')
+"""
+# Traditional code as example
+squared_numbers = []
+for i in range(10):
+    squared_numbers.append(i ** 2)
+print(squared_numbers)
+"""
+squared_numbers = [i ** 2 for i in range(10)]
+print(squared_numbers)
+print('')
+#eo: create a list without four lines of loop code
+
+#bo: lambda function
+print(':: Create a lambda function')
+"""
+# Traditional code as example
+def add_numbers(x, y):
+    return x + y
+
+print(add_numbers(13, 42))
+"""
+# lambda <list of input variables>: function code that does/returns something
+add = lambda x, y: x + y
+print(add(13, 42))
+print('')
+#eo: lambda function
+
+#bo: map and filter
+"""
+# Traditional code as example
+fruits = ['apple', 'banana', 'cherry']
+upper_case_loop = []
+for fruit in fruits:
+    upper_case_loop.append(fruit.upper())
+print(upper_case_loop)
+"""
+print(':: Using map, filter and reduce instead of for loop')
+# map performs an operation on every element of an iterable
+upper_case = list(map(lambda x: x.upper(), ['apple', 'banana', 'cherry']))
+print(upper_case)
+# filter is used to select/choose elements based on a condition
+words_containing_a = list(filter(lambda x: x.startswith('a'), ['apple', 'banana', 'cherry']))
+print(words_containing_a)
+# reduce that makes a calculation on a list to return a single value
+sum_of_numbers = reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])
+print(sum_of_numbers)
+print('')
+#eo: map and filter
+#bo: ternary operator
+print(':: Using ternary operator instead of for loop')
+"""
+# Traditional code as example
+result = None
+num = 5
+if num % 2 == 0:
+    result = "Even"
+else:
+    result = "Odd"
+"""
+num = 7
+result = "Even" if num % 2 == 0 else "Odd"
+print(f'{num} is {result}')
+print('')
+#eo: ternary operator
+#bo: zip function
+print(':: Using zip instead of for loop')
+"""
+# Traditional code as example
+students = ['Dilli', 'Vikram', 'Rolex', 'Leo']
+grades = [85, 92, 78, 88]
+
+student_grade_pairs = []
+for i in range(len(students)):
+    student_grade_pairs.append((students[i], grades[i]))
+
+print(student_grade_pairs)
+"""
+students = ['Dilli', 'Vikram', 'Rolex', 'Leo']
+grades = [85, 92, 78, 88]
+
+student_grade_pairs = list(zip(students, grades))
+print(student_grade_pairs)
+print('')
+#eo: zip function
+#bo: enumerate
+print(':: Enumerate instead of loop')
+"""
+# Traditional code as example
+grocery_list = ['Apples', 'Milk', 'Bread', 'Eggs', 'Cheese']
+
+for i in range(len(grocery_list)):
+    print(f"{i}. {grocery_list[i]}")
+"""
+grocery_list = ['Apples', 'Milk', 'Bread', 'Eggs', 'Cheese']
+
+for index, item in enumerate(grocery_list):
+    print(f"{index}. {item}")
+print('')
+#eo: enumerate
+#bo: string join
+print(':: Using join for a string instead of a loop')
+"""
+# Traditional code as example
+words = ['Python', 'is', 'awesome', 'and', 'powerful']
+
+sentence = ''
+for word in words:
+    sentence += word + ' '
+
+print(sentence.strip())  # Strip to remove the trailing space
+"""
+words = ['Python', 'is', 'awesome', 'and', 'powerful']
+
+sentence = ' '.join(words)
+print(sentence)
+print('')
+#eo: string join
+#bo: unpacking
+print(':: Using unpacking instead of a loop')
+"""
+# Traditional code as example
+numbers = [1, 2, 3]
+
+a = numbers[0]
+b = numbers[1]
+c = numbers[2]
+
+print(a, b, c)
+"""
+numbers = [1, 2, 3]
+
+a, b, c = numbers
+
+print(a, b, c)
+print('')
+#eo: unpacking
