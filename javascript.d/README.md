@@ -45,3 +45,6 @@ const focusedElement = document.activeElement;
 @todo
 ```
 
+## Link
+
+* [A complete guide to JavaScript typechecking: 30secondsofcode.org](https://www.30secondsofcode.org/js/s/complete-guide-to-js-type-checking/) - 20231228
