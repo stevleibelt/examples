@@ -48,3 +48,4 @@ const focusedElement = document.activeElement;
 ## Link
 
 * [A complete guide to JavaScript typechecking: 30secondsofcode.org](https://www.30secondsofcode.org/js/s/complete-guide-to-js-type-checking/) - 20231228
+* [The JavaScript String Handbook – How to Work with Strings in JS](https://www.freecodecamp.org/news/javascript-string-handbook/) - 20240107
