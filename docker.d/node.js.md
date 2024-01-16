@@ -44,6 +44,13 @@ console.log('Running on http://localhost:'+PORT);
 EOF
 ```
 
+## Update all outdated packages
+
+```bash
+# ref: https://stackoverflow.com/a/55406675
+npm install $(npm outdated | cut -d' ' -f 1 | sed '1d' | xargs -I '$' echo '$@latest' | xargs echo)
+```
+
 # prepare docker
 
 ## create dockerfile
@@ -76,22 +83,32 @@ EOF
 
 # build image
 
-    sudo docker build -t stevleibelt/example-archlinux-node.js .
+```bash
+sudo docker build -t stevleibelt/example-archlinux-node.js .
+```
 
 # run image
 
-    sudo docker run -p 49160:8080 -d -t stevleibelt/example-archlinux-node.js
+```bash
+sudo docker run -p 49160:8080 -d -t stevleibelt/example-archlinux-node.js
+```
 
 # test
 
 ## get container port
 
-    sudo docker ps
+```bash
+sudo docker ps
+```
 
 ## query node application
 
-    curl -i localhost:<port>
+```bash
+curl -i localhost:<port>
+```
 
 # cleanup
 
-    docker rmi stevleibelt/example-archkinux-node.js
+```bash
+docker rmi stevleibelt/example-archkinux-node.js
+```
