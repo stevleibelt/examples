@@ -20,31 +20,40 @@ STRING="FooBar-1.2.3-baz.tar.gz";
   local LAST_CHARACTER=${STRING: -1};
   local WITHOUT_THE_EXTENSION=${STRING:0:-3}
 
-  echo ":: String"
+  echo ":: Outputting full string"
+  echo "   \${STRING}"
   echo "   ${STRING}"
 
   echo ":: First three characters"
+  echo "   \${STRING:0:3}"
   echo "   ${FIRST_THREE_CHARACTERS}"
 
   echo ":: From fourth character"
+  echo "   \${STRING:3}"
   echo "   ${FROM_FOURTH_CHARACTER}"
 
   echo ":: A piece of"
+  echo "   \${STRING:7:5}"
   echo "${A_PIECE_OF}"
 
   echo ":: Last charachter"
+  echo "   \${STRING: -1}"
   echo "   ${LAST_CHARACTER}"
 
   echo ":: Without the extension"
+  echo "   \${STRING:0:-3}"
   echo "   ${WITHOUT_THE_EXTENSION}"
 
   echo ":: All after baz."
+  echo "   \${STRING#*\"baz\"}"
   echo "   "${STRING#*"baz"}
 
   echo ":: All until the last >>-<<."
+  echo "   \${STRING%-*}"
   echo "   ${STRING%-*}"
 
   echo ":: All until the first >>-<<."
+  echo "   \${STRING%%-*}"
   echo "   ${STRING%%-*}"
 }
 
