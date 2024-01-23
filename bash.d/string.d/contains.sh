@@ -17,6 +17,20 @@ function string_contains ()
     [ -z "${2##*$1*}" ] && { [ -z "$1" ] || [ -n "$2" ] ;} ;
 }
 
+####
+# @param <string: haystack>
+# @param <string: needle>
+####
+function _string_contains ()
+{
+  if [[ ${1} == *${2}* ]];
+  then
+    return 0
+  else
+    return 1
+  fi
+}
+
 STRING="There is no foo without a bar"
 SUBSTRING="foo"
 #SUBSTRING="baz"
@@ -24,7 +38,8 @@ SUBSTRING="foo"
 #if string_contains "${STRING}" "${SUBSTRING}"; #has a bug
 #if grep -q ${SUBSTRING} <<<"${STRING}";    #works only on bash
 #if grep -q ${SUBSTRING} <(echo ${STRING}); #works pretty well but is really slow
-if [[ ${STRING} == *${SUBSTRING}* ]];
+
+if _string_contains "${STRING}" "${SUBSTRING}";
 then
     echo ">>${SUBSTRING}<< is inside >>${STRING}<<."
 else
