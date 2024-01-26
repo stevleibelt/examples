@@ -6,6 +6,14 @@
 * `pdb.breakpoint()` or `pdb.set_trace()` in the code
 * `python -m pdb my.py` for execution
 
+## Linting and performance profiling
+
+* Either use `black`, `pylint` or `mypy`
+* `pyling my.py` to generate detailed report about potential issues, coding convention violations and more
+* You can built in `profile` and `snakeviz` to generate profiling results and listing them in a webbrowser
+  * Or package `line_profiler`
+  * Or package `memory_profiler`
+
 ## Module, packages and subpackages
 
 > A module is a file containing Python definitions and statements.
