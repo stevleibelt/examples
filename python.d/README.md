@@ -1,5 +1,11 @@
 # python
 
+## Debugging
+
+* Debugging can be done by `import pdb`
+* `pdb.breakpoint()` or `pdb.set_trace()` in the code
+* `python -m pdb my.py` for execution
+
 ## Module, packages and subpackages
 
 > A module is a file containing Python definitions and statements.
@@ -54,6 +60,7 @@ users.create(name="Max Power")  # Assuming module users has a function called cr
 * [Dockstring Convetions](https://peps.python.org/pep-0257/) - 20230425
 * [Learning Python](https://docs.python-guide.org/intro/learning/) - 20230424
 * [Python For Beginners](https://www.python.org/about/gettingstarted/) - 20230424
+* [Python debuggung handbook](https://www.freecodecamp.org/news/python-debugging-handbook/) - 20240126
 * [Style Guide](https://peps.python.org/pep-0008/) - 20230425
 * [The Python Tutorial](https://docs.python.org/3/tutorial/index.html) - 20230424
 * [What is new in Python 3.8](https://docs.python.org/3.8/whatsnew/3.8.html) - 20230425
