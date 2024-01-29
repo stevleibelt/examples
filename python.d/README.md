@@ -14,6 +14,11 @@
   * Or package `line_profiler`
   * Or package `memory_profiler`
 
+## Decorators
+
+* Decorators are functions that are wrapping another function call
+* Decorators have to support one parameter which is the original called function
+
 ## Module, packages and subpackages
 
 > A module is a file containing Python definitions and statements.
