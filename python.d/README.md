@@ -65,14 +65,16 @@ users.create(name="Max Power")  # Assuming module users has a function called cr
 
 ## Links
 
-* [Dockstring Convetions](https://peps.python.org/pep-0257/) - 20230425
-* [Learning Python](https://docs.python-guide.org/intro/learning/) - 20230424
-* [Python For Beginners](https://www.python.org/about/gettingstarted/) - 20230424
-* [Python debuggung handbook](https://www.freecodecamp.org/news/python-debugging-handbook/) - 20240126
+* [Dockstring Convetions: python.org](https://peps.python.org/pep-0257/) - 20230425
+* [Learning Python: python-guide.org](https://docs.python-guide.org/intro/learning/) - 20230424
+* [Python For Beginners: python.org](https://www.python.org/about/gettingstarted/) - 20230424
+* [Python debuggung handbook: freecodecamp.org](https://www.freecodecamp.org/news/python-debugging-handbook/) - 20240126
 * [Style Guide](https://peps.python.org/pep-0008/) - 20230425
-* [The Python Tutorial](https://docs.python.org/3/tutorial/index.html) - 20230424
-* [What is new in Python 3.8](https://docs.python.org/3.8/whatsnew/3.8.html) - 20230425
-* [What is new in Python 3.9](https://docs.python.org/3.9/whatsnew/3.9.html) - 20230425
-* [What is new in Python 3.10](https://docs.python.org/3.10/whatsnew/3.10.html) - 20230425
-* [What is new in Python 3.11](https://docs.python.org/3.11/whatsnew/3.11.html) - 20230425
+* [The Python Decorator Handbook: freecodecamp.org](https://www.freecodecamp.org/news/the-python-decorator-handbook/) - 20240129
+* [The Python Tutorial: python.org](https://docs.python.org/3/tutorial/index.html) - 20230424
+* [What is new in Python 3.8: python.org](https://docs.python.org/3.8/whatsnew/3.8.html) - 20230425
+* [What is new in Python 3.9: python.org](https://docs.python.org/3.9/whatsnew/3.9.html) - 20230425
+* [What is new in Python 3.10: python.org](https://docs.python.org/3.10/whatsnew/3.10.html) - 20230425
+* [What is new in Python 3.11: python.org](https://docs.python.org/3.11/whatsnew/3.11.html) - 20230425
+* [What is new in Python 3.12: python.org](https://docs.python.org/3.12/whatsnew/3.12.html) - 20240129
 
