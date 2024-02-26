@@ -10,7 +10,7 @@
 function _main()
 {
   echo ":: Setup example"
-  PATH_TO_DIRECTORY=$(mktemp)
+  PATH_TO_DIRECTORY=$(mktemp -d)
   touch "${PATH_TO_DIRECTORY}"/test{1..9}.txt
 
   echo ":: Listing all files"
@@ -24,12 +24,13 @@ function _main()
   echo ":: Listing available files"
   ls -t "${PATH_TO_DIRECTORY}"/test*.txt
 
-  read -p "> Keep examples? (y|N) " -r
+  read -p "Keep examples? (y|N) " -r
 
   if [[ ${REPLY} =~ ^[Yy]$ ]];
   then
     echo "   You find the examples in path >>${PATH_TO_DIRECTORY}<<."
   else
+    echo "  Removing directory >>${PATH_TO_DIRECTORY}<<."
     rm -fr "${PATH_TO_DIRECTORY}"
   fi
 }
