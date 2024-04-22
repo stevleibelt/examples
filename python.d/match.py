@@ -23,7 +23,7 @@ def handle_class(myObject):
             status_code = 20
             status_message = "There is no bar without a foo!"
 
-        case _:
+        case _: # _ is the python wildcard
             status_code = 99
             status_message = "No foo, no bar, no baz!"
 
