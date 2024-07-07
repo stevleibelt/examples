@@ -66,3 +66,13 @@ echo "date --date='-7 day' +%Y%m%d"
 DATE=$(date --date='-7 day' +%Y%m%d)
 echo ${DATE}
 echo ""
+
+echo "date --date='+1 week' +%Y%m%d"
+DATE=$(date --date='+1 week' +%Y%m%d)
+echo ${DATE}
+echo ""
+
+echo "date --date='+3 year' +%Y%m%d"
+DATE=$(date --date='+3 year' +%Y%m%d)
+echo ${DATE}
+echo ""
