@@ -20,7 +20,8 @@ This repository contains a lot of free as in freedom examples for multiple progr
 
 ## Links
 
-* [Machine language programming](https://opensource.com/article/23/1/learn-machine-language-retro-computer) - 20230105
+* [Machine language programming: opensource.com](https://opensource.com/article/23/1/learn-machine-language-retro-computer) - 20230105
+* [ActiveState's code recipes: github.com](https://github.com/ActiveState/code/tree/master/recipes) - 20240801
 
 ## A Few Words About the Code Quality
 
