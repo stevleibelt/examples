@@ -127,9 +127,12 @@ from getpass import getpass
 print(':: Secret informations')
 username = input('Username: ')
 password = getpass('Password: ')
+print('')
 
 from datetime import datetime
 
+print(":: Datetime from now")
+print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 #show help page
 #help(datetime)
 #works in the cli only
