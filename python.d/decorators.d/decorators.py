@@ -1,5 +1,10 @@
+####
+# Complex example from a handbook
+####
 # ref: https://www.freecodecamp.org/news/the-python-decorator-handbook/
-# ref: https://www.freecodecamp.org/news/the-python-decorator-handbook/
+####
+# @since: 2024-05-22
+# @author: stev leibelt <artodeto@bazzline.net>
 ####
 
 # You can skip the my_decorator_with_argument if you don't need to pass in an argumet
