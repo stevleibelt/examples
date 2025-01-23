@@ -30,3 +30,9 @@ function my_function ()
 }
 ```
 
+## Rename list of files
+
+```bash
+for f in $(ls my_file_*); do mv "${f}" "${f/old_filename_part/new_filename_part}"; done
+```
+
