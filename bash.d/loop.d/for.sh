@@ -12,7 +12,7 @@ echo "a simple loop, counting down from 3 to 1"
 
 for ITERATOR in 1 2 3
 do
-    echo $ITERATOR
+  echo "${ITERATOR}"
 done
 
 echo ""
@@ -24,7 +24,7 @@ echo "now we are using a dynamic list of values by using ls"
 
 for FILESYSTEM_ITEM_NAME in $(ls)
 do
-    echo "current filesystem item name: $FILESYSTEM_ITEM_NAME"
+  echo "current filesystem item name: ${FILESYSTEM_ITEM_NAME}"
 done
 
 echo ""
@@ -32,8 +32,22 @@ echo "using seq (2 3 22) as number generator"
 
 for ITERATOR in $(seq 2 3 22)
 do
-    echo $ITERATOR
+  echo "${ITERATOR}"
+done
+
+
+echo ""
+echo "using seq (1 10) as number generator and stop after 6th iteration"
+for ITERATOR in $(seq 1 10)
+do
+  echo "${ITERATOR}"
+  if [[ ${ITERATOR} -ge 6 ]];
+  then
+    echo "   Limit of 6 reached, stopping loop"
+    break
+  fi
 done
 
 echo ""
+echo "Done"
 #end of dynamic values
