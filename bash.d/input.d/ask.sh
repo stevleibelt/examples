@@ -6,13 +6,16 @@
 
 function _main ()
 {
-    local ANSWER
+  local DEFAULT
+  local ANSWER
 
-    read -p "> Input something " -r
-    ANSWER="${REPLY:-default}"
+  DEFAULT="There is no foo without a bar"
 
-    echo ":: Your answer was."
-    echo "   >>${ANSWER}<<."
+  read -p "> Input something (default: ${DEFAULT}): " -r
+  ANSWER="${REPLY:-${DEFAULT}}"
+
+  echo ":: Your answer was."
+  echo "   >>${ANSWER}<<."
 }
 
 _main "${@}"
