@@ -8,16 +8,22 @@
 
 function _main ()
 {
-  local MY_STRING="There is no foo without a bar"
+  local MY_STRING
+  local MY_FILE_NAME
+
+  MY_FILE_NAME="foo bar.flac"
+  MY_STRING="There is no foo without a bar"
 
   echo ":: Dumping initial string content."
-  echo "   ${MY_STRING}"
+  echo "   \$MY_FILE_NAME: ${MY_FILE_NAME}"
+  echo "   \$MY_STRING: ${MY_STRING}"
   echo ""
 
-  echo "   Replacing >>no foo<< with >>never a bar<<."
+  echo ":: Working on MY_STRING"
+  echo "   Replacing first occurrence >>no foo<< with >>never a bar<<."
   MY_STRING=${MY_STRING/no foo/never a bar}
 
-  echo ":: Dumping string content."
+  echo "   Dumping string content."
   echo "   ${MY_STRING}"
   echo ""
 
@@ -25,10 +31,18 @@ function _main ()
   echo "   Removing all >>a<<."
   MY_STRING=$( echo ${MY_STRING} | tr ' ' '_' | tr -d 'a' )
 
-  echo ":: Dumping string content."
+  echo "   Dumping string content."
   echo "   ${MY_STRING}"
+  echo ""
+
+  echo ":: Working on MY_FILE_NAME"
+  echo "   Remove first hit from the right >>.flac<< and add >>.mp3<< as suffix."
+  MY_FILE_NAME="${MY_FILE_NAME%.flac}.mp3"
+
+  echo "   Dumping file name content."
+  echo "   ${MY_FILE_NAME}"
   echo ""
 }
 
-_main ${@}
+_main "${@}"
 
