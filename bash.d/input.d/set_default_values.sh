@@ -8,6 +8,7 @@ function _example()
 {
     local BAR
     local BAZ
+    local FILTER_PATTERN
     local FOO
     local FOZ
     local VAR
@@ -18,9 +19,11 @@ function _example()
     FOZ=${3:-${VAR}}
     BAR=${4:-3}
     BAZ=${5}
-    WORKING_DIRECTORY="${6:-*}"
+    WORKING_DIRECTORY="${6:-${PWD}}"
+    FILTER_PATTERN="${7:-*}"
 
     echo "\$BAR >>${BAR}<<."
+    echo "\$FILTER_PATTERN >>${FILTER_PATTERN}<<."
     echo "\$FOO >>${FOO}<<."
     echo "\$FOZ >>${FOZ}<<."
     echo "\$VAR >>${VAR}<<."
