@@ -84,6 +84,43 @@ function _ask_with_input_and_default_no ()
   fi
 }
 
+function _ask_with_question_and_positiv_answer ()
+{
+  echo "_ask_with_question_and_positiv_answer"
+  local POSITIV_ANSWER
+  local QUESTION
+  local QUESTION_SUFFIX
+
+  POSITIV_ANSWER="${2:-y}"
+  QUESTION="${1}"
+  
+  if [[ ${POSITIV_ANSWER} == "y" ]];
+  then
+    QUESTION_SUFFIX=" (Y|n)"
+  else
+    QUESTION_SUFFIX=" (y|N)"
+  fi
+
+  read -p "> ${QUESTION} ${QUESTION_SUFFIX}: " -r
+
+  if [[ ${POSITIV_ANSWER} == "y" ]];
+  then
+    if [[ ${REPLY:-${POSITIV_ANSWER}} =~ ^[Yy](es)?$ ]];
+    then
+      return 0
+    else
+      return 1
+    fi
+  else
+    if [[ ${REPLY:-${POSITIV_ANSWER}} =~ ^[Nn](o)?$ ]];
+    then
+      return 0
+    else
+      return 1
+    fi
+  fi
+}
+
 function _main ()
 {
   echo "Usage: $(basename ${0}) [<char: [nNyY]>]"
@@ -94,6 +131,19 @@ function _main ()
   _ask_with_case_and_default_no "${1}"
   _ask_with_input
   _ask_with_input_and_default_no
+  if _ask_with_question_and_positiv_answer "Do you say yes?";
+  then
+    echo "   positiv"
+  else
+    echo "   negative"
+  fi
+
+  if _ask_with_question_and_positiv_answer "Do you say no?" "n";
+  then
+    echo "   positiv"
+  else
+    echo "   negative"
+  fi
 }
 
 _main "${@}"
