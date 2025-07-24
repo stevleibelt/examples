@@ -12,7 +12,7 @@ function _main ()
   set -e
 
   # Register trap on error
-  trap 'echo "Exit status $? at line $LINENO from: $BASH_COMMAND"' ERR
+  trap "echo \"Exit status ${?} at line ${LINENO} from: ${BASH_COMMAND}\"" ERR
 
   ls /foo
 }
