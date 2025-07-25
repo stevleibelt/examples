@@ -43,6 +43,11 @@ async def get_db():
         yield db
 
 
-db = get_db()
-# sadly not working
-#db.query(q="   Doing something while database connection is established.")
+def main() -> None:
+    db = get_db()
+    # sadly not working
+    #db.query(q="   Doing something while database connection is established.")
+
+
+if __name__ == '__main__':
+    main()

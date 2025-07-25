@@ -53,11 +53,17 @@ class CoffeeMachine:
             print("Adding filter it baby")
         self._filter_was_added = True
 
-coffee_machine = CoffeeMachine()
 
-print(f"{coffee_machine.state=}, {coffee_machine.is_idling()=}, {coffee_machine._was_cleaned=}")
-coffee_machine.clean();
-print(f"{coffee_machine.state=}, {coffee_machine.is_idling()=}, {coffee_machine._was_cleaned=}")
-coffee_machine.add_filter();
-#coffee_machine.power_on();
-print(f"{coffee_machine.state=}, {coffee_machine.is_idling()=}, {coffee_machine.may_clean()=}")
+def main() -> None:
+    coffee_machine = CoffeeMachine()
+
+    print(f"{coffee_machine.state=}, {coffee_machine.is_idling()=}, {coffee_machine._was_cleaned=}")
+    coffee_machine.clean();
+    print(f"{coffee_machine.state=}, {coffee_machine.is_idling()=}, {coffee_machine._was_cleaned=}")
+    coffee_machine.add_filter();
+    #coffee_machine.power_on();
+    print(f"{coffee_machine.state=}, {coffee_machine.is_idling()=}, {coffee_machine.may_clean()=}")
+
+
+if __name__ == '__main__':
+    main()

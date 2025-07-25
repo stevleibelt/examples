@@ -14,5 +14,9 @@ class MyEnum(StrEnum):
     class MySubEnum:
         my_other_text = "This is another text"
 
-print(f"{MyEnum.my_text=}")
-print(f"{MyEnum.MySubEnum.my_other_text=}")
+def main() -> None:
+    print(f"{MyEnum.my_text=}")
+    print(f"{MyEnum.MySubEnum.my_other_text=}")
+
+if __name__ == '__main__':
+    main()

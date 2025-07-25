@@ -11,16 +11,20 @@ class SecondException(ExampleException):
 class ThirdException(ExampleException):
     pass
 
-try:
-    print('This is a message')
-    raise ExampleException('This is an example exception message')
-except (ExampleException, SecondException) as exception:
-    print(f'An exception of class ExampleException occurred: {exception}')
-except ThirdException:
-    # We know this exception could be raised but we don't care
-    pass
-else:
-    print('No exception where raised')
-finally:
-    print('This is the last line of output')
+def main() -> None:
+    try:
+        print('This is a message')
+        raise ExampleException('This is an example exception message')
+    except (ExampleException, SecondException) as exception:
+        print(f'An exception of class ExampleException occurred: {exception}')
+    except ThirdException:
+        # We know this exception could be raised but we don't care
+        pass
+    else:
+        print('No exception where raised')
+    finally:
+        print('This is the last line of output')
 
+
+if __name__ == '__main__':
+    main()

@@ -45,9 +45,13 @@ def my_other_function(*args, **kwargs):
     return "This is my other result"
 
 
-print(":: Calling not decorated function")
-my_function(1, 2, 3, foo='bar')
-print("")
-print(":: Calling decorated function")
-my_other_function(1, 2, 3, foo='bar')
+def main() -> None:
+    print(":: Calling not decorated function")
+    my_function(1, 2, 3, foo='bar')
+    print("")
+    print(":: Calling decorated function")
+    my_other_function(1, 2, 3, foo='bar')
 
+
+if __name__ == '__main__':
+    main()

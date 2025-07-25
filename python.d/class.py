@@ -62,51 +62,54 @@ class PaidEmployee(BaseEmployee):
             return False
         return False
 
-PaidEmployee.set_raise_payment_amount(1.05)
+def main() -> None:
+    PaidEmployee.set_raise_payment_amount(1.05)
 
-pe_1 = PaidEmployee('Max', 'Power', 3000)
-pe_1.fullname = 'Hard Cora'
-pe_2 = PaidEmployee('Victoria', 'Major', 4000)
+    pe_1 = PaidEmployee('Max', 'Power', 3000)
+    pe_1.fullname = 'Hard Cora'
+    pe_2 = PaidEmployee('Victoria', 'Major', 4000)
 
-#this is working because of the @fullname.setter
-firstname, lastname, payment = 'John-Doe-6000'.split('-')
+    #this is working because of the @fullname.setter
+    firstname, lastname, payment = 'John-Doe-6000'.split('-')
 
-pe_3 = PaidEmployee(firstname, lastname, payment)
-#this is working because of the @fullname.deleter
-del pe_3.fullname
-pe_4 = PaidEmployee.from_string('Jane-Doe-8000')
+    pe_3 = PaidEmployee(firstname, lastname, payment)
+    #this is working because of the @fullname.deleter
+    del pe_3.fullname
+    pe_4 = PaidEmployee.from_string('Jane-Doe-8000')
 
-print(':: Dump fullnames')
-#this works because of the @property
-print(pe_1.fullname)
-print(pe_2.fullname)
-print(pe_3.fullname)
-print(pe_4.fullname)
-print('')
+    print(':: Dump fullnames')
+    #this works because of the @property
+    print(pe_1.fullname)
+    print(pe_2.fullname)
+    print(pe_3.fullname)
+    print(pe_4.fullname)
+    print('')
 
-print(':: Is workday')
-current_datetime = datetime.now()
-print(PaidEmployee.is_workday(current_datetime))
-print('')
+    print(':: Is workday')
+    current_datetime = datetime.now()
+    print(PaidEmployee.is_workday(current_datetime))
+    print('')
 
-print(':: Add')
-print(pe_1 + pe_2)
-print('')
+    print(':: Add')
+    print(pe_1 + pe_2)
+    print('')
 
-print(':: Is subclass')
-print(issubclass(PaidEmployee, BaseEmployee))
-print('')
+    print(':: Is subclass')
+    print(issubclass(PaidEmployee, BaseEmployee))
+    print('')
 
-print(':: rpr')
-print(repr(pe_1))
-print('')
+    print(':: rpr')
+    print(repr(pe_1))
+    print('')
 
-print(':: str')
-print(pe_1)
-print('')
+    print(':: str')
+    print(pe_1)
+    print('')
 
-#uncomment if needed
-#print(help(BaseEmployee))
-#uncomment if needed
-#print(help(PaidEmployee))
+    #uncomment if needed
+    #print(help(BaseEmployee))
+    #uncomment if needed
+    #print(help(PaidEmployee))
 
+if __name__ == '__main__':
+    main()

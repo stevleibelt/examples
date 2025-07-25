@@ -6,9 +6,12 @@
 
 from hashlib import sha3_512
 
-my_string: str = "This is a string"
+def main() -> None:
+    my_string: str = "This is a string"
 
-my_hash: str = sha3_512(my_string.encode('utf-8')).hexdigest()
+    my_hash: str = sha3_512(my_string.encode('utf-8')).hexdigest()
 
-print(f"{my_string=}: {str(my_hash)=}, {len(my_hash)=}")
+    print(f"{my_string=}: {str(my_hash)=}, {len(my_hash)=}")
 
+if __name__ == '__main__':
+    main()

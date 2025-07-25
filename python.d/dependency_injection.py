@@ -78,70 +78,74 @@ class SimpleContainer:
         return implementation(*dependencies)
 
 
-def dump_car(car: Car):
+def dump_car(car: Car) -> None:
     print(f"This is a {car.get_name()} from {car.get_manufacturer()}")
 
 
-# First way is to simple provide all dependencies by hand
-first_car = Car(manufacturer='bazzline', name='normal_car')
+def main() -> None:
+    # First way is to simple provide all dependencies by hand
+    first_car = Car(manufacturer='bazzline', name='normal_car')
 
-# Second method is to use a builder which itself could hold some dependencies
-#   And only provides a public api to change the dynamic parts
-bazzline_car_builder = CarBuilder(manufacturer='bazzline')
-second_car = (
-    bazzline_car_builder
-        .with_name(name='super_car')
-        .build()
-    )
+    # Second method is to use a builder which itself could hold some dependencies
+    #   And only provides a public api to change the dynamic parts
+    bazzline_car_builder = CarBuilder(manufacturer='bazzline')
+    second_car = (
+        bazzline_car_builder
+            .with_name(name='super_car')
+            .build()
+        )
 
-dump_car(first_car)
-dump_car(second_car)
+    dump_car(first_car)
+    dump_car(second_car)
 
-# Third way is to use simple custom DI Container
-# Full control over implementation and simple to understand
-#   but limited features with required self implementation
-"""
-simple_container = SimpleContainer()
-simple_container.register(BaseConnect, InMemoryConnection)
-simple_container.register(BaseRepository[Person], InMemoryPersonRepository)
-simple_container.register(BaseRepository[Order], InMemoryOrderRepository)
-simple_container.register(MyClass)
+    # Third way is to use simple custom DI Container
+    # Full control over implementation and simple to understand
+    #   but limited features with required self implementation
+    """
+    simple_container = SimpleContainer()
+    simple_container.register(BaseConnect, InMemoryConnection)
+    simple_container.register(BaseRepository[Person], InMemoryPersonRepository)
+    simple_container.register(BaseRepository[Order], InMemoryOrderRepository)
+    simple_container.register(MyClass)
 
-# MyClass has the previously defined classes as dependencies
-my_class = simple_container.resolve(MyClass)
-"""
+    # MyClass has the previously defined classes as dependencies
+    my_class = simple_container.resolve(MyClass)
+    """
 
-# Fourth way is to use something like dependency_injector
-#   ref: https://pypi.org/project/dependency-injector/
-# Lots of features including different injection types and support for asynchronous injectors
-"""
-class Container(containers.DeclarativeContainer):
-    connection = providers.Singletone(
-        InMemoryConnection
-    )
+    # Fourth way is to use something like dependency_injector
+    #   ref: https://pypi.org/project/dependency-injector/
+    # Lots of features including different injection types and support for asynchronous injectors
+    """
+    class Container(containers.DeclarativeContainer):
+        connection = providers.Singletone(
+            InMemoryConnection
+        )
 
-    person_repository = providers.Singletone(
-        InMemoryPersonRepository
-    )
+        person_repository = providers.Singletone(
+            InMemoryPersonRepository
+        )
 
-    order_repository = providers.Singletone(
-        InMemoryOrderRepository
-    )
+        order_repository = providers.Singletone(
+            InMemoryOrderRepository
+        )
 
-    create_my_class = providers.Factory(
-        MyClass,
-        connection=connection,
-        person_repository=person_repository,
-        order_repository=order_repository
-    )
+        create_my_class = providers.Factory(
+            MyClass,
+            connection=connection,
+            person_repository=person_repository,
+            order_repository=order_repository
+        )
+
+    if __name__ == '__main__':
+        container = Container()
+
+        my_class = container.create_my_class()
+    """
+    # Fifth way is tu use injector
+    #   ref: https://github.com/python-injector/injector
+    # Lightweight with basic features and so easier to understand
+    #   but with limited feature list
+
 
 if __name__ == '__main__':
-    container = Container()
-
-    my_class = container.create_my_class()
-"""
-# Fifth way is tu use injector
-#   ref: https://github.com/python-injector/injector
-# Lightweight with basic features and so easier to understand
-#   but with limited feature list
-
+    main()

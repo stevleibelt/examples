@@ -31,16 +31,20 @@ def handle_class(myObject):
     print("   Status message >>{0}<<.".format(status_message))
 
 
-bar = Bar()
-baz = Baz()
-foo = Foo()
+def main() -> None:
+    bar = Bar()
+    baz = Baz()
+    foo = Foo()
 
-print(":: Testing handling of an instance of >>Bar<<.")
-handle_class(bar)
+    print(":: Testing handling of an instance of >>Bar<<.")
+    handle_class(bar)
 
-print(":: Testing handling of an instance of >>Baz<<.")
-handle_class(baz)
+    print(":: Testing handling of an instance of >>Baz<<.")
+    handle_class(baz)
 
-print(":: Testing handling of an instance of >>Foo<<.")
-handle_class(foo)
+    print(":: Testing handling of an instance of >>Foo<<.")
+    handle_class(foo)
 
+
+if __name__ == '__main__':
+    main()

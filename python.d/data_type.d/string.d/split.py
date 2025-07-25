@@ -5,11 +5,14 @@
 # @author stev leibelt <artodeto@bazzline.net>
 ####
 
-username = "=+---Doe---+="
+def main() -> None:
+    username = "=+---Doe---+="
 
-# strip will remove all provided characters from the string
-user = username.strip("=+-")
+    # strip will remove all provided characters from the string
+    user = username.strip("=+-")
 
-print("username: {}".format(username))
-print("user: {}".format(user))
+    print("username: {}".format(username))
+    print("user: {}".format(user))
 
+if __name__ == '__main__':
+    main()

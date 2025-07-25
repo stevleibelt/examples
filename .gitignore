@@ -1,5 +1,6 @@
 .idea
 *.jar
+__pycache__/
 python.d/input/__pycache__/
 python.d/__pycache__
 python.d/__init__.py.d/

@@ -21,12 +21,15 @@ class RealBase(AbstractBase):
     def set_name(self, name: str):
         self._name = name
 
-realBase = RealBase('foo')
+def main() -> None:
+    realBase = RealBase('foo')
 
-print(realBase.get_name())
+    print(realBase.get_name())
 
-realBase.set_name('bar')
-print(realBase.get_name())
+    realBase.set_name('bar')
+    print(realBase.get_name())
 
-print("")
+    print("")
 
+if __name__ == '__main__':
+    main()

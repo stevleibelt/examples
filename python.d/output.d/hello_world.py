@@ -8,8 +8,12 @@
 #@see: https://docs.python.org/3/using/windows.html#from-a-script
 import sys
 
-sys.stdout.write("hello from python %s.\n" % (sys.version,))
+def main() -> None:
+    sys.stdout.write("hello from python %s.\n" % (sys.version,))
 
-print("Hello World!")
+    print("Hello World!")
 
-print("Hello", "World!")
+    print("Hello", "World!")
+
+if __name__ == '__main__':
+    main()

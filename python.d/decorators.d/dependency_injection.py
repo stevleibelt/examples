@@ -28,14 +28,20 @@ def foo_injected(foo: str = None, bar: str = None, baz: str = None):
 def bar_and_foo_injected(foo: str = None, bar: str = None, baz: str = None):
     print(f"foo: {foo}, bar: {bar}, baz: {baz}")
 
-print("bar_injected")
-bar_injected()
-print("")
 
-print("foo_injected")
-foo_injected()
-print("")
+def main() -> None:
+    print("bar_injected")
+    bar_injected()
+    print("")
 
-print("bar_and_foo_injected")
-bar_and_foo_injected()
-print("")
+    print("foo_injected")
+    foo_injected()
+    print("")
+
+    print("bar_and_foo_injected")
+    bar_and_foo_injected()
+    print("")
+
+
+if __name__ == '__main__':
+    main()

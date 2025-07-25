@@ -5,9 +5,14 @@
 #   or user input validation
 ####
 
-x = -1
+def main() -> None:
+    x = -1
 
-try:
-    assert x > 0, f"x: {x} should be greater than zero"
-except AssertionError as e:
-    print(f"Assertion failed: {e}")
+    try:
+        assert x > 0, f"x: {x} should be greater than zero"
+    except AssertionError as e:
+        print(f"Assertion failed: {e}")
+
+
+if __name__ == '__main__':
+    main()
