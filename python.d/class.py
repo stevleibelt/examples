@@ -9,11 +9,11 @@ class BaseEmployee:
 
     @property
     def fullname(self):
-        return '{} {}'.format(self._firstname, self._lastname)
+        return f"{self._firstname} {self._lastname}"
 
     @fullname.setter
     def fullname(self, fullname: str):
-        self._firstname, self._lastname = fullname.split(' ')
+        self._firstname, self._lastname = fullname.split(" ")
 
     @fullname.deleter
     def fullname(self):
@@ -29,10 +29,10 @@ class PaidEmployee(BaseEmployee):
 
     #__repr__ is for debugging
     def __repr__(self):
-        return "PaidEmployee('{}','{}',{})".format(self._firstname, self._lastname, self._initial_payment)
+        return f"PaidEmployee('{self._firstname}','{self._lastname}',{self._initial_payment})"
 
     def __str__(self):
-        return "'{}' '{}',{}".format(self._firstname, self._lastname, self._initial_payment)
+        return f"'{self._firstname}' '{self._lastname}',{self._initial_payment}"
 
     def __add__(self, other):
         if isinstance(other, PaidEmployee):
@@ -53,7 +53,7 @@ class PaidEmployee(BaseEmployee):
     
     @classmethod
     def from_string(cls, string : str):
-        firstname, lastname, payment = string.split('-')
+        firstname, lastname, payment = string.split("-")
         return cls(firstname, lastname, payment)
 
     @staticmethod
@@ -65,51 +65,62 @@ class PaidEmployee(BaseEmployee):
 def main() -> None:
     PaidEmployee.set_raise_payment_amount(1.05)
 
-    pe_1 = PaidEmployee('Max', 'Power', 3000)
-    pe_1.fullname = 'Hard Cora'
-    pe_2 = PaidEmployee('Victoria', 'Major', 4000)
+    pe_1 = PaidEmployee("Max", "Power", 3000)
+    pe_1.fullname = "Hard Cora"
+    pe_2 = PaidEmployee("Victoria", "Major", 4000)
 
     #this is working because of the @fullname.setter
-    firstname, lastname, payment = 'John-Doe-6000'.split('-')
+    firstname, lastname, payment = "John-Doe-6000".split("-")
 
     pe_3 = PaidEmployee(firstname, lastname, payment)
     #this is working because of the @fullname.deleter
     del pe_3.fullname
-    pe_4 = PaidEmployee.from_string('Jane-Doe-8000')
+    pe_4 = PaidEmployee.from_string("Jane-Doe-8000")
 
-    print(':: Dump fullnames')
+    print(":: Dump fullnames")
     #this works because of the @property
     print(pe_1.fullname)
     print(pe_2.fullname)
     print(pe_3.fullname)
     print(pe_4.fullname)
-    print('')
+    print("")
 
-    print(':: Is workday')
+    print(":: Is workday")
     current_datetime = datetime.now()
     print(PaidEmployee.is_workday(current_datetime))
-    print('')
+    print("")
 
-    print(':: Add')
+    print(":: Add")
     print(pe_1 + pe_2)
-    print('')
+    print("")
 
-    print(':: Is subclass')
+    print(":: Check if this is an instance of")
+    print(f"{isinstance(pe_1, PaidEmployee)=}")
+    print("")
+
+    print(":: Check if this is the same class name")
+    if (type(pe_1).__name__ == PaidEmployee.__name__):
+        print(f"{type(pe_1).__name__=} is equal to {PaidEmployee.__name__=}")
+    else:
+        print(f"{type(pe_1).__name__=} is not equal to {PaidEmployee.__name__=}")
+    print("")
+
+    print(":: Is subclass")
     print(issubclass(PaidEmployee, BaseEmployee))
-    print('')
+    print("")
 
-    print(':: rpr')
+    print(":: rpr")
     print(repr(pe_1))
-    print('')
+    print("")
 
-    print(':: str')
+    print(":: str")
     print(pe_1)
-    print('')
+    print("")
 
     #uncomment if needed
     #print(help(BaseEmployee))
     #uncomment if needed
     #print(help(PaidEmployee))
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
