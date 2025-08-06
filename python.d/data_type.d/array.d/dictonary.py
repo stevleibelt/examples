@@ -11,53 +11,53 @@
 ####
 
 def main() -> None:
-    exampleDictionary = {
-            'foo': {
-                'my_property': 'my first value'
+    example_dictionary = {
+            "foo": {
+                "my_property": "my first value"
                 },
-            'bar': {
-                'my_property': 'my second value'
+            "bar": {
+                "my_property": "my second value"
                 }
         }
 
-    print(":: Printing content of >>exampleDictionary<<.")
-    print(exampleDictionary)
+    print(":: Printing content of >>example_dictionary<<.")
+    print(example_dictionary)
     print("")
 
-    print(":: Printing all keys of >>exampleDictionary<<.")
-    print(list(exampleDictionary))
+    print(":: Printing all keys of >>example_dictionary<<.")
+    print(list(example_dictionary))
     print("")
 
-    print(":: Printing type of >>exampleDictionary<<.")
-    print(type(exampleDictionary))
+    print(":: Printing type of >>example_dictionary<<.")
+    print(type(example_dictionary))
     print("")
 
-    print(":: Iterating over values of >>exampleDictionary<<.")
-    for x in exampleDictionary:
+    print(":: Iterating over values of >>example_dictionary<<.")
+    for x in example_dictionary:
         print("   Dumping values of key >>{}<<".format(x))
-        print("   {}".format(exampleDictionary[x]))
+        print("   {}".format(example_dictionary[x]))
     print("")
 
-    print(":: Check if >>exampleDictionary<< contains >>foo<<.")
-    if "foo" in exampleDictionary:
-        print("   >>exampleDictionary<< does contain >>foo<<.")
+    print(":: Check if >>example_dictionary<< contains >>foo<<.")
+    if "foo" in example_dictionary:
+        print("   >>example_dictionary<< does contain >>foo<<.")
     else:
-        print("   >>exampleDictionary<< does not contain >>foo<<.")
+        print("   >>example_dictionary<< does not contain >>foo<<.")
 
     # Merge two diretories
-    # firstDictionary.update(secondDictionary)
+    # first_dictionary.update(second_dictionary)
     #   Result: first one gets updated
     # `**` unpacks a dictionary
     #   Unpack and merge the key and value pairs
-    # thirdDictionary = { **firstDictionary, **secondDictionary }
+    # thirdDictionary = { **first_dictionary, **second_dictionary }
     #from itertools import chain
-    # thirdDictionary = dict(chain(firstDictionary.items(), secondDictionary.items()))
+    # thirdDictionary = dict(chain(first_dictionary.items(), second_dictionary.items()))
     #
     #from collections import ChainMap
-    # thirdDictionary = dict(ChainMap(firstDictionary, secondDictionary))
+    # thirdDictionary = dict(ChainMap(first_dictionary, second_dictionary))
     # available since python 3.9
-    # thirdDictionary = firstDictionary | secondDictionary
-    # firstDictionary |= secondDictionary
+    # thirdDictionary = first_dictionary | second_dictionary
+    # first_dictionary |= second_dictionary
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
