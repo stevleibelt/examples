@@ -4,19 +4,21 @@ This repository contains a lot of free as in freedom examples for multiple progr
 
 ## Programming Languages
 
-* [bash](bash)
-* [bat](bat)
-* [c](c)
-* [javascript](javascript)
-* [php](php)
-* [powershell](powershell)
-* [python](python)
-* [rust](rust)
+* [bash](bash.d)
+* [bat](bat.d)
+* [c](c.d)
+* [java](java.d)
+* [javascript](javascript.d)
+* [php](php.d)
+* [powershell](powershell.d)
+* [python](python.d)
+* [rust](rust.d)
 
 ## Tools
 
-* [docker](docker)
-* [vagrant](vagrant)
+* [docker](docker.d)
+* [git](git.d)
+* [vagrant](vagrant.d)
 
 ## Links
 
