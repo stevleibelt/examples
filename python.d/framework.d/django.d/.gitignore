@@ -12,6 +12,7 @@ db.sqlite3
 db.sqlite3-journal
 media/
 static_collected/
+**/settings.py
 
 # ids
 .vscode/
