@@ -140,6 +140,8 @@ docker compose exec -it django sh
 uv run manage.py migrate
 ```
 
+Continue with reading the [official tutorial](https://docs.djangoproject.com/en/5.2/intro/tutorial01/).
+
 ## Links
 
 * [start: djangoproject.com](https://www.djangoproject.com/start/) - 20250929
