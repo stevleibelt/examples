@@ -99,10 +99,40 @@ services:
       context: .
       dockerfile: django.Docker
     command: uv run python manage.py runserver 0.0.0.0:8000
+    environment:
+      DEBUG: ${DEBUG}
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
+      DJANGO_LOGLEVEL: ${DJANGO_LOGLEVEL}
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      # This is the section where you can add
+      #   database related configuration too
+    env_file:
+      - .env
     volumes:
       - .:/app
     ports:
       - "8000:8000"
+DELIM
+
+cat > .env.dist <<DELIM
+DEBUG=True
+DJANGO_ALLOWED_HOSTS="localhost"
+DJANGO_LOGLEVEL="info"
+DJANGO_SECRET_KEY=
+DELIM
+
+cp .env.dist .env
+# Adapt env, especially add an at least 64 character wide secret
+vim .env
+
+cat >> bazzline/settings.py <<DELIM
+# Add this line on top
+from os import environ
+
+# Comment out default lines and replace with the following
+SECRET_KEY = environ.get("DJANGO_SECRET_KEY")
+DEBUG = bool(environ.get("DEBUG", default=0))
+ALLOWED_HOSTS = environ.get("DJANGO_ALLOWED_HOSTS","127.0.0.1").split(",")
 DELIM
 
 docker compose up --build -d
