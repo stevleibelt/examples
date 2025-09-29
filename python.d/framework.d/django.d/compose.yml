@@ -1,0 +1,10 @@
+services:
+  django:
+    build:
+      context: .
+      dockerfile: django.Docker
+    command: uv run python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"

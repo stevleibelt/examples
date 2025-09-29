@@ -1,0 +1,32 @@
+# Maybe adapt to a later one
+# ref: https://hub.docker.com/_/python
+FROM python:3.13-alpine
+
+# Set environment variables 
+# Prevent Python from writing pyc files to disk
+ARG PYTHONDONTWRITEBYTECODE=1
+# Prevent Python from buffering stdout and stderr
+ARG PYTHONUNBUFFERED=1
+
+# Install uv
+RUN pip install uv
+
+# Create non-root user
+RUN addgroup --system app && \
+  adduser --system app && \
+  mkdir /app
+
+WORKDIR /app
+
+# Copy uv project files first (for better caching)
+COPY pyproject.toml uv.lock ./
+
+# Install dependencies using uv's project management
+RUN uv sync --no-cache-dir --frozen --no-dev
+
+COPY . /app/
+
+EXPOSE 8000
+
+# Command for production
+CMD ["uv", "run", "gunicorn", "--bind", "0.0.0.0:8000", "bazzline.wsgi:application"]

@@ -1,0 +1,21 @@
+# environment
+.venv/
+.env
+
+# python
+__pycache__/
+*.pyc
+
+# django
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+static_collected/
+
+# ids
+.vscode/
+.idea/
+
+# well, for mac users
+.DS_Store

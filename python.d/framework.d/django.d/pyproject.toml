@@ -1,0 +1,17 @@
+[project]
+name = "django-d"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "django>=5.2.6",
+]
+
+[dependency-groups]
+dev = [
+    "django-debug-toolbar>=6.0.0",
+]
+prod = [
+    "gunicorn>=23.0.0",
+]
