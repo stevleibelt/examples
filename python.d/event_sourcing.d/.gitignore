@@ -1,0 +1,14 @@
+# environment
+.venv
+.env
+
+# python
+__pycache__/
+*.pyc
+
+# ids
+.vscode/
+.idea/
+
+# mac users
+.DS_Store
