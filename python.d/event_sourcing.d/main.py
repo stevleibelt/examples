@@ -117,6 +117,37 @@ def tutorial_app_part_one(
         for notification in notifications:
             print(f"   {notification=}")
 
+    if be_verbose:
+        print("")
+        print(":: Demonstrating unit tests")
+
+    import unittest
+
+    def test_dog_school() -> None:
+        app = DogSchool()
+
+        dog_id = app.register_dog(name=dog_name)
+
+        if be_verbose:
+            print(f"   Testing if name is equal to {dog_name} and that trick is an empty tuple")
+
+        assert app.get_dog_as_dict(dog_id) == {
+            'name': dog_name,
+            'tricks': (),
+        }
+
+        if be_verbose:
+            print(f"   Testing if {added_trick_name=} can be added")
+
+        app.add_trick(dog_id, trick=added_trick_name)
+
+        assert app.get_dog_as_dict(dog_id) == {
+            'name': dog_name,
+            'tricks': (added_trick_name, ),
+        }
+
+    test_dog_school()
+
 
 if __name__ == "__main__":
     app()
