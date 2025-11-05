@@ -4,7 +4,7 @@ from eventsourcing.domain import Aggregate, event
 from typing import Any
 from uuid import UUID
 
-# ref: https://eventsourcing.readthedocs.io/en/stable/topics/tutorial/part1.html
+# ref: https://eventsourcing.readthedocs.io/en/stable/topics/tutorial/part2.html
 app = typer.Typer(name="part2")
 
 class Dog(Aggregate):
