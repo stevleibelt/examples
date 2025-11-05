@@ -4,6 +4,9 @@ from eventsourcing.domain import Aggregate, event
 from typing import Any
 from uuid import UUID
 
+# ref: https://eventsourcing.readthedocs.io/en/stable/topics/tutorial/part1.html
+app = typer.Typer(name="part1")
+
 class Dog(Aggregate):
     @event("Registered")
     def __init__(self, name: str) -> None:
@@ -29,10 +32,6 @@ class DogSchool(Application[UUID]):
         dog: Dog = self.repository.get(dog_id)
         return {"name": dog.name, "tricks": tuple(dog.tricks)}
 
-
-app = typer.Typer(name="Event sourcing example")
-
-# ref: https://eventsourcing.readthedocs.io/en/stable/topics/tutorial/part1.html
 @app.command(name="1", help="demonstrate aggregate")
 def app_aggregate_example(
     added_trick_name: str = typer.Option("roll over"),
