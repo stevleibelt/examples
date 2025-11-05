@@ -156,12 +156,6 @@ def app_explicitly_defined_event_classes(
 
     _dump_events(be_verbose=be_verbose, events=events)
 
-def _dump_events(be_verbose: bool, events: list[Aggregate.Event]) -> None:
-    if be_verbose:
-        print(f":: Dumping events")
-        for event in events:
-            print(f"   {event=}")
-
 
 @app.command(name="5", help="exercises")
 def app_exercises(
@@ -224,4 +218,14 @@ def app_exercises(
 
     test()
 
+
+def _dump_events(be_verbose: bool, events: list[Aggregate.Event]) -> None:
+    if be_verbose:
+        print(f":: Dumping events")
+        for event in events:
+            print(f"   {event=}")
+
+
+if __name__ == "__main__":
+    app()
 
