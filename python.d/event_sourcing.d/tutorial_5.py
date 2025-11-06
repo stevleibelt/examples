@@ -251,13 +251,17 @@ def app_running_an_event_driven_system(
         def create_id(name: str) -> UUID:
             return uuid5(NAMESPACE_URL, f"/player/{name}")
 
-        @event("ScoreDecreased")
         def decrease_score(self, removed_score: int) -> None:
-            self.score -= removed_score
+            new_score = self.score - removed_score
+            self._update_score(score=new_score)
 
-        @event("ScoreIncreased")
         def increase_score(self, added_score: int) -> None:
-            self.score += added_score
+            new_score = self.score + added_score
+            self._update_score(score=new_score)
+
+        @event("ScoreUpdated")
+        def _update_score(self, score: int) -> None:
+            self.score = score
 
 
 
@@ -276,6 +280,12 @@ def app_running_an_event_driven_system(
             player.increase_score(added_score=added_score)
             self.save(player)
 
+        def get_player_name(self, player_id) -> str | None:
+            try:
+                return self.repository.get(player_id).name
+            except AggregateNotFoundError:
+                return None
+
 
     class HighScoreTable(Aggregate):
         def __init__(self, name: str):
@@ -287,29 +297,65 @@ def app_running_an_event_driven_system(
             return uuid5(NAMESPACE_URL, f"/high_score_table/{name}")
 
         @event("Update")
-        def update(self, player_name: str, current_score: int) -> None:
-            ...
+        def update(self, player_id: str, current_score: int) -> None:
+            self.high_score_table[player_id] = current_score
+
+            # Sort array in reverse (descending) by using the score and
+            #   slice out the first three
+            top_three = dict(sorted(self.high_score_table.items(), key=lambda item: item[1], reverse=True)[:3])
+
+            self.high_score_table = top_three
 
 
 
-    class HallOfFame(Application[UUID]):
-        ...
+    class HallOfFame(ProcessApplication[UUID]):
+        @singledispatchmethod
+        def policy(self, domain_event: DomainEventProtocol[UUID], processing_event: ProcessingEvent[UUID]) -> None:
+            """Default policy"""
 
+        @policy.register
+        def _(self, domain_event: Player.ScoreUpdated, processing_event: ProcessingEvent[UUID]) -> None:
+            player_id: str = domain_event.originator_id
+            score: int = domain_event.score
 
-    system = System(pipes=[[Game]])
+            try:
+                table_id = HighScoreTable.create_id(name="main_table")
+                high_score_table: HighScoreTable = self.repository.get(table_id)
+            except AggregateNotFoundError:
+                high_score_table: HighScoreTable = HighScoreTable("main_table")
+
+            high_score_table.update(player_id=player_id, current_score=score)
+            processing_event.collect_events(high_score_table)
+
+        def get_high_score_table_as_dict(self, name: str) -> int:
+            table_id = HighScoreTable.create_id(name)
+            try:
+                high_score_table: HighScoreTable = self.repository.get(table_id)
+            except AggregateNotFoundError:
+                return {}
+            return high_score_table.high_score_table
+
+    system = System(pipes=[[Game, HallOfFame]])
     runner = SingleThreadedRunner(system=system)
 
     runner.start()
 
     game = runner.get(Game)
+    hall_of_fame = runner.get(HallOfFame)
+
+    if be_verbose:
+        print(f"{system.nodes=}")
+        print(f"{system.edges=}")
 
     # Add events
     game.register_player(name="Anarki")
     game.register_player(name="Crash")
+    game.register_player(name="Slash")
 
     game.increase_score(name="Anarki", added_score=10)
     game.increase_score(name="Crash", added_score=7)
     game.decrease_score(name="Anarki", removed_score=3)
+    game.increase_score(name="Slash", added_score=666)
     game.increase_score(name="Crash", added_score=6)
 
     game_notifications = game.notification_log.select(start=0, limit=10)
@@ -319,7 +365,13 @@ def app_running_an_event_driven_system(
         for game_notification in game_notifications:
             print(f"   {game_notification=}")
 
+    high_score_table_dict = hall_of_fame.get_high_score_table_as_dict("main_table")
 
+    if be_verbose:
+        print(":: Dumping hight score table")
+        for player_id, score in high_score_table_dict.items():
+            name = game.get_player_name(player_id=player_id)
+            print(f"   {name=}, {score=}")
 
 if __name__ == "__main__":
     app()
