@@ -5,6 +5,6 @@ description = "Executable cli application to demonstrate event sourced applicati
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "eventsourcing>=9.4.6",
+    "eventsourcing[cryptography]>=9.4.6",
     "typer>=0.20.0",
 ]
