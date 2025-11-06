@@ -18,16 +18,19 @@ class Dog(Aggregate):
         self.tricks.append(trick)
 
 class DogSchool(Application[UUID]):
+    # command method -> evolves the state
     def register_dog(self, name: str) -> UUID:
         dog = Dog(name=name)
         self.save(dog)
         return dog.id
     
+    # command method -> evolves the state
     def add_trick(self, dog_id: UUID, trick: str) -> None:
         dog: Dog = self.repository.get(dog_id)
         dog.add_trick(trick=trick)
         self.save(dog)
 
+    # query method -> does not evolves the state
     def get_dog_as_dict(self, dog_id: UUID) -> dict[str, Any]:
         dog: Dog = self.repository.get(dog_id)
         return {"name": dog.name, "tricks": tuple(dog.tricks)}
