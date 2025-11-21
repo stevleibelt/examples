@@ -51,9 +51,8 @@ class MyObject:
     def add_change(self, name: str, value: Any) -> None:
         # This could be a place to implement value [type] validation
         #   or extend MyObject from pydantic.BaseModel.
-        if getattr(self, name) != value:
-            self.changelog.record_change(attribute_name=name, new_value=value, obj=self)
-            super().__setattr__(name, value)
+        self.changelog.record_change(attribute_name=name, new_value=value, obj=self)
+        super().__setattr__(name, value)
 
 
     def get_change(self, attribute_name: str) -> Change | None:
