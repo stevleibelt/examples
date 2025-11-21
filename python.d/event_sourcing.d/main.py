@@ -1,3 +1,11 @@
+####
+# Contains example from the eventsourcing tutorial
+####
+# @see: https://eventsourcing.readthedocs.io/en/stable/topics
+# @since: 2025-11-05
+# @author: stev leibelt <artodeto@bazzline.net>
+####
+
 import typer
 
 app = typer.Typer(name="Event sourcing example")

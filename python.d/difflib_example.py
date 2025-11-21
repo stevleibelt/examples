@@ -1,4 +1,12 @@
-# ref: https://docs.python.org/3/library/difflib.html
+####
+# Contains example how to use SequenceMatcher and get_close_matches from
+#   pythons core libraries.
+####
+# @see: https://docs.python.org/3/library/difflib.html
+# @since: 2025-10-21
+# @author: stev leibelt <artodeto@bazzline.net>
+####
+
 from difflib import SequenceMatcher, get_close_matches
 
 

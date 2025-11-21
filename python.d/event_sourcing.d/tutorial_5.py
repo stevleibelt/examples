@@ -1,3 +1,11 @@
+####
+# Tutorial five
+####
+# @see: https://eventsourcing.readthedocs.io/en/stable/topics/tutorial/part5.html
+# @since: 2025-11-05
+# @author: stev leibelt <artodeto@bazzline.net>
+####
+
 import typer
 from dataclasses import dataclass
 from eventsourcing.application import AggregateNotFoundError, Application, ProcessingEvent
@@ -11,7 +19,6 @@ from time import sleep
 from typing import Any
 from uuid import NAMESPACE_URL, UUID, uuid5
 
-# ref: https://eventsourcing.readthedocs.io/en/stable/topics/tutorial/part5.html
 app = typer.Typer(name="part5")
 
 

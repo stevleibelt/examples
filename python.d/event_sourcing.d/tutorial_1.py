@@ -1,10 +1,17 @@
+####
+# Tutorial one
+####
+# @see: https://eventsourcing.readthedocs.io/en/stable/topics/tutorial/part1.html
+# @since: 2025-11-05
+# @author: stev leibelt <artodeto@bazzline.net>
+####
+
 import typer
 from eventsourcing.application import Application
 from eventsourcing.domain import Aggregate, event
 from typing import Any
 from uuid import UUID
 
-# ref: https://eventsourcing.readthedocs.io/en/stable/topics/tutorial/part1.html
 app = typer.Typer(name="part1")
 
 class Dog(Aggregate):
