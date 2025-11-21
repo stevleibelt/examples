@@ -64,23 +64,26 @@ class MyObject:
         )
 
 
-my_first_object = MyObject()
-my_second_object = MyObject(bar=3, foo="foz")
+def main() -> None:
+    my_first_object = MyObject()
+    my_second_object = MyObject(bar=3, foo="foz")
 
-# Making some changes
-my_first_object.add_change(name="bar", value=1)
-my_first_object.add_change(name="bar", value=2)
-my_first_object.add_change(name="foo", value="faz")
+    # Making some changes
+    my_first_object.add_change(name="bar", value=1)
+    my_first_object.add_change(name="bar", value=2)
+    my_first_object.add_change(name="foo", value="faz")
 
-my_second_object.add_change(name="foo", value="fiz")
+    my_second_object.add_change(name="foo", value="fiz")
 
-# Make no changes
-my_second_object.add_change(name="bar", value=3)
+    # Make no changes
+    my_second_object.add_change(name="bar", value=3)
 
-# Adding a non existing attribute would result into an error
-# my_second_object.add_change(name="baz", value="there is no foo without a bar")
+    # Adding a non existing attribute would result into an error
+    # my_second_object.add_change(name="baz", value="there is no foo without a bar")
 
-# Output
+    # Output
+    print(f"{my_first_object.changelog.changes=}")
+    print(f"{my_second_object.changelog.changes=}")
 
-print(f"{my_first_object.changelog.changes=}")
-print(f"{my_second_object.changelog.changes=}")
+if __name__ == "__main__":
+    main()
