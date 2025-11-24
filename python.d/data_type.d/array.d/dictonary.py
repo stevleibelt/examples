@@ -10,6 +10,11 @@
 # @author stev leibelt <artodeto@bazzline.net>
 ####
 
+from itertools import (
+    chain,
+    islice
+)
+
 def main() -> None:
     example_dictionary = {
             "foo": {
@@ -58,6 +63,25 @@ def main() -> None:
     # available since python 3.9
     # thirdDictionary = first_dictionary | second_dictionary
     # first_dictionary |= second_dictionary
+
+    print(":: Chain example")
+    first_iterable = [1, 3, 5]
+    second_iterable = [2, 4, 6]
+
+    my_chain = chain(first_iterable, second_iterable)
+
+    for value in my_chain:
+        print(f"{value=}")
+
+    print("")
+    limit: int = 4
+    print(f":: Limit chain combined result to {limit=}")
+
+    my_limited_chain = islice(chain(first_iterable, second_iterable), limit)
+    for value in my_limited_chain:
+        print(f"{value=}")
+
+    print("")
 
 if __name__ == "__main__":
     main()
