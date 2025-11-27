@@ -5,11 +5,11 @@
 # @author: stev leibelt <artodeto@bazzline.net>
 ####
 
-from typing import Callable, Iterable
+from typing import Callable, Sized
 
 def main() -> None:
     # Define a lambda with one argument as list and a bool as return type
-    single_value_check: Callable[[Iterable], bool] = lambda a: len(a) == 1
+    single_value_check: Callable[[Sized], bool] = lambda a: len(a) == 1
 
     print(":: Calling same lambda with values")
     print(f"{single_value_check([])=}")
