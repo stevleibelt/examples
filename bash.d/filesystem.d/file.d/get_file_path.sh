@@ -5,6 +5,9 @@
 ####
 
 function _main() {
+  local FILENAME
+  local FILE_REALPATH
+
   echo ":: Please insert a file name"
   read -r FILENAME
 
