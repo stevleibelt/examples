@@ -1,6 +1,6 @@
 #!/usr/bin/python
 ####
-# ref: https://itnext.io/dependency-injection-in-python-a1e56ab8bdd0?gi=071e2505f633&source=read_next_recirc-----4a2fdc48ef74----0---------------------cb3ea296_66f5_499f_bb23_013d148775f5-------
+# ref: https://itnext.io/dependency-injection-in-python-a1e56ab8bdd0
 # @since: 2023-06-16
 # @author: stev leibelt <artodeto@bazzline.net>
 ####
