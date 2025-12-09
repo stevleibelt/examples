@@ -10,6 +10,7 @@
 ####
 
 from inspect import Parameter, signature
+from typing import Any
 
 
 def foo(a, *, b: int, c: bool = False, **kwargs) -> None:
@@ -39,7 +40,7 @@ def main() -> None:
         print(f"   {parameter.kind in (Parameter.VAR_KEYWORD, Parameter.VAR_POSITIONAL)=}")
         print("")
     
-    mandatory_argument_dict = {
+    mandatory_argument_dict: dict[str, Any] = {
         parameter.name: getattr(bind_of_foo, parameter.name, None) for parameter in signature_of_foo.parameters.values()
         if parameter.default == Parameter.empty and (parameter.kind not in (Parameter.VAR_KEYWORD, Parameter.VAR_POSITIONAL))
     }
@@ -59,6 +60,6 @@ def main() -> None:
     print(f"   {mandatory_argument_dict=}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 
