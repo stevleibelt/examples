@@ -34,8 +34,10 @@ def my_decorator_with_argument(string: str = "Hello"):
 
             print(f"   {mandatory_argument_dict=}")
             print(f"   {kwargs=}")
+
             # Apply values from kwargs
             for name, value in mandatory_argument_dict.items():
+                print(f"   {current_function_signature.parameters[name].annotation=}")
                 if value is None and name in kwargs:
                     mandatory_argument_dict[name] = kwargs[name]
                 else:
