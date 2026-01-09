@@ -1,7 +1,7 @@
 #!/bin/bash
 ####
 # @author stev leibelt <artodeto@bazzline.net>
-# @since 20220-08-19
+# @since 2022-08-19
 ####
 
 function _main ()
