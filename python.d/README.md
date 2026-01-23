@@ -21,15 +21,16 @@
 
 ## Module, packages and subpackages
 
+> ref: https://docs.python.org/3/tutorial/modules.html#tut-modules
 > A module is a file containing Python definitions and statements.
 
-[source](https://docs.python.org/3/tutorial/modules.html#tut-modules)
+> ref: https://www.freecodecamp.org/news/how-to-build-a-singleton-in-python-and-why-you-probably-shouldnt/
+> Import a module, and you get the same instance every time.
 
+> ref: https://docs.python.org/3/tutorial/modules.html#packages
 > Packages are a way of structuring Python’s module namespace by using “dotted module names”.
 > ...
 > The `__init__.py` files are required to make Python treat directories containing the file as packages.
-
-[source](https://docs.python.org/3/tutorial/modules.html#packages)
 
 ```bash
 # ref: https://fastapi.tiangolo.com/tutorial/bigger-applications/
