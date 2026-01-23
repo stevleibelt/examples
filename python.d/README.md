@@ -26,6 +26,7 @@
 
 > ref: https://www.freecodecamp.org/news/how-to-build-a-singleton-in-python-and-why-you-probably-shouldnt/
 > Import a module, and you get the same instance every time.
+> [...] when you import a module, Python executes it once and caches the result in sys.modules. Every subsequent import returns the cached module object, not a new one.
 
 > ref: https://docs.python.org/3/tutorial/modules.html#packages
 > Packages are a way of structuring Python’s module namespace by using “dotted module names”.
