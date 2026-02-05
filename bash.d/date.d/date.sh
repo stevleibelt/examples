@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ########
 # Example for using date.
 #
@@ -35,44 +35,44 @@ echo ""
 #83-10-06
 echo "date +'%y-%m-%d'"
 DATE=$(date +'%y-%m-%d')
-echo ${DATE}
+echo "${DATE}"
 echo ""
 
 #1983-10-06 13:37:00
 echo "date +'%Y-%m-%d %H:%M:%S'"
 DATE=$(date +'%Y-%m-%d %H:%M:%S')
-echo ${DATE}
+echo "${DATE}"
 echo ""
 
 #19831006.133700
 echo "date +'%Y%m%d.%H%M%S'"
 DATE=$(date +'%Y%m%d.%H%M%S')
-echo ${DATE}
+echo "${DATE}"
 echo ""
 
 #19831006-133700
 echo "date +'%Y%m%d-%H%M%S'"
 DATE=$(date +'%Y%m%d-%H%M%S')
-echo ${DATE}
+echo "${DATE}"
 echo ""
 
 echo ":: Calculating dates"
 echo "date --date=yesterday +%Y%m%d"
 DATE=$(date --date=yesterday +%Y%m%d)
-echo ${DATE}
+echo "${DATE}"
 echo ""
 
 echo "date --date='-7 day' +%Y%m%d"
 DATE=$(date --date='-7 day' +%Y%m%d)
-echo ${DATE}
+echo "${DATE}"
 echo ""
 
 echo "date --date='+1 week' +%Y%m%d"
 DATE=$(date --date='+1 week' +%Y%m%d)
-echo ${DATE}
+echo "${DATE}"
 echo ""
 
 echo "date --date='+3 year' +%Y%m%d"
 DATE=$(date --date='+3 year' +%Y%m%d)
-echo ${DATE}
+echo "${DATE}"
 echo ""

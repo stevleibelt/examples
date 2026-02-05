@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ########
 # Example for using date.
 #
@@ -6,7 +6,7 @@
 # @since 2015-03-26
 ########
 
-function _main ()
+_main ()
 {
   local DATE
   local DATETIME

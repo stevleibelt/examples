@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ########
 # Example for using date.
 #
@@ -7,7 +7,7 @@
 ########
 
 if [ "$#" -gt 0 ]; then
-    SLEEP="$1"
+    SLEEP="${1}"
 else
     SLEEP=7
 fi
@@ -16,6 +16,6 @@ START_TIMESTAMP=$(date +'%s')
 echo "sleeping for ${SLEEP} seconds"
 sleep "${SLEEP}s"
 END_TIMESTAMP=$(date +'%s')
-DIFF=$(($END_TIMESTAMP-$START_TIMESTAMP))
+DIFF=$((END_TIMESTAMP - START_TIMESTAMP))
 
 echo "Runtime: ${DIFF} in seconds"
