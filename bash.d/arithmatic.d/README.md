@@ -9,7 +9,9 @@ Conversion between strings and numbers is done implicitly.
 ```bash
 A=$((7 + 3))
 
-echo $(($A * 23))
+# Don't use $ to address variables
+# ref: https://www.shellcheck.net/wiki/SC2004
+echo $((A * 23))
 ```
 
 ## Links

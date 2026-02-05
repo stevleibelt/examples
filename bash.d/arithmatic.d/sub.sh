@@ -6,10 +6,13 @@
 
 function _sub ()
 {
-    local ONE=1
-    local RESULT=`expr 2 - ${ONE}`
+  local ONE
+  local RESULT
 
-    echo ":: 2 - 1 is >>${RESULT}<<"
+  ONE=1
+  RESULT=$((2 - ONE))
+
+  echo ":: 2 - 1 is >>${RESULT}<<"
 }
 
 _sub

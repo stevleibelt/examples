@@ -4,17 +4,18 @@
 # @since 2014-03-22
 ####
 
-RESULT=`expr 1 + 1`
-VAR=3
-
-VAR=$((VAR+1))
-((VAR=VAR+1))
-((VAR+=1))
-((VAR++))
-
-let "VAR=VAR+1"
-let "VAR+=1"
-let "VAR++"
-
+RESULT=$((1 + 1))
 echo '1 + 1 is: '$RESULT
-echo "\$VAR >>${VAR}<<."
+
+echo ""
+VAR=3
+echo "VAR: ${VAR}"
+
+VAR=$((VAR + 1))
+echo "VAR + 1: ${VAR}"
+
+VAR=$((++VAR))
+echo "++VAR: ${VAR}"
+
+VAR=$((VAR++))
+echo "VAR++: ${VAR}"
