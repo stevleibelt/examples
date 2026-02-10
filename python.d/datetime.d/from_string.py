@@ -9,8 +9,10 @@ from datetime import datetime, timedelta
 
 def main() -> None:
     absolute_date_string: str = "1949-10-07"
+    # strptime -> string parse time
     absolute_datetime = datetime.strptime(absolute_date_string, "%Y-%m-%d")
 
+    print(":: From String")
     print(f"{absolute_date_string=}")
     print(f"{absolute_datetime=}")
     print("")
@@ -22,6 +24,11 @@ def main() -> None:
     print(f"{relative_date_string=}")
     print(f"{relative_days=}")
     print(f"{relative_datetime=}")
+    print("")
+
+    # strftime -> string format time
+    print(":: To String")
+    print(f"{relative_datetime.strftime('%Y-%m-%d %H:%M:%S.%f')=}")
     print("")
 
 
