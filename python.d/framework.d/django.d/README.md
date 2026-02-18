@@ -145,3 +145,4 @@ Continue with reading the [official tutorial](https://docs.djangoproject.com/en/
 ## Links
 
 * [start: djangoproject.com](https://www.djangoproject.com/start/) - 20250929
+* [How to optimize djanro rest apis for performance: freecodecamp.org](https://www.freecodecamp.org/news/how-to-optimize-django-rest-apis-for-performance/) - 20260218
