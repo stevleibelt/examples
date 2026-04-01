@@ -103,6 +103,15 @@ function _main()
   if [[ "${ARRAY_ENTRIES[*]}" =~ "bar" ]];
   then
     echo "   There is a bar in the foo!"
+  else
+    echo "   There is no bar in the foo!"
+  fi
+
+  if [[ "${ARRAY_ENTRIES[*]}" =~ "bazzline" ]];
+  then
+    echo "   There is a bazzline in the foo!"
+  else
+    echo "   There is no bazzline in the foo!"
   fi
 
   #size of an array
