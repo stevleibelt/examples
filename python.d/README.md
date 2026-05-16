@@ -76,6 +76,7 @@ users.create(name="Max Power")  # Assuming module users has a function called cr
 * [Learning Python: python-guide.org](https://docs.python-guide.org/intro/learning/) - 20230424
 * [Python For Beginners: python.org](https://www.python.org/about/gettingstarted/) - 20230424
 * [Python debuggung handbook: freecodecamp.org](https://www.freecodecamp.org/news/python-debugging-handbook/) - 20240126
+* [Secure Coding Guide for Python: openssf.org](https://best.openssf.org/Secure-Coding-Guide-for-Python/) - 20260313
 * [Style Guide](https://peps.python.org/pep-0008/) - 20230425
 * [The Python Decorator Handbook: freecodecamp.org](https://www.freecodecamp.org/news/the-python-decorator-handbook/) - 20240129
 * [The Python Tutorial: python.org](https://docs.python.org/3/tutorial/index.html) - 20230424

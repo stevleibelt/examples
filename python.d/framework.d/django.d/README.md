@@ -11,6 +11,8 @@ uv venv
 
 # Install django
 uv add django
+# Or if you want to work with REST
+uv add django djangorestframework djangorestframework-simplejwt
 uv add --group dev django-debug-toolbar
 uv add --group prod gunicorn
 
@@ -22,10 +24,21 @@ exit()
 
 # Start a project
 uv run django-admin startproject bazzline .
+
+# Create first component aka app
+uv run django-admin startapp core
+
 # Just to check that basically all is working
 # Open the url listed after `Starting development server at`
 #    with a Webbrowser
 uv run manage.py runserver
+
+#   create migration
+uv run manage.py makemigrations
+
+#   create migration sql code
+uv run manage.py sqlmigrate <string: app_name> <int: migration_number>
+
 #   migrate database
 uv run manage.py migrate
 
@@ -146,3 +159,4 @@ Continue with reading the [official tutorial](https://docs.djangoproject.com/en/
 
 * [start: djangoproject.com](https://www.djangoproject.com/start/) - 20250929
 * [How to optimize djanro rest apis for performance: freecodecamp.org](https://www.freecodecamp.org/news/how-to-optimize-django-rest-apis-for-performance/) - 20260218
+* [How to Build a Scoped Note-Taking API with Django Rest Framework and SimpleJWT: freecodecamp.org](https://www.freecodecamp.org/news/how-to-build-a-scoped-note-taking-api-with-django-rest-framework-and-simplejwt/) - 20260506
