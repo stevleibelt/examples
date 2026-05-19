@@ -25,7 +25,7 @@ class BaseChangeModel(BaseModel, Generic[T]):
     def update(self, **kwargs) -> T:
         # If you want log all the changes on an attribute, uncomment the
         #   next line
-        # change_log = self.change_log
+        # change_log = self.change_log.copy()
         # If you want to log only the latest change, keep the
         #   next line
         change_log = []
