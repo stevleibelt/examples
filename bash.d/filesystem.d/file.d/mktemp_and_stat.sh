@@ -11,14 +11,14 @@ function _calculate_time_elapsed()
   local SECONDS_ELAPSED
   local STAT_CTIME
 
-  STAT_CTIME=$(stat -c %W "${1}" 2>/dev/null)
-
   if [[ ! -f "${1}" ]];
   then
     echo "ERROR: No file found, file path=${1}"
 
     exit 1
   fi
+
+  STAT_CTIME=$(stat -c %W "${1}" 2>/dev/null)
 
   if [[ -z "${STAT_CTIME}" ]];
   then
