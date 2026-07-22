@@ -28,17 +28,19 @@ function _add_to_log_file() {
 }
 
 function _main() {
+    local BASE_SECONDS_TO_SLEEP
     local COMMAND
     local DONE_FILE
     local LOG_FILE
     local MESSAGE
+    local RANDOM_SECONDS_TO_SLEEP
     local SECONDS_TO_SLEEP
 
     #@TODO: Adapt this command
     COMMAND=(awk 'BEGIN{srand(); exit (rand()<0.5)?0:1}')
     DONE_FILE="retry_command.done"
     LOG_FILE="retry_command.log"
-    SECONDS_TO_SLEEP=60
+    BASE_SECONDS_TO_SLEEP=10
 
     while true;
     do
@@ -62,6 +64,9 @@ function _main() {
         _add_to_log_file "${LOG_FILE}" "[DEBUG]: Command returned ${?}"
     fi
 
+    # Create a number between 0 and 10
+    RANDOM_SECONDS_TO_SLEEP=$(shuf -i 0-10 -n 1)
+    SECONDS_TO_SLEEP=$(( ${BASE_SECONDS_TO_SLEEP} + ${RANDOM_SECONDS_TO_SLEEP} ))
     _add_to_log_file "${LOG_FILE}" "[DEBUG]: Sleeping for ${SECONDS_TO_SLEEP} seconds."
     sleep ${SECONDS_TO_SLEEP}
     done
