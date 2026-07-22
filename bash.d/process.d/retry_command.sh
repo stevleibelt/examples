@@ -3,12 +3,12 @@
 # Executes a command
 # All actions are logged to a log file
 #
-# Tries the command every five minutes until the execution was successfull.
+# Tries the command every x seconds until the execution was successfull.
 # If sucessfull:
 #   * A .done file is created
 #   * The script stops running
 # If not sucessfull:
-#   * The command is retried after five minutes
+#   * The command is retried after x seconds
 ####
 # @author: Stev Leibelt <artodeto@bazzline.net>
 # @since: 2026-07-22
