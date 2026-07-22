@@ -65,7 +65,7 @@ function _main() {
     fi
 
     # Create a number between 0 and 10
-    RANDOM_SECONDS_TO_SLEEP=$(shuf -i 0-10 -n 1)
+    RANDOM_SECONDS_TO_SLEEP=$(( ${RANDOM} % 10 ))
     SECONDS_TO_SLEEP=$(( ${BASE_SECONDS_TO_SLEEP} + ${RANDOM_SECONDS_TO_SLEEP} ))
     _add_to_log_file "${LOG_FILE}" "[DEBUG]: Sleeping for ${SECONDS_TO_SLEEP} seconds."
     sleep ${SECONDS_TO_SLEEP}
