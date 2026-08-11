@@ -6,7 +6,14 @@
 # @since 2016-10-24
 ########
 
-BASE_NAME=$(basename ${0})
+function _main ()
+{
+  local BASE_NAME
 
-echo ":: Outputting the base name of this script."
-echo "${BASE_NAME}"
+  BASE_NAME=$(basename ${0})
+
+  echo ":: Outputting the base name of this script."
+  echo "${BASE_NAME}"
+}
+
+_main "${@}"
