@@ -4,13 +4,12 @@
 
 ```bash
 #!/bin/bash
-
-# exit if ANY subcommand fails
-set -e
-
-# exit with an error on any command in a pipeline as well
+####
+# -e: (erexit) Stop script if executed command returns non-zero exitcode except in an if-condition
+# -o pipefail: Non-zero exit code of a command is used as the exit code of this script
 # ref: https://stackoverflow.com/a/90441
-set -o pipefail
+# -u: (nounset) Stop script if a variable is used but was never set
+set -euo pipefail
 ```
 
 ## Make changes to the bash environment without affecting the bash environment
