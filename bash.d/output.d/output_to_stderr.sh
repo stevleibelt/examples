@@ -1,6 +1,10 @@
 #!/bin/bash
 ####
 # Output to STDERR example
+# Print only STDERR by redirecting STDOUT to /dev/null
+#   output_to_stderr.sh >/dev/null
+# Print only STDOUT by redirecting STDERR to /dev/null
+#   output_to_stderr.sh 2>/dev/null
 ####
 # @since 2026-10-29
 # @author stev leibelt <artodeto@bazzline.net>
