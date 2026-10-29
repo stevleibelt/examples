@@ -160,3 +160,4 @@ Continue with reading the [official tutorial](https://docs.djangoproject.com/en/
 * [start: djangoproject.com](https://www.djangoproject.com/start/) - 20250929
 * [How to optimize djanro rest apis for performance: freecodecamp.org](https://www.freecodecamp.org/news/how-to-optimize-django-rest-apis-for-performance/) - 20260218
 * [How to Build a Scoped Note-Taking API with Django Rest Framework and SimpleJWT: freecodecamp.org](https://www.freecodecamp.org/news/how-to-build-a-scoped-note-taking-api-with-django-rest-framework-and-simplejwt/) - 20260506
+* [How to Prevent Race Conditions in Django: freecodecamp.org](https://www.freecodecamp.org/news/how-to-prevent-race-conditions-in-django/) - 20260913
